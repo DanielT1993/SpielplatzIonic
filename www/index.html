@@ -13,10 +13,11 @@
     <script src="cordova.js"></script>
     <!-- your app's js -->
     <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
-<body ng-app="todo" onload="doStuff()" >
+<body ng-app="starter" onload="doStuff()" ng-controller="PlaylistsCtrl">
       <ion-side-menus>
           <!-- Center content -->
           <ion-side-menu-content>
@@ -28,7 +29,16 @@
               <ion-list>
                 <ion-item>
                 <p id="demo"></p>
+                    
               </ion-item>
+                  <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+          
+      <img src="cover.jpg">
+      <h2>{{playlist.title}} </h2>
+      <p>Nine Inch Nails</p>
+        
+          {{playlist.ort}}
+      </ion-item>
               </ion-list>
             </ion-content>
           </ion-side-menu-content>
@@ -38,11 +48,11 @@
             </ion-header-bar>
             <ion-content scroll="false">
               <ion-list>
-                <ion-item >
-                </ion-item>
+                
               </ion-list>
             </ion-content>
           </ion-side-menu>
+
     </ion-side-menus>
 <script type="text/javascript">
     var saveCB = {
