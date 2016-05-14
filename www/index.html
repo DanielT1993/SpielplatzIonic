@@ -33,7 +33,9 @@
             <ion-content scroll="false">
                   <ion-list>
                         <ion-item>
-                            <p id="demo"></p>   
+                                <p id="Headline"></p>
+                                <p id="Bewertung"></p>
+                                <p id="Location"></p> 
                         </ion-item>
                         <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
                               <img src="cover.jpg">
@@ -79,8 +81,8 @@
     //Now you can do sth with loaded objects (loadedObjs)
     
     var deeper = loadedObjs[0]["data"];
-    console.log(deeper["name"]);
-    document.getElementById("demo").innerHTML = deeper["name"];
+    document.getElementById("Headline").innerHTML = deeper["name"];
+    document.getElementById("Location").innerHTML = deeper["location"];
 
 
     },
