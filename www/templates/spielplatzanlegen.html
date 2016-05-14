@@ -2,47 +2,53 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<script charset="utf-8" src="js/apiomat.js"></script>
+<script charset="utf-8" src="../js/apiomat.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Spielplatz</title>
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
     <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="../lib/ionic/js/ionic.bundle.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+    <script src="../cordova.js"></script>
     <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/controllers.js"></script>
     
 </head>
-<body ng-app="starter" onload="doStuff()" ng-controller="PlaylistsCtrl">
+<body ng-app="starter" ng-controller="PlaylistsCtrl">
     
       <ion-side-menus enable-menu-with-back-views="false">
           <!-- Center content -->
           <ion-side-menu-content>
-            <ion-header-bar class="bar-dark">
-              <h1 class="title">Spielplatz</h1>
+            <ion-header-bar class="card-panel teal lighten-2">
+              <h1 class="title"><a href="/index.html">Spielplatz</a></h1>
               <!-- New Task button-->
             </ion-header-bar>
             <ion-content scroll="false">
                   <ion-list>
-                        <ion-item href="templates/spielplatzanlegen.html">
+                        <ion-item >
                                 <p id="Headline"></p>
-                                <p id="Bewertung"></p>
-                                <p id="Location"></p> 
-                        </ion-item>
-                        <ion-item ng-repeat="playlist in playlists" >
-                              <img src="cover.jpg">
-                              <h2>{{playlist.title}} </h2>
-                                  {{playlist.ort}}    
                         </ion-item>
                   </ion-list>
+                <div class="list">
+                  <label class="item item-input">
+                    <span class="input-label">Name</span>
+                    <input type="text">
+                  </label>
+                  <label class="item item-input">
+                    <span class="input-label">Straße</span>
+                    <input type="text">
+                  </label>
+                  <label class="item">
+                    <button class="waves-effect waves-light btn" type="submit" onClick="doStuff()">Spielplatz anlegen</button>
+                  </label>
+                </div>
             </ion-content>
           </ion-side-menu-content>
           <ion-side-menu side="left">
@@ -69,7 +75,6 @@
     /* Create a new member/user of your app */
     var user = new Apiomat.User('test' + new Date().getTime(), '1,618');
     Apiomat.Datastore.configureWithCredentials(user);
-
 
      
     /*
