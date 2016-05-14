@@ -7,6 +7,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Spielplatz</title>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
@@ -14,32 +19,28 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    
 </head>
 <body ng-app="starter" onload="doStuff()" ng-controller="PlaylistsCtrl">
-      <ion-side-menus>
+    
+      <ion-side-menus enable-menu-with-back-views="false">
           <!-- Center content -->
           <ion-side-menu-content>
             <ion-header-bar class="bar-dark">
-              <h1 class="title">Spieplatz</h1>
+              <h1 class="title">Spielplatz</h1>
               <!-- New Task button-->
             </ion-header-bar>
             <ion-content scroll="false">
-              <ion-list>
-                <ion-item>
-                <p id="demo"></p>
-                    
-              </ion-item>
-                  <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
-          
-      <img src="cover.jpg">
-      <h2>{{playlist.title}} </h2>
-      <p>Nine Inch Nails</p>
-        
-          {{playlist.ort}}
-      </ion-item>
-              </ion-list>
+                  <ion-list>
+                        <ion-item>
+                            <p id="demo"></p>   
+                        </ion-item>
+                        <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+                              <img src="cover.jpg">
+                              <h2>{{playlist.title}} </h2>
+                                  {{playlist.ort}}    
+                        </ion-item>
+                  </ion-list>
             </ion-content>
           </ion-side-menu-content>
           <ion-side-menu side="left">
@@ -47,9 +48,6 @@
               <h1 class="title">Projects</h1>
             </ion-header-bar>
             <ion-content scroll="false">
-              <ion-list>
-                
-              </ion-list>
             </ion-content>
           </ion-side-menu>
 
@@ -91,6 +89,9 @@
     });
     }
     </script>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 </html>
 
