@@ -48,8 +48,6 @@ angular.module('starter.controllers', [])
     { title: 'Spielplatz 2', id: 2 },
     { title: 'Spielplatz 3', id: 3 },
   ];
-   
-
 })
 
 .controller('DetailSpielplatzCtrl', function($scope, $stateParams) {
