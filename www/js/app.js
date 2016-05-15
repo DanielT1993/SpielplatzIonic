@@ -40,12 +40,20 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+    .state('app.spielplatzanlegen', {
+    url: '/spielplatzanlegen',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/spielplatzanlegen.html'
+      }
+    }
+  })
 
-  .state('app.browse', {
-      url: '/browse',
+ .state('app.spielplatzBewerten', {
+      url: '/spielplatzBewerten',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
+          templateUrl: 'templates/spielplatzBewerten.html'
         }
       }
     })
@@ -60,11 +68,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
   .state('app.single', {
-    url: '/playlists/:playlistId',
+    url: '/playlists/:spielplatzId',
     views: {
       'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+        templateUrl: 'templates/detailSpielplatz.html',
+        controller: 'DetailSpielplatzCtrl'
       }
     }
   });

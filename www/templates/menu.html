@@ -1,6 +1,6 @@
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content>
-    <ion-nav-bar class="bar-stable">
+    <ion-nav-bar class="bar-stable teal lighten-2">
       <ion-nav-back-button>
       </ion-nav-back-button>
 
@@ -13,23 +13,23 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
+    <ion-header-bar class="bar-stable teal lighten-2">
+      <h1 class="title">Menü</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Neuen Spielplatz anlegen
+         <ion-item menu-close href="#/app/spielplatzanlegen">
+         Neuen Spielplatz anlegen
         </ion-item>
         <ion-item menu-close href="#/app/search">
           Spielplatz suchen
         </ion-item>
-        <ion-item menu-close href="#/app/browse">
+        <ion-item menu-close href="#/app/spielplatzBewerten">
           Spielplatz bewerten
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
+        <ion-item menu-close href="#/app/alleSpielplaetze">
           Alle Spielplätze anzeigen
-        </ion-item>
+            </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>

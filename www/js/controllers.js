@@ -42,12 +42,15 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
+    
+   $scope.playlists = [
     { title: 'Spielplatz 1', id: 1, ort: 'wald' },
     { title: 'Spielplatz 2', id: 2 },
     { title: 'Spielplatz 3', id: 3 },
   ];
+   
+
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('DetailSpielplatzCtrl', function($scope, $stateParams) {
 });

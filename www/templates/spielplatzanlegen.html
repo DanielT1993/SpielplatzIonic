@@ -1,35 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<script charset="utf-8" src="../js/apiomat.js"></script>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>Spielplatz</title>
-    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
-    <!-- ionic/angularjs js -->
-    <script src="../lib/ionic/js/ionic.bundle.js"></script>
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="../cordova.js"></script>
-    <!-- your app's js -->
-    <script src="../js/app.js"></script>
-    <script src="../js/controllers.js"></script>
-    
-</head>
-<body ng-app="starter" ng-controller="PlaylistsCtrl">
-    
-      <ion-side-menus enable-menu-with-back-views="false">
-          <!-- Center content -->
-          <ion-side-menu-content>
-            <ion-header-bar class="card-panel teal lighten-2">
-              <h1 class="title"><a href="/index.html">Spielplatz</a></h1>
-              <!-- New Task button-->
-            </ion-header-bar>
+<ion-view view-title="Neuen Spielplatz anlegen">
             <ion-content scroll="false">
                   <ion-list>
                         <ion-item >
@@ -39,75 +8,17 @@
                 <div class="list">
                   <label class="item item-input">
                     <span class="input-label">Name</span>
-                    <input type="text">
+                    <input id="spielplatzname" type="text">
                   </label>
                   <label class="item item-input">
                     <span class="input-label">Straße</span>
-                    <input type="text">
+                    <input id="spielplatzstraße" type="text">
                   </label>
                   <label class="item">
-                    <button class="waves-effect waves-light btn" type="submit" onClick="doStuff()">Spielplatz anlegen</button>
+                    <button class="waves-effect waves-light btn" type="submit" onclick="neuerSpielplatz()">Spielplatz anlegen</button>
                   </label>
+                    <p id="demo"></p>
                 </div>
             </ion-content>
-          </ion-side-menu-content>
-          <ion-side-menu side="left">
-            <ion-header-bar class="bar-dark">
-              <h1 class="title">Projects</h1>
-            </ion-header-bar>
-            <ion-content scroll="false">
-            </ion-content>
-          </ion-side-menu>
-
-    </ion-side-menus>
-<script type="text/javascript">
-    var saveCB = {
-    onOk : function() {
-    console.log("saved");
-    //Now you can create objects of your class with this new user..
-    
-    },
-    onError : function(error) {
-    console.log("Some error occured: (" + error.statusCode + ")" + error.message);
-    }
-    }
-    function doStuff() {
-    /* Create a new member/user of your app */
-    var user = new Apiomat.User('test' + new Date().getTime(), '1,618');
-    Apiomat.Datastore.configureWithCredentials(user);
-
-     
-    /*
-    Later on you may want to load data using query arguments.
-    More query examples can be found in {@see <a href="http://doc.apiomat.com">our wiki</a>}
-    This statement will return all objects with exact name \"XYZ\"
-    */
-    Apiomat.spielplatz.getspielplatzs("", {
-    onOk : function(loadedObjs) {
-    //Now you can do sth with loaded objects (loadedObjs)
-    
-    var deeper = loadedObjs[0]["data"];
-    document.getElementById("Headline").innerHTML = deeper["name"];
-    document.getElementById("Location").innerHTML = deeper["location"];
-
-
-    },
-    onError : function(error) {
-    }
-    });
-    }
-    </script>
-    
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-</body>
-</html>
-
-
-
-
-
-
-
-
+</ion-view>
 
