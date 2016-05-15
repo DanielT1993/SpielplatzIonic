@@ -41,14 +41,32 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
+.controller('PlaylistsCtrl', function($scope) {  
+    //Array anlegen
+    $scope.playlists = [];    
+    Apiomat.spielplatz.getspielplatzs("", {
+    onOk : function(loadedObjs) {
+        
+    //Now you can do sth with loaded objects (loadedObjs)
+    for (i = 0; i < loadedObjs.length; i++) {
+    var arrayspielplaetze = loadedObjs[i]["data"];
+    //Ausgabe in Konsole
+    var name = arrayspielplaetze["name"];
+    $scope.playlists.push({ title: name, ort: "ifnier" });
+    }
+    },
+        
+    onError : function(error) {
+    }
+    });
     
-   $scope.playlists = [
-    { title: 'Spielplatz 1', id: 1, ort: 'wald' },
-    { title: 'Spielplatz 2', id: 2 },
-    { title: 'Spielplatz 3', id: 3 },
-  ];
-})
+    
+    //add item to arry
+    
+}
+)
 
 .controller('DetailSpielplatzCtrl', function($scope, $stateParams) {
+    
+   
 });

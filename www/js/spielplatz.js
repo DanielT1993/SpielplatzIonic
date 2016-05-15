@@ -52,12 +52,10 @@ function neuerSpielplatz() {
 function bewerten() {
     var mybewertungen = new Apiomat.bewertungen();
 
-            
-
         mybewertungen.save({
             onOk : function() {
             //object successfully saved
-            alert("Saved succesfully spielplatz");
+            alert("Saved succesfully Bewertung");
             },
             onError : function(error) {
             alert(spielplatzname);
@@ -65,4 +63,21 @@ function bewerten() {
         });
     
 }
+
+function detail(){
+ Apiomat.spielplatz.getspielplatzs("", {
+    onOk : function(loadedObjs) {
+    //Now you can do sth with loaded objects (loadedObjs)
+    
+    var deeper = loadedObjs[1]["data"];
+    console.log(deeper["name"]);
+    document.getElementById("demo").innerHTML = deeper["name"];
+    },
+    onError : function(error) {
+    }
+    });
+
+     alert("Function functioniert");
+}
+
 
