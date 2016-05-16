@@ -1,15 +1,15 @@
-<ion-view view-title="Alle Spielplätze anzeigen">
-  <ion-content>
+<ion-view view-title="Alle Spielplätze anzeigen" >
+  <ion-content >
     <ion-list >
-      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}" >
+      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}"  >
         
-      <img class="circle responsive-img" src="img/ionic.png">
+      <img class="circle responsive-img" src="img/ionic.png" >
       <h2>{{playlist.title}} </h2>
-      <p>Nine Inch Nails</p>
+      <p>Nine Inch Nail</p>
           {{playlist.ort}}
+          <p id="demo"></p>
           
-          <p id=demo></p>
-      </ion-item>
+    </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
