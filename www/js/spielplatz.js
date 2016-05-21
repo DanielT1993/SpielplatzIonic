@@ -3,8 +3,8 @@ var statusField = document.getElementById("status");
 function signup()
   {
     var user = new Apiomat.User();
-    user.setUserName("test");
-    user.setPassword("test");
+    user.setUserName("test212");
+    user.setPassword("test212");
     Apiomat.Datastore.configureWithCredentials(user);
  
     var saveCB = {
@@ -84,4 +84,9 @@ function detail(){
 function deg2rad(deg) {
   return deg * (Math.PI/180)
 }
+
+ 
+         
+
+
 
