@@ -1,24 +1,76 @@
 <ion-view view-title="Neuen Spielplatz anlegen">
-            <ion-content scroll="false">
-                  <ion-list>
-                        <ion-item >
-                                <p id="Headline"></p>
-                        </ion-item>
-                  </ion-list>
-                <div class="list">
-                  <label class="item item-input">
-                    <span class="input-label">Name</span>
-                    <input id="spielplatzname" type="text">
-                  </label>
-                  <label class="item item-input">
-                    <span class="input-label">Straße</span>
-                    <input id="spielplatzstraße" type="text">
-                  </label>
-                  <label class="item">
-                    <button class="waves-effect waves-light btn" type="submit" onclick="neuerSpielplatz()">Spielplatz anlegen</button>
-                  </label>
-                    <p id="demo"></p>
-                </div>
+            <ion-content >
+                <ion-list>            
+                  <ion-item class="input-field col s6">
+                  <div class="row">
+                    <form class="col s12">
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input id="spielplatzname" type="text" class="validate">
+                          <label >Name</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input id="spielplatzstraße" type="text" class="validate">
+                          <label >Straße</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="hausnummer" type="number" class="validate">
+                          <label >Hausnummer</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input id="stadtteil" type="text" class="validate">
+                          <label >Stadtteil</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="altersgruppe" type="number" class="validate">
+                          <label >Altersgruppe</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="groesse" type="number" class="validate">
+                          <label >Größe</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input id="sitzgelegenheiten" type="text" class="validate">
+                          <label >Sitzgelegenheiten</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="status" type="text" class="validate">
+                          <label >Status</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input id="latitude" type="number" class="validate">
+                          <label >Latitude</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="longitude" type="number" class="validate">
+                          <label >Longitude</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input id="seilbahn" type="number" class="validate">
+                          <label >Seilbahn</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6" style="margin-bottom: 100px">
+                          <label class="item">
+                            <button class="waves-effect waves-light btn" type="submit" onclick="neuerSpielplatz()">Spielplatz anlegen</button>
+                          </label>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  </ion-item>
+                </ion-list>
             </ion-content>
 </ion-view>
 
