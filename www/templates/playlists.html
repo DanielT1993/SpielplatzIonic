@@ -3,12 +3,10 @@
     <ion-list >
       <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}"  >
         
-      <img class="circle responsive-img" src="img/ionic.png" >
+      <img class="circle responsive-img" src="img/ionic.png" style="border:5px solid {{playlist.color}}">
       <h2>{{playlist.title}} </h2>
-      <p>Nine Inch Nail</p>
           {{playlist.ort}}
           <p id="demo"></p>
-          
     </ion-item>
     </ion-list>
   </ion-content>

@@ -57,8 +57,8 @@ angular.module('starter.controllers', [])
       var arrayspielplaetze = loadedObjs[i]["data"];
       //Ausgabe in Konsole
       var name = arrayspielplaetze["name"];
-
-
+        var id = arrayspielplaetze["id"];
+        
       function success(pos){
         posa = pos.coords.longitude; 
         posb = pos.coords.latitude;
@@ -84,7 +84,7 @@ angular.module('starter.controllers', [])
       var d = R * c; // Distance in km
       var gerundetd = Math.round(d * 100)/100;
 
-      $scope.playlists.push({ title: name, ort: gerundetd + " km" });
+      $scope.playlists.push({ title: name, ort: gerundetd + " km", color: '#FF880E', id:id });
       }
     },
         
@@ -98,7 +98,22 @@ angular.module('starter.controllers', [])
 }
 )
 
+
 .controller('DetailSpielplatzCtrl', function($scope, $stateParams) {
+    var url = window.location.href.substr(38, 60);;
     
+    var id = "id == id("+url+")";
+ Apiomat.spielplatz.getspielplatzs(id, {
+onOk : function(loadedObjs) {
+//Now you can do sth with loaded objects (loadedObjs)
+var arrayspielplaetze = loadedObjs[0]["data"];
+      //Ausgabe in Konsole
+      var name = arrayspielplaetze["name"];
+alert("Count of loaded objects: " + name);
+},
+onError : function(error) {
+//handle error
+}
+});   
    
 });
