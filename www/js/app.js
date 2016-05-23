@@ -48,6 +48,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+  
+  .state('app.kontakt', {
+    url: '/kontakt',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/kontakt.html'
+      }
+    }
+  })
 
  .state('app.spielplatzBewerten', {
       url: '/spielplatzBewerten',
