@@ -99,8 +99,9 @@ angular.module('starter.controllers', [])
 )
 
 
-.controller('DetailSpielplatzCtrl', function($scope) {
-    var url = window.location.href.substr(38, 60);
+.controller('DetailSpielplatzCtrl', function($scope, $stateParams ) {
+    
+    var url = ($stateParams.spielplatzId);
     
     var id = "id == id("+url+")";
     $scope.playlistdetails = []; 
@@ -115,7 +116,6 @@ var arrayspielplaetze = loadedObjs[0]["data"];
     $scope.playlistdetails = [
     { title: name, strasse: strasse, },
   ];
-alert("Count of loaded objects: " + name + strasse);
 },
 onError : function(error) {
 //handle error
