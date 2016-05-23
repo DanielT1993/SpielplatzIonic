@@ -99,17 +99,23 @@ angular.module('starter.controllers', [])
 )
 
 
-.controller('DetailSpielplatzCtrl', function($scope, $stateParams) {
-    var url = window.location.href.substr(38, 60);;
+.controller('DetailSpielplatzCtrl', function($scope) {
+    var url = window.location.href.substr(38, 60);
     
     var id = "id == id("+url+")";
+    $scope.playlistdetails = []; 
  Apiomat.spielplatz.getspielplatzs(id, {
 onOk : function(loadedObjs) {
 //Now you can do sth with loaded objects (loadedObjs)
 var arrayspielplaetze = loadedObjs[0]["data"];
       //Ausgabe in Konsole
       var name = arrayspielplaetze["name"];
-alert("Count of loaded objects: " + name);
+    var strasse = arrayspielplaetze["straße"];
+   
+    $scope.playlistdetails = [
+    { title: name, strasse: strasse, },
+  ];
+alert("Count of loaded objects: " + name + strasse);
 },
 onError : function(error) {
 //handle error

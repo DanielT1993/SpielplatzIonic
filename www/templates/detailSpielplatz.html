@@ -1,8 +1,13 @@
 <ion-view view-title="Spielplatzdetail" >
-  <ion-content>
-    <h1>Playlist</h1>
-      <button class="waves-effect waves-light btn" type="submit">Spielplatz anzeigen</button>
+  <ion-content >
+    <ion-list >
+      <ion-item ng-repeat="playlistdetail in playlistdetails">
+      <h2>{{playlistdetail.title}} </h2>
+    {{playlistdetail.strasse}}
           
+    </ion-item>
+        <p id="demo">hallo</p>
+    </ion-list>
   </ion-content>
 </ion-view>
 

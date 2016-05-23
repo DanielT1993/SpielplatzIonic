@@ -1,4 +1,3 @@
-var statusField = document.getElementById("status");  
 
 function signup()
   {
@@ -9,20 +8,20 @@ function signup()
  
     var saveCB = {
       onOk: function() {
-        statusField.innerHTML = "Saved user successfully";
-        loadTasks();
+       
+        
       },
       onError: function(error) {
-        statusField.innerHTML = "Some error occured. "+ error.statusCode + " --> " + error.message;
+       
       }
     };
     user.loadMe({
       onOk: function() {
-        statusField.innerHTML = "Succefully logged in";
-        loadTasks();
+      
+        
       },
       onError: function(error) {
-        statusField.innerHTML= "No user there. Will create new one...";
+       
         user.save(saveCB);
       }
     });
