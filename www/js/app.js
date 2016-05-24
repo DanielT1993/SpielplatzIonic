@@ -58,15 +58,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
- .state('app.spielplatzBewerten', {
-      url: '/spielplatzBewerten',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/spielplatzBewerten.html'
-        }
-      }
-    })
-
     .state('app.playlists', {
       url: '/playlists',
       views: {
@@ -86,6 +77,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
     })
+  
+    .state('app.appinfo', {
+    url: '/appinfo',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/appinfo.html'
+      }
+    }
+  })
 
     .state('app.login', {
       url: '/login',
