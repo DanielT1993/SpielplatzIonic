@@ -97,7 +97,7 @@ angular.module('starter.controllers', [])
     
 }
 )
-
+//funktioniert
 
 .controller('DetailSpielplatzCtrl', function($scope, $stateParams ) {
     
