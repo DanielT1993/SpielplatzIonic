@@ -35,8 +35,8 @@ function neuerSpielplatz() {
             var spielplatzname = document.getElementById("spielplatzname").value;
             var spielplatzstraße = document.getElementById("spielplatzstraße").value;
             var hausnummer = document.getElementById("hausnummer").value;
-            var stadtteil = document.getElementById("stadtteil").value;
-            var altersgruppe = document.getElementById("altersgruppe").value;
+            //var stadtteil = document.getElementById("stadtteil").value;
+            //var altersgruppe = document.getElementById("altersgruppe").value;
             var groesse = document.getElementById("groesse").value;
             var sitzgelegenheiten = document.getElementById("sitzgelegenheiten").value;
             var status = document.getElementById("status").value;
@@ -48,8 +48,8 @@ function neuerSpielplatz() {
             myspielplatz.setName(spielplatzname);
             myspielplatz.setStraße(spielplatzstraße);
             myspielplatz.setHausnummer(hausnummer);
-            myspielplatz.setStadtteil(stadtteil);
-            myspielplatz.setAltersgruppe(altersgruppe);
+            //myspielplatz.setStadtteil(stadtteil);
+            //myspielplatz.setAltersgruppe(altersgruppe);
             myspielplatz.setGröße(groesse);
             myspielplatz.setSitzgelegenheiten(sitzgelegenheiten);
             myspielplatz.setStatus(status);
