@@ -2,22 +2,25 @@
       <ion-content>
         <ion-item>
           <form ng-submit="doLogin()">
+                <ion-list>
+                    <ion-item >
+                        <p id="Headline"></p>
+                    </ion-item>
+                </ion-list>
             <div class="list">
-
                 <label class="item item-input">
                  <span class="input-label">Username</span>
-                  <input type="text" ng-model="loginData.username">
+                  <input type="text" name="username" id="username">
                 </label>
                 <label class="item item-input">
                   <span class="input-label">Password</span>
-                  <input type="password" ng-model="loginData.password">
+                  <input type="password" name="password" id="password">
                 </label>
                 <label class="item">
-                  <button class="button button-block button-positive" type="submit">Log in</button>
-                </label>
-              </form>  
+                  <button class="button button-block button-positive" type="submit" onclick="login()" >Log in</button>
+                </label>          
             </div>
-
+          </form> 
         </ion-item>
       </ion-content>
 </ion-view>
