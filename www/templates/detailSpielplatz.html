@@ -13,26 +13,23 @@
         <ul class="collapsible" data-collapsible="expandable">
     <li>
       <div class="collapsible-header"><i class="material-icons">grade</i>Neue Bewertung</div>
-      <div class="collapsible-body"><h1>Spielplatz bewerten</h1>
+      <div class="collapsible-body"><form>
+  <fieldset>
+    <span class="star-cb-group">
+      <input type="radio" id="rating-5" name="rating" value="5"  /><label for="rating-5">5</label>
+      <input type="radio" id="rating-4" name="rating" value="4" checked="checked" /><label for="rating-4">4</label>
+      <input type="radio" id="rating-3" name="rating" value="3" /><label for="rating-3">3</label>
+      <input type="radio" id="rating-2" name="rating" value="2" /><label for="rating-2">2</label>
+      <input type="radio" id="rating-1" name="rating" value="1" /><label for="rating-1">1</label>
+    </span>
+  </fieldset>
+</form>
          <ion-list>
              <ion-item >
                 <p id="Headline"></p>
                 </ion-item>
             </ion-list>
-                <div class="list">
-                  <label class="item item-input">
-                    <span class="input-label">Name</span>
-                    <input id="spielplatzname" type="text">
-                  </label>
-                  <label class="item item-input">
-                    <span class="input-label">Straße</span>
-                    <input id="spielplatzstraße" type="text">
-                  </label>
-                  <label class="item">
-                    <button class="waves-effect waves-light btn" type="submit" onclick="bewerten()">Spielplatz bewerten</button>
-                  </label>
-                    <p id="demo"></p>
-                </div></div>
+        </div>
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons">view_list</i>Alle Bewertungen</div>
