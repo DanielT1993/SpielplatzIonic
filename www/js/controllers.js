@@ -1,5 +1,7 @@
 angular.module('starter.controllers', [])
 
+
+
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
   // With the new view caching in Ionic, Controllers are only called
@@ -61,9 +63,9 @@ $('body').append(log);
         
     //Now you can do sth with loaded objects (loadedObjs)
     for (i = 0; i < loadedObjs.length; i++) {
-      var arrayspielplaetze = loadedObjs[i]["data"];
-      //Ausgabe in Konsole
-      var name = arrayspielplaetze["name"];
+        var arrayspielplaetze = loadedObjs[i]["data"];
+        //Ausgabe in Konsole
+        var name = arrayspielplaetze["name"];
         var id = arrayspielplaetze["id"];
         
       function success(pos){
@@ -99,10 +101,6 @@ $('body').append(log);
     onError : function(error) {
     }
     });
-    
-    
-    //add item to arry
-    
 }
 )
 
@@ -136,7 +134,7 @@ $('body').append(log);
     var groesse = arrayspielplaetze["größe"];
    
     $scope.playlistdetails = [
-    { title: name, strasse: strasse, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse },
+    { title: name, strasse: strasse, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse, url:url },
   ];
 },
 onError : function(error) {
@@ -145,30 +143,27 @@ onError : function(error) {
 });
 
 
- Apiomat.bewertungen.getbewertungens(idbewertung, {
-onOk : function(loadedObjs) {
-//Now you can do sth with loaded objects (loadedObjs)
-//Now you can do sth with loaded objects (loadedObjs)
-    for (i = 0; i < loadedObjs.length; i++) {
-      var arraybewertungen = loadedObjs[i]["data"];
-      //Ausgabe in Konsole
-      var name = arraybewertungen["nickname"];
-        
+     Apiomat.bewertungen.getbewertungens(idbewertung, {
+    onOk : function(loadedObjs) {
+    //Now you can do sth with loaded objects (loadedObjs)
+    //Now you can do sth with loaded objects (loadedObjs)
+        for (i = 0; i < loadedObjs.length; i++) {
+          var arraybewertungen = loadedObjs[i]["data"];
+          //Ausgabe in Konsole
+          var name = arraybewertungen["nickname"];
 
-      $scope.ratings.push({ title: name});
-        
-      }
-},
-onError : function(error) {
-//handle error
-}
-});   
-    
-    
-});
+
+          $scope.ratings.push({ title: name});
+
+          }
+    },
+    onError : function(error) {
+    //handle error
+    }
+    });   
+})
 
 function bewertungdb(){
-    
     var sauberkeit = ($('input[name="rating-sauber"]:checked', '#sauberkeit').val()); 
     var spielspass = ($('input[name="rating-spass"]:checked', '#spielspass').val()); 
     var sicherheit = ($('input[name="rating-sicherheit"]:checked', '#sicherheit').val());
@@ -176,6 +171,8 @@ function bewertungdb(){
     var spass = parseInt(spielspass);
     var sicher = parseInt(sicherheit);
     var nickname = "Daniel";
+
+    var spid = document.getElementById("spid").innerHTML ;
     var gesamtbewertung = ((sauber + spass + sicher)/3);
     var gerundet = Math.round(gesamtbewertung);
     
@@ -185,13 +182,14 @@ function bewertungdb(){
     mybewertungen.setSicherheit(sicher);
     mybewertungen.setGesamtbewertung(gerundet);
     mybewertungen.setNickname(nickname);
+    mybewertungen.setBewertungsid(spid);
         mybewertungen.save({
             onOk : function() {
             //object successfully saved
             alert("Saved succesfully Bewertung");
             },
             onError : function(error) {
-            alert();
+            alert("error");
         }
         });
     
