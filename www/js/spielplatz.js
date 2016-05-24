@@ -68,21 +68,6 @@ function neuerSpielplatz() {
         });
 }
 
-function bewerten() {
-    var mybewertungen = new Apiomat.bewertungen();
-
-        mybewertungen.save({
-            onOk : function() {
-            //object successfully saved
-            alert("Saved succesfully Bewertung");
-            },
-            onError : function(error) {
-            alert(spielplatzname);
-        }
-        });
-    
-}
-
 function detail(){
  Apiomat.spielplatz.getspielplatzs("", {
     onOk : function(loadedObjs) {

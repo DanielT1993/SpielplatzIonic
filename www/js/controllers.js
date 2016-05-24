@@ -42,17 +42,14 @@ angular.module('starter.controllers', [])
     }, 1000);
   };
 })
- 
+
+.controller('SpielplatzCtrl', function(){
+    $('select').material_select();
+    
+})
+
+
 .controller('PlaylistsCtrl', function($scope) { 
-    
-    var logID = 'log',
-  log = $('<div id="'+logID+'"></div>');
-$('body').append(log);
-  $('[type*="radio"]').change(function () {
-    var me = $(this);
-    log.html(me.attr('value'));
-  });
-    
       var posa = 0;
       var posb = 0;   
      

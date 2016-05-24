@@ -44,7 +44,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/spielplatzanlegen',
     views: {
       'menuContent': {
-        templateUrl: 'templates/spielplatzanlegen.html'
+        templateUrl: 'templates/spielplatzanlegen.html',
+          controller: 'SpielplatzCtrl'
       }
     }
   })
