@@ -41,7 +41,16 @@ angular.module('starter.controllers', [])
   };
 })
  
-.controller('PlaylistsCtrl', function($scope) {  
+.controller('PlaylistsCtrl', function($scope) { 
+    
+    var logID = 'log',
+  log = $('<div id="'+logID+'"></div>');
+$('body').append(log);
+  $('[type*="radio"]').change(function () {
+    var me = $(this);
+    log.html(me.attr('value'));
+  });
+    
       var posa = 0;
       var posb = 0;   
      
