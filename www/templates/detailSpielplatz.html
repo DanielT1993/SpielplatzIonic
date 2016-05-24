@@ -13,17 +13,45 @@
         <ul class="collapsible" data-collapsible="expandable">
     <li>
       <div class="collapsible-header"><i class="material-icons">grade</i>Neue Bewertung</div>
-      <div class="collapsible-body"><form>
-  <fieldset>
-    <span class="star-cb-group">
-      <input type="radio" id="rating-5" name="rating" value="5"  /><label for="rating-5">5</label>
-      <input type="radio" id="rating-4" name="rating" value="4" checked="checked" /><label for="rating-4">4</label>
-      <input type="radio" id="rating-3" name="rating" value="3" /><label for="rating-3">3</label>
-      <input type="radio" id="rating-2" name="rating" value="2" /><label for="rating-2">2</label>
-      <input type="radio" id="rating-1" name="rating" value="1" /><label for="rating-1">1</label>
-    </span>
-  </fieldset>
-</form>
+      <div class="collapsible-body">
+          <form id="sauberkeit"> Sauberkeit
+              
+                <span class="star-cb-group">
+                  <input type="radio" id="rating-5" name="rating-sauber" value="5"  /><label for="rating-5">5</label>
+                  <input type="radio" id="rating-4" name="rating-sauber" value="4" /><label for="rating-4">4</label>
+                  <input type="radio" id="rating-3" name="rating-sauber" value="3" /><label for="rating-3">3</label>
+                  <input type="radio" id="rating-2" name="rating-sauber" value="2" /><label for="rating-2">2</label>
+                  <input type="radio" id="rating-1" name="rating-sauber" value="1" /><label for="rating-1">1</label>
+                </span>
+                 
+          </form>
+          
+          <form id="spielspass"> Spielspaß
+              
+                <span class="star-cb-group-spass">
+                  <input type="radio" id="rating-spass-5" name="rating-spass" value="5"  /><label for="rating-spass-5">5</label>
+                  <input type="radio" id="rating-spass-4" name="rating-spass" value="4" /><label for="rating-spass-4">4</label>
+                  <input type="radio" id="rating-spass-3" name="rating-spass" value="3" /><label for="rating-spass-3">3</label>
+                  <input type="radio" id="rating-spass-2" name="rating-spass" value="2" /><label for="rating-spass-2">2</label>
+                  <input type="radio" id="rating-spass-1" name="rating-spass" value="1" /><label for="rating-spass-1">1</label>
+                </span>  
+          </form>
+          
+          <form id="sicherheit"> Sicherheit
+              
+                <span class="star-cb-group-sicherheit">
+                  <input type="radio" id="rating-sicherheit-5" name="rating-sicherheit" value="5"  /><label for="rating-sicherheit-5">5</label>
+                  <input type="radio" id="rating-sicherheit-4" name="rating-sicherheit" value="4" /><label for="rating-sicherheit-4">4</label>
+                  <input type="radio" id="rating-sicherheit-3" name="rating-sicherheit" value="3" /><label for="rating-sicherheit-3">3</label>
+                  <input type="radio" id="rating-sicherheit-2" name="rating-sicherheit" value="2" /><label for="rating-sicherheit-2">2</label>
+                  <input type="radio" id="rating-sicherheit-1" name="rating-sicherheit" value="1" /><label for="rating-sicherheit-1">1</label>
+                </span>
+                
+          </form>
+          
+          <label class="item">
+                            <button class="waves-effect waves-light btn" type="submit" onclick="bewertungdb()">Bewertung abgeben</button>
+                          </label>
          <ion-list>
              <ion-item >
                 <p id="Headline"></p>

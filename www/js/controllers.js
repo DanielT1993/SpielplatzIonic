@@ -105,7 +105,7 @@ $('body').append(log);
     
 }
 )
-//funktioniert
+
 
 .controller('DetailSpielplatzCtrl', function($scope, $scope, $stateParams ) {
     //Accordion ratings
@@ -144,6 +144,7 @@ onError : function(error) {
 }
 });
 
+
  Apiomat.bewertungen.getbewertungens(idbewertung, {
 onOk : function(loadedObjs) {
 //Now you can do sth with loaded objects (loadedObjs)
@@ -165,3 +166,34 @@ onError : function(error) {
     
     
 });
+
+function bewertungdb(){
+    
+    var sauberkeit = ($('input[name="rating-sauber"]:checked', '#sauberkeit').val()); 
+    var spielspass = ($('input[name="rating-spass"]:checked', '#spielspass').val()); 
+    var sicherheit = ($('input[name="rating-sicherheit"]:checked', '#sicherheit').val());
+    var sauber = parseInt(sauberkeit);
+    var spass = parseInt(spielspass);
+    var sicher = parseInt(sicherheit);
+    var nickname = "Daniel";
+    var gesamtbewertung = ((sauber + spass + sicher)/3);
+    var gerundet = Math.round(gesamtbewertung);
+    
+    var mybewertungen = new Apiomat.bewertungen();
+    mybewertungen.setSauberkeit(sauber);
+    mybewertungen.setSpielspass(spass);
+    mybewertungen.setSicherheit(sicher);
+    mybewertungen.setGesamtbewertung(gerundet);
+    mybewertungen.setNickname(nickname);
+        mybewertungen.save({
+            onOk : function() {
+            //object successfully saved
+            alert("Saved succesfully Bewertung");
+            },
+            onError : function(error) {
+            alert();
+        }
+        });
+    
+    //alert (sauberkeit + spielspass + sicherheit + gesamtbewertung);
+}

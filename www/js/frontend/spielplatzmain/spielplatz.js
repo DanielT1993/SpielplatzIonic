@@ -41,389 +41,7 @@ if(typeof exports === 'undefined')
 Apiomat.spielplatz = function() {
     this.init();
     /* referenced object methods */
-    
-    var ausstattungsliste = [];
-    
-    /**
-     * Getter for local linked variable
-     * @return {string} attributeName 
-     */
-    this.getAusstattungsliste = function() 
-    {
-        return this.ausstattungsliste;
-    };
-	
-    /**
-     * Callback required by loadAusstattungsliste function.
-     * callback name loadAusstattungslisteCallback
-	      * @param {function} onOk Function is called when everything is ok. (containing referenced objects as {array})
-	      * @param {function} onError Function is called when an error occurs. (containing the error object) 
-     */
-    
-    /** 
-     * Load referenced object(s) and
-     * add result from server to member variable of this class.
- * @param a query filtering the results in SQL style (@see <a href="http://doc.apiomat.com">documentation</a>)	 * @param {loadAusstattungslisteCallback} callback
-	 */
-    this.loadAusstattungsliste = function(query,callback) 
-    {
-        var refUrl = this.data.ausstattungslisteHref;
-        if (typeof refUrl == "undefined")
-        {
-            throw new Apiomat.ApiomatRequestError(Apiomat.Status.ATTACHED_HREF_MISSING,200);
-        }    
-        var loadFromServerCB={
-            onOk : function(obj) {
-                this.parent.ausstattungsliste = obj;
-                Apiomat.Datastore.positiveCallback(callback,obj);
-            },
-            onError : function(error) {
-                if (error.statusCode==204) {
-                    this.parent.ausstattungsliste = null;
-                }
-                Apiomat.Datastore.negativeCallback(callback,error);
-            }
-        };
-        loadFromServerCB.parent=this;
-        Apiomat.Datastore.getInstance().loadFromServer(refUrl,loadFromServerCB, undefined,false, query, Apiomat.ausstattung);
-    };
-	
-    /**
-     * Callback required by loadAusstattungslisteAndRefHref function.
-     * callback name loadAusstattungslisteAndRefHrefCallback
-          * @param {function} onOk Function is called when everything is ok. (containing referenced objects with refHref as {array})
-     	 * @param {function} onError Function is called when an error occurs. (containing the error object) 
-     */
-    
-    /** 
-     * Load referenced object(s) with refHref and
-     * add result from server to member variable of this class.
- * @param a query filtering the results in SQL style (@see <a href="http://doc.apiomat.com">documentation</a>)	 * @param {loadAusstattungslisteAndRefHrefCallback} callback
-     */
-    this.loadAusstattungslisteAndRefHref = function(query,callback) 
-    {
-        var refUrl = this.data.ausstattungslisteHref;
-        if (typeof refUrl == "undefined")
-        {
-            throw new Apiomat.ApiomatRequestError(Apiomat.Status.ATTACHED_HREF_MISSING,200);
-        }
-        
-        var loadFromServerCB={
-            onOk : function(obj) {
-                this.parent.ausstattungsliste = obj;
-                Apiomat.Datastore.positiveCallback(callback,obj);
-            },
-            onError : function(error) {
-                Apiomat.Datastore.negativeCallback(callback,error);
-            }
-        }
-        loadFromServerCB.parent=this;
-        Apiomat.Datastore.getInstance().loadFromServer(refUrl,loadFromServerCB , undefined,true, query, Apiomat.ausstattung);
-    };
-    
-    /**
-     * Callback required by postAusstattungsliste function.
-     * callback name postAusstattungslisteCallback
-     * @param {function} onOk Function is called when everything is ok. (containing refHref as {string})
-     * @param {function} onError Function is called when an error occurs. (containing the error object) 
-     */
-	
-    /**
-     * Adds a given reference to this object
-	 * @param _refData reference
-	 * @param {postAusstattungslisteCallback} _callback
-     */
-    this.postAusstattungsliste = function(_refData, _callback) 
-    {
-        if(_refData == false || typeof _refData.getHref() === 'undefined') {
-            var error = new Apiomat.ApiomatRequestError(Apiomat.Status.SAVE_REFERENECE_BEFORE_REFERENCING);
-            if (_callback) {
-                    Apiomat.Datastore.negativeCallback(_callback,error);
-            } else if(console && console.log) {
-                    console.log("Error occured: " + error);
-            }
-            return;
-        }
-        
-        var callback = {
-            onOk : function(refHref) {
-                if (refHref) {
-                                    /* only add reference data if not already in local list */
-                    if( this.parent.ausstattungsliste.filter(function(_elem) {
-                        return _elem.getHref() && refHref && _elem.getHref() === refHref;
-                    }).length < 1)
-                    {
-                        this.parent.ausstattungsliste.push(_refData);
-                    } 
-                                }
-                Apiomat.Datastore.positiveCallback(_callback,refHref);
-            },
-            onError : function(error) {
-                Apiomat.Datastore.negativeCallback(_callback,error);
-            }
-        };
-        callback.parent=this;
-        if(Apiomat.Datastore.getInstance().shouldSendOffline("POST"))
-        {
-            Apiomat.Datastore.getInstance( ).sendOffline( "POST", this.getHref(), _refData, "ausstattungsliste", callback );
-        }
-        else
-        {
-            Apiomat.Datastore.getInstance().postOnServer(_refData, callback, this.data.ausstattungslisteHref);
-        }
-    };
-	
-    /**
-     * Callback required by removeAusstattungsliste function.
-     * callback name removeAusstattungslisteCallback
-     * @param {function} onOk Function is called when everything is ok.
-     * @param {function} onError Function is called when an error occurs. (containing the error object) 
-     */
-    
-    /**
-     * remove a given reference to this object
-	 * @param _refData reference
-	 * @param {removeAusstattungslisteCallback} _callback
-     */
-    this.removeAusstattungsliste = function(_refData, _callback) 
-    {
-        var id = _refData.getHref().substring(_refData.getHref().lastIndexOf("/") + 1);
-        var deleteHref = this.data.ausstattungslisteHref + "/" + id;
-        var callback = {
-            onOk : function(obj) {
-                            /* Find and remove reference from local list */
-                var i=-1;
-                if(typeof this.parent.ausstattungsliste !="undefined" && typeof this.parent.ausstattungsliste.length!="undefined" && this.parent.ausstattungsliste.length>0) {
-                    for (var k=0;k<this.parent.ausstattungsliste.length;k++) {
-                        if (this.parent.ausstattungsliste[k].data.href===_refData.data.href) {
-                            i=k;
-                            break;
-                        }
-                    }
-                }
-                
-                if(i != -1) {
-                    this.parent.ausstattungsliste.splice(i, 1);
-                }
-            ;                 
-                Apiomat.Datastore.positiveCallback(_callback);
-            },
-            onError : function(error) {
-                Apiomat.Datastore.negativeCallback(_callback,error);
-            }
-        };
-        callback.parent=this;
-        Apiomat.Datastore.getInstance().deleteOnServer(deleteHref, callback);
-    };
-    
-        /**
-     * Callback required by getAusstattungslisteCount function.
-     * callback name getAusstattungslisteCountCallback
-     * @param {function} onOk Function is called when everything is ok. (containg count as {number})
-     * @param {function} onError Function is called when an error occurs. (containing the error object) 
-     */
-	
-    /**
-     * Returns a count of referenced objects of this class filtered by the given query from server
-     * @param a query filtering the results in SQL style (@see <a href="http://doc.apiomat.com">documentation</a>)
-     * @param {getAusstattungslisteCountCallback} _callback
-	 */
-    this.getAusstattungslisteCount = function(_query, _callback) 
-    {
-        Apiomat.Datastore.getInstance().loadCountFromServer(this.getHref(), 'ausstattungsliste', _query, _callback);
-    };
-        
-    var bewertungsliste = [];
-    
-    /**
-     * Getter for local linked variable
-     * @return {string} attributeName 
-     */
-    this.getBewertungsliste = function() 
-    {
-        return this.bewertungsliste;
-    };
-	
-    /**
-     * Callback required by loadBewertungsliste function.
-     * callback name loadBewertungslisteCallback
-	      * @param {function} onOk Function is called when everything is ok. (containing referenced objects as {array})
-	      * @param {function} onError Function is called when an error occurs. (containing the error object) 
-     */
-    
-    /** 
-     * Load referenced object(s) and
-     * add result from server to member variable of this class.
- * @param a query filtering the results in SQL style (@see <a href="http://doc.apiomat.com">documentation</a>)	 * @param {loadBewertungslisteCallback} callback
-	 */
-    this.loadBewertungsliste = function(query,callback) 
-    {
-        var refUrl = this.data.bewertungslisteHref;
-        if (typeof refUrl == "undefined")
-        {
-            throw new Apiomat.ApiomatRequestError(Apiomat.Status.ATTACHED_HREF_MISSING,200);
-        }    
-        var loadFromServerCB={
-            onOk : function(obj) {
-                this.parent.bewertungsliste = obj;
-                Apiomat.Datastore.positiveCallback(callback,obj);
-            },
-            onError : function(error) {
-                if (error.statusCode==204) {
-                    this.parent.bewertungsliste = null;
-                }
-                Apiomat.Datastore.negativeCallback(callback,error);
-            }
-        };
-        loadFromServerCB.parent=this;
-        Apiomat.Datastore.getInstance().loadFromServer(refUrl,loadFromServerCB, undefined,false, query, Apiomat.bewertungen);
-    };
-	
-    /**
-     * Callback required by loadBewertungslisteAndRefHref function.
-     * callback name loadBewertungslisteAndRefHrefCallback
-          * @param {function} onOk Function is called when everything is ok. (containing referenced objects with refHref as {array})
-     	 * @param {function} onError Function is called when an error occurs. (containing the error object) 
-     */
-    
-    /** 
-     * Load referenced object(s) with refHref and
-     * add result from server to member variable of this class.
- * @param a query filtering the results in SQL style (@see <a href="http://doc.apiomat.com">documentation</a>)	 * @param {loadBewertungslisteAndRefHrefCallback} callback
-     */
-    this.loadBewertungslisteAndRefHref = function(query,callback) 
-    {
-        var refUrl = this.data.bewertungslisteHref;
-        if (typeof refUrl == "undefined")
-        {
-            throw new Apiomat.ApiomatRequestError(Apiomat.Status.ATTACHED_HREF_MISSING,200);
-        }
-        
-        var loadFromServerCB={
-            onOk : function(obj) {
-                this.parent.bewertungsliste = obj;
-                Apiomat.Datastore.positiveCallback(callback,obj);
-            },
-            onError : function(error) {
-                Apiomat.Datastore.negativeCallback(callback,error);
-            }
-        }
-        loadFromServerCB.parent=this;
-        Apiomat.Datastore.getInstance().loadFromServer(refUrl,loadFromServerCB , undefined,true, query, Apiomat.bewertungen);
-    };
-    
-    /**
-     * Callback required by postBewertungsliste function.
-     * callback name postBewertungslisteCallback
-     * @param {function} onOk Function is called when everything is ok. (containing refHref as {string})
-     * @param {function} onError Function is called when an error occurs. (containing the error object) 
-     */
-	
-    /**
-     * Adds a given reference to this object
-	 * @param _refData reference
-	 * @param {postBewertungslisteCallback} _callback
-     */
-    this.postBewertungsliste = function(_refData, _callback) 
-    {
-        if(_refData == false || typeof _refData.getHref() === 'undefined') {
-            var error = new Apiomat.ApiomatRequestError(Apiomat.Status.SAVE_REFERENECE_BEFORE_REFERENCING);
-            if (_callback) {
-                    Apiomat.Datastore.negativeCallback(_callback,error);
-            } else if(console && console.log) {
-                    console.log("Error occured: " + error);
-            }
-            return;
-        }
-        
-        var callback = {
-            onOk : function(refHref) {
-                if (refHref) {
-                                    /* only add reference data if not already in local list */
-                    if( this.parent.bewertungsliste.filter(function(_elem) {
-                        return _elem.getHref() && refHref && _elem.getHref() === refHref;
-                    }).length < 1)
-                    {
-                        this.parent.bewertungsliste.push(_refData);
-                    } 
-                                }
-                Apiomat.Datastore.positiveCallback(_callback,refHref);
-            },
-            onError : function(error) {
-                Apiomat.Datastore.negativeCallback(_callback,error);
-            }
-        };
-        callback.parent=this;
-        if(Apiomat.Datastore.getInstance().shouldSendOffline("POST"))
-        {
-            Apiomat.Datastore.getInstance( ).sendOffline( "POST", this.getHref(), _refData, "bewertungsliste", callback );
-        }
-        else
-        {
-            Apiomat.Datastore.getInstance().postOnServer(_refData, callback, this.data.bewertungslisteHref);
-        }
-    };
-	
-    /**
-     * Callback required by removeBewertungsliste function.
-     * callback name removeBewertungslisteCallback
-     * @param {function} onOk Function is called when everything is ok.
-     * @param {function} onError Function is called when an error occurs. (containing the error object) 
-     */
-    
-    /**
-     * remove a given reference to this object
-	 * @param _refData reference
-	 * @param {removeBewertungslisteCallback} _callback
-     */
-    this.removeBewertungsliste = function(_refData, _callback) 
-    {
-        var id = _refData.getHref().substring(_refData.getHref().lastIndexOf("/") + 1);
-        var deleteHref = this.data.bewertungslisteHref + "/" + id;
-        var callback = {
-            onOk : function(obj) {
-                            /* Find and remove reference from local list */
-                var i=-1;
-                if(typeof this.parent.bewertungsliste !="undefined" && typeof this.parent.bewertungsliste.length!="undefined" && this.parent.bewertungsliste.length>0) {
-                    for (var k=0;k<this.parent.bewertungsliste.length;k++) {
-                        if (this.parent.bewertungsliste[k].data.href===_refData.data.href) {
-                            i=k;
-                            break;
-                        }
-                    }
-                }
-                
-                if(i != -1) {
-                    this.parent.bewertungsliste.splice(i, 1);
-                }
-            ;                 
-                Apiomat.Datastore.positiveCallback(_callback);
-            },
-            onError : function(error) {
-                Apiomat.Datastore.negativeCallback(_callback,error);
-            }
-        };
-        callback.parent=this;
-        Apiomat.Datastore.getInstance().deleteOnServer(deleteHref, callback);
-    };
-    
-        /**
-     * Callback required by getBewertungslisteCount function.
-     * callback name getBewertungslisteCountCallback
-     * @param {function} onOk Function is called when everything is ok. (containg count as {number})
-     * @param {function} onError Function is called when an error occurs. (containing the error object) 
-     */
-	
-    /**
-     * Returns a count of referenced objects of this class filtered by the given query from server
-     * @param a query filtering the results in SQL style (@see <a href="http://doc.apiomat.com">documentation</a>)
-     * @param {getBewertungslisteCountCallback} _callback
-	 */
-    this.getBewertungslisteCount = function(_query, _callback) 
-    {
-        Apiomat.Datastore.getInstance().loadCountFromServer(this.getHref(), 'bewertungsliste', _query, _callback);
-    };
-    
+
 };
 /* static methods */
 
@@ -490,8 +108,6 @@ Apiomat.spielplatz.prototype.constructor = Apiomat.spielplatz;
 
 Apiomat.spielplatz.prototype.init=function () {
         this.data = new Object();
-    this.ausstattungsliste = [];
-    this.bewertungsliste = [];
 }
 /**
  * get simple name
@@ -530,38 +146,38 @@ Apiomat.spielplatz.prototype.setAltersgruppe = function(_altersgruppe) {
 
         
 /**
- * get Ausstattungsliste
- * @return Ausstattungsliste
+ * get Ballsport
+ * @return Ballsport
  */
-Apiomat.spielplatz.prototype.getAusstattungsliste = function() 
+Apiomat.spielplatz.prototype.getBallsport = function() 
 {
-    return this.data.ausstattungsliste;
+    return this.data.ballsport;
 };
 
 /**
- * set Ausstattungsliste
- * @param Ausstattungsliste
+ * set Ballsport
+ * @param Ballsport
  */
-Apiomat.spielplatz.prototype.setAusstattungsliste = function(_ausstattungsliste) {
-    this.data.ausstattungsliste = _ausstattungsliste;
+Apiomat.spielplatz.prototype.setBallsport = function(_ballsport) {
+    this.data.ballsport = _ballsport;
 };
 
         
 /**
- * get Bewertungsliste
- * @return Bewertungsliste
+ * get Federwippe
+ * @return Federwippe
  */
-Apiomat.spielplatz.prototype.getBewertungsliste = function() 
+Apiomat.spielplatz.prototype.getFederwippe = function() 
 {
-    return this.data.bewertungsliste;
+    return this.data.federwippe;
 };
 
 /**
- * set Bewertungsliste
- * @param Bewertungsliste
+ * set Federwippe
+ * @param Federwippe
  */
-Apiomat.spielplatz.prototype.setBewertungsliste = function(_bewertungsliste) {
-    this.data.bewertungsliste = _bewertungsliste;
+Apiomat.spielplatz.prototype.setFederwippe = function(_federwippe) {
+    this.data.federwippe = _federwippe;
 };
 
         
@@ -797,67 +413,76 @@ Apiomat.spielplatz.prototype.setHausnummer = function(_hausnummer) {
     this.data.hausnummer = _hausnummer;
 };
 
-   
+        
 /**
- * get Location latitude
- * @return latitude as {floating number}
+ * get Klettergerüst
+ * @return Klettergerüst
  */
-Apiomat.spielplatz.prototype.getLocationLatitude = function() 
+Apiomat.spielplatz.prototype.getKlettergerüst = function() 
 {
-    var locArr = this.data.location;
-    if(locArr)
-    {
-        return locArr[0];
-    }
+    return this.data.klettergerüst;
 };
 
 /**
- * get Location longitude
- * @return longitude as {floating number}
+ * set Klettergerüst
+ * @param Klettergerüst
  */
-Apiomat.spielplatz.prototype.getLocationLongitude = function() 
+Apiomat.spielplatz.prototype.setKlettergerüst = function(_klettergerüst) {
+    this.data.klettergerüst = _klettergerüst;
+};
+
+        
+/**
+ * get Kletterturm
+ * @return Kletterturm
+ */
+Apiomat.spielplatz.prototype.getKletterturm = function() 
 {
-    var locArr = this.data.location;
-    if(locArr)
-    {
-        return locArr[1];
-    }
+    return this.data.kletterturm;
 };
 
 /**
- * set latitude
- * @param latitude
+ * set Kletterturm
+ * @param Kletterturm
  */
-Apiomat.spielplatz.prototype.setLocationLatitude = function(_latitude) 
+Apiomat.spielplatz.prototype.setKletterturm = function(_kletterturm) {
+    this.data.kletterturm = _kletterturm;
+};
+
+        
+/**
+ * get Latitude
+ * @return Latitude
+ */
+Apiomat.spielplatz.prototype.getLatitude = function() 
 {
-    var locArr = this.data.location;
-    if(!locArr)
-    {
-        locArr = [_latitude, undefined];
-    }
-    else
-    {
-        locArr[0] = _latitude;
-    }
-    this.data.location = locArr;
+    return this.data.latitude;
 };
 
 /**
- * set longitude
- * @param longitude
+ * set Latitude
+ * @param Latitude
  */
-Apiomat.spielplatz.prototype.setLocationLongitude = function(_longitude) 
+Apiomat.spielplatz.prototype.setLatitude = function(_latitude) {
+    this.data.latitude = _latitude;
+};
+
+        
+/**
+ * get Longitude
+ * @return Longitude
+ */
+Apiomat.spielplatz.prototype.getLongitude = function() 
 {
-    var locArr = this.data.location;
-    if(!locArr)
-    {
-        locArr = [0, _longitude];
-    }
-    else
-    {
-        locArr[1] = _longitude;
-    }
-    this.data.location = locArr;
+    return this.data.longitude;
+};
+
+/**
+ * set Longitude
+ * @param Longitude
+ */
+Apiomat.spielplatz.prototype.setLongitude = function(_longitude) {
+    this.data.longitude = _longitude;
 };
 
         
@@ -876,6 +501,96 @@ Apiomat.spielplatz.prototype.getName = function()
  */
 Apiomat.spielplatz.prototype.setName = function(_name) {
     this.data.name = _name;
+};
+
+        
+/**
+ * get Rutsche
+ * @return Rutsche
+ */
+Apiomat.spielplatz.prototype.getRutsche = function() 
+{
+    return this.data.rutsche;
+};
+
+/**
+ * set Rutsche
+ * @param Rutsche
+ */
+Apiomat.spielplatz.prototype.setRutsche = function(_rutsche) {
+    this.data.rutsche = _rutsche;
+};
+
+        
+/**
+ * get Sandkasten
+ * @return Sandkasten
+ */
+Apiomat.spielplatz.prototype.getSandkasten = function() 
+{
+    return this.data.sandkasten;
+};
+
+/**
+ * set Sandkasten
+ * @param Sandkasten
+ */
+Apiomat.spielplatz.prototype.setSandkasten = function(_sandkasten) {
+    this.data.sandkasten = _sandkasten;
+};
+
+        
+/**
+ * get Sanitäranlagen
+ * @return Sanitäranlagen
+ */
+Apiomat.spielplatz.prototype.getSanitäranlagen = function() 
+{
+    return this.data.sanitäranlagen;
+};
+
+/**
+ * set Sanitäranlagen
+ * @param Sanitäranlagen
+ */
+Apiomat.spielplatz.prototype.setSanitäranlagen = function(_sanitäranlagen) {
+    this.data.sanitäranlagen = _sanitäranlagen;
+};
+
+        
+/**
+ * get Schaukel
+ * @return Schaukel
+ */
+Apiomat.spielplatz.prototype.getSchaukel = function() 
+{
+    return this.data.schaukel;
+};
+
+/**
+ * set Schaukel
+ * @param Schaukel
+ */
+Apiomat.spielplatz.prototype.setSchaukel = function(_schaukel) {
+    this.data.schaukel = _schaukel;
+};
+
+        
+/**
+ * get Seilbahn
+ * @return Seilbahn
+ */
+Apiomat.spielplatz.prototype.getSeilbahn = function() 
+{
+    return this.data.seilbahn;
+};
+
+/**
+ * set Seilbahn
+ * @param Seilbahn
+ */
+Apiomat.spielplatz.prototype.setSeilbahn = function(_seilbahn) {
+    this.data.seilbahn = _seilbahn;
 };
 
         
@@ -966,6 +681,60 @@ Apiomat.spielplatz.prototype.getStraße = function()
  */
 Apiomat.spielplatz.prototype.setStraße = function(_straße) {
     this.data.straße = _straße;
+};
+
+        
+/**
+ * get Tischtennis
+ * @return Tischtennis
+ */
+Apiomat.spielplatz.prototype.getTischtennis = function() 
+{
+    return this.data.tischtennis;
+};
+
+/**
+ * set Tischtennis
+ * @param Tischtennis
+ */
+Apiomat.spielplatz.prototype.setTischtennis = function(_tischtennis) {
+    this.data.tischtennis = _tischtennis;
+};
+
+        
+/**
+ * get Wasserspiele
+ * @return Wasserspiele
+ */
+Apiomat.spielplatz.prototype.getWasserspiele = function() 
+{
+    return this.data.wasserspiele;
+};
+
+/**
+ * set Wasserspiele
+ * @param Wasserspiele
+ */
+Apiomat.spielplatz.prototype.setWasserspiele = function(_wasserspiele) {
+    this.data.wasserspiele = _wasserspiele;
+};
+
+        
+/**
+ * get Wippe
+ * @return Wippe
+ */
+Apiomat.spielplatz.prototype.getWippe = function() 
+{
+    return this.data.wippe;
+};
+
+/**
+ * set Wippe
+ * @param Wippe
+ */
+Apiomat.spielplatz.prototype.setWippe = function(_wippe) {
+    this.data.wippe = _wippe;
 };
 
 

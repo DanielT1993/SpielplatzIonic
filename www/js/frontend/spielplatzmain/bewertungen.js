@@ -361,6 +361,24 @@ Apiomat.bewertungen.prototype.setGesamtbewertung = function(_gesamtbewertung) {
 
         
 /**
+ * get Nickname
+ * @return Nickname
+ */
+Apiomat.bewertungen.prototype.getNickname = function() 
+{
+    return this.data.nickname;
+};
+
+/**
+ * set Nickname
+ * @param Nickname
+ */
+Apiomat.bewertungen.prototype.setNickname = function(_nickname) {
+    this.data.nickname = _nickname;
+};
+
+        
+/**
  * get Sauberkeit
  * @return Sauberkeit
  */
