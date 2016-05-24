@@ -106,8 +106,25 @@ function deg2rad(deg) {
 
 
 
- 
-         
-
-
+var attempt = 3;
+function login(){
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "admin" && password == "bier"){
+alert ("Login successfully");
+window.location = "#/app/spielplatzanlegen"; // Redirecting to other page.
+return false;
+}
+else{
+attempt --;// Decrementing by one.
+alert("Noch "+attempt+" Versuche;");
+// Disabling fields after 3 attempts.
+if( attempt == 0){
+document.getElementById("username").disabled = true;
+document.getElementById("password").disabled = true;
+document.getElementById("submit").disabled = true;
+return false;
+}
+}
+}
 
