@@ -40,8 +40,6 @@ angular.module('starter.controllers', [])
     }, 1000);
   };
 })
-
-
  
 .controller('PlaylistsCtrl', function($scope) {  
       var posa = 0;
@@ -85,6 +83,7 @@ angular.module('starter.controllers', [])
       var gerundetd = Math.round(d * 100)/100;
 
       $scope.playlists.push({ title: name, ort: gerundetd + " km", color: '#FF880E', id:id });
+        
       }
     },
         
@@ -99,27 +98,61 @@ angular.module('starter.controllers', [])
 )
 //funktioniert
 
-.controller('DetailSpielplatzCtrl', function($scope, $stateParams ) {
+.controller('DetailSpielplatzCtrl', function($scope, $scope, $stateParams ) {
+    //Accordion ratings
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
     
+    //Spielplatzid holen
     var url = ($stateParams.spielplatzId);
-    
     var id = "id == id("+url+")";
+    
+    var idbewertung = "bewertungsid == ("+url+")";
+    
+    //Array Spielplatzdetail erstellen
     $scope.playlistdetails = []; 
- Apiomat.spielplatz.getspielplatzs(id, {
-onOk : function(loadedObjs) {
-//Now you can do sth with loaded objects (loadedObjs)
-var arrayspielplaetze = loadedObjs[0]["data"];
-      //Ausgabe in Konsole
-      var name = arrayspielplaetze["name"];
+    $scope.ratings = []; 
+    
+    //DB-verbindung mit Spielplatztabelle
+    Apiomat.spielplatz.getspielplatzs(id, {
+        onOk : function(loadedObjs) {
+            //Now you can do sth with loaded objects (loadedObjs)
+            var arrayspielplaetze = loadedObjs[0]["data"];
+    //Ausgabe in Konsole
+    var name = arrayspielplaetze["name"];
     var strasse = arrayspielplaetze["straße"];
+    var hausnr = arrayspielplaetze["hausnummer"];
+    var stadtteil = arrayspielplaetze["stadtteil"];
+    var groesse = arrayspielplaetze["größe"];
    
     $scope.playlistdetails = [
-    { title: name, strasse: strasse, },
+    { title: name, strasse: strasse, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse },
   ];
 },
 onError : function(error) {
 //handle error
 }
+});
+
+ Apiomat.bewertungen.getbewertungens(idbewertung, {
+onOk : function(loadedObjs) {
+//Now you can do sth with loaded objects (loadedObjs)
+//Now you can do sth with loaded objects (loadedObjs)
+    for (i = 0; i < loadedObjs.length; i++) {
+      var arraybewertungen = loadedObjs[i]["data"];
+      //Ausgabe in Konsole
+      var name = arraybewertungen["nickname"];
+        
+
+      $scope.ratings.push({ title: name});
+        
+      }
+},
+onError : function(error) {
+//handle error
+}
 });   
-   
+    
+    
 });

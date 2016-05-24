@@ -1,10 +1,48 @@
-<ion-view view-title="Spielplatzdetail" >
-  <ion-content >
-    <ion-list >
+<ion-view view-title="Spielplatzdetail">
+  <ion-content>
+    <ion-list>
       <ion-item ng-repeat="playlistdetail in playlistdetails">
       <h2>{{playlistdetail.title}} </h2>
-    {{playlistdetail.strasse}}
-          
+    {{playlistdetail.strasse}}{{playlistdetail.hausnr}}
+          {{playlistdetail.stadtteil}}
+          Größe: {{playlistdetail.groesse}}m
+    </ion-item>
+        </ion-list>
+      <ion-list>
+        <ion-item>
+        <ul class="collapsible" data-collapsible="expandable">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">grade</i>Neue Bewertung</div>
+      <div class="collapsible-body"><h1>Spielplatz bewerten</h1>
+         <ion-list>
+             <ion-item >
+                <p id="Headline"></p>
+                </ion-item>
+            </ion-list>
+                <div class="list">
+                  <label class="item item-input">
+                    <span class="input-label">Name</span>
+                    <input id="spielplatzname" type="text">
+                  </label>
+                  <label class="item item-input">
+                    <span class="input-label">Straße</span>
+                    <input id="spielplatzstraße" type="text">
+                  </label>
+                  <label class="item">
+                    <button class="waves-effect waves-light btn" type="submit" onclick="bewerten()">Spielplatz bewerten</button>
+                  </label>
+                    <p id="demo"></p>
+                </div></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">view_list</i>Alle Bewertungen</div>
+      <div class="collapsible-body">
+        <ion-item ng-repeat="playlistdetail in ratings">
+      <h2>{{playlistdetail.title}} </h2>
+    </ion-item>
+          </div>
+    </li>
+  </ul>  
     </ion-item>
     </ion-list>
   </ion-content>
