@@ -2,8 +2,8 @@
 function signup()
   {
     var user = new Apiomat.User();
-    user.setUserName("test212");
-    user.setPassword("test212");
+    user.setUserName("test23");
+    user.setPassword("test23");
     Apiomat.Datastore.configureWithCredentials(user);
  
     var saveCB = {
