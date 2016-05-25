@@ -1,7 +1,7 @@
 <ion-view view-title="Alle Spielplätze anzeigen" >
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+      <ion-item ng-repeat="playlist in playlists" class="superclick" href="#/app/playlists/{{playlist.id}}">
     <ul class="collection">
     <li class="collection-item avatar">
       <img src="img/ionic.png" style="border:5px solid {{playlist.color}}" alt="" class="circle">

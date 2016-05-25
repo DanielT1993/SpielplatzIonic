@@ -54,7 +54,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/kontakt',
     views: {
       'menuContent': {
-        templateUrl: 'templates/kontakt.html'
+        templateUrl: 'templates/kontakt.html',
+          controller: 'KontaktCtrl'
       }
     }
   })
@@ -84,6 +85,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: 'templates/appinfo.html'
+      }
+    }
+  })
+  
+  .state('app.share', {
+    url: "/share",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/share.html",
       }
     }
   })

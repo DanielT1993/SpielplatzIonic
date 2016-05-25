@@ -48,6 +48,10 @@ angular.module('starter.controllers', [])
     
 })
 
+.controller('KontaktCtrl', function() {
+    $('textarea#kontaktmessage').characterCounter();
+})
+
 
 .controller('PlaylistsCtrl', function($scope) { 
       var posa = 0;
@@ -181,6 +185,20 @@ onError : function(error) {
     }
 
 });
+    
+    var checkExist = setInterval(function() {
+           if ($('span.stars').length) {
+              $('span.stars').stars();
+              clearInterval(checkExist);
+           }
+        }, 20);
+          
+    
+        $.fn.stars = function() {
+            return $(this).each(function() {
+                $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+            });
+          }
 
 });
     
