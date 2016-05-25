@@ -1,13 +1,18 @@
+
 <ion-view view-title="Spielplatzdetail">
-  <ion-content>
+  <ion-content >
     <ion-list>
-      <ion-item ng-repeat="playlistdetail in playlistdetails">
+      <ion-item ng-repeat="playlistdetail in playlistdetails" >
       <h2>{{playlistdetail.title}} </h2>
-    {{playlistdetail.strasse}}{{playlistdetail.hausnr}}
-          {{playlistdetail.stadtteil}}
-          Größe: {{playlistdetail.groesse}}m
+    		{{playlistdetail.strasse}}{{playlistdetail.hausnr}}
+          	{{playlistdetail.stadtteil}}
+         	Größe: {{playlistdetail.groesse}}      	
           
           <p id="spid">{{playlistdetail.url}}</p>
+
+    </ion-item>
+        <ion-item ng-repeat="arraysum in arraysums">
+        	<span class="stars">{{arraysum.avg}}</span>
     </ion-item>
         </ion-list>
       <ion-list>
@@ -41,8 +46,7 @@
                   <input type="radio" id="rating-sicherheit-3" name="rating-sicherheit" value="3" /><label for="rating-sicherheit-3">3</label>
                   <input type="radio" id="rating-sicherheit-2" name="rating-sicherheit" value="2" /><label for="rating-sicherheit-2">2</label>
                   <input type="radio" id="rating-sicherheit-1" name="rating-sicherheit" value="1" /><label for="rating-sicherheit-1">1</label>
-                </span>
-                
+                </span>            
           </form>
           <label class="item">
                             <button class="waves-effect waves-light btn" type="submit" onclick="bewertungdb()">Bewertung abgeben</button>
@@ -55,10 +59,11 @@
         </div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">view_list</i>Alle Bewertungen</div>
+      <div class="collapsible-header active"><i class="material-icons">view_list</i>Alle Bewertungen</div>
       <div class="collapsible-body">
         <ion-item ng-repeat="playlistdetail in ratings">
       <h2>{{playlistdetail.title}} </h2>
+      <span class="stars">{{playlistdetail.bewertung}}</span>
     </ion-item>
           </div>
     </li>
@@ -67,4 +72,5 @@
     </ion-list>
   </ion-content>
 </ion-view>
+
 

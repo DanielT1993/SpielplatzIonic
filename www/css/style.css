@@ -27,13 +27,13 @@
   text-indent: -9999px;
   content: "☆";
     font-size: 2em;
-  color: #888;
+  color: orange;
 }
 .star-cb-group > input:checked ~ label:before, .star-cb-group > input + label:hover ~ label:before, .star-cb-group > input + label:hover:before {
   content: "★";
     font-size: 2em;
-  color: #e52;
-  text-shadow: 0 0 1px #333;
+  color: orange;
+
 }
 .star-cb-group > .star-cb-clear + label {
   text-indent: -9999px;
@@ -46,14 +46,14 @@
 .star-cb-group:hover > input + label:before {
   content: "☆";
     font-size: 2em;
-  color: #888;
+  color: orange;
   text-shadow: none;
 }
 .star-cb-group:hover > input + label:hover ~ label:before, .star-cb-group:hover > input + label:hover:before {
   content: "★";
     font-size: 2em;
-  color: #e52;
-  text-shadow: 0 0 1px #333;
+  color: orange;
+
 }
 
 .star-cb-group-spass {
@@ -84,13 +84,13 @@
   text-indent: -9999px;
   content: "☆";
     font-size: 2em;
-  color: #888;
+  color: orange;
 }
 .star-cb-group-spass > input:checked ~ label:before, .star-cb-group-spass > input + label:hover ~ label:before, .star-cb-group-spass > input + label:hover:before {
   content: "★";
     font-size: 2em;
-  color: #e52;
-  text-shadow: 0 0 1px #333;
+  color: orange;
+
 }
 .star-cb-group-spass > .star-cb-clear + label {
   text-indent: -9999px;
@@ -100,14 +100,14 @@
 .star-cb-group-spass:hover > input + label:before {
   content: "☆";
     font-size: 2em;
-  color: #888;
+  color: orange;
   text-shadow: none;
 }
 .star-cb-group-spass:hover > input + label:hover ~ label:before, .star-cb-group-spass:hover > input + label:hover:before {
   content: "★";
     font-size: 2em;
-  color: #e52;
-  text-shadow: 0 0 1px #333;
+  color: orange;
+
 }
 
 .star-cb-group-sicherheit {
@@ -137,14 +137,14 @@
   display: inline-block;
   text-indent: -9999px;
   content: "☆";
-    font-size: 2em;
-  color: #888;
+  font-size: 2em;
+  color: orange;
 }
 .star-cb-group-sicherheit > input:checked ~ label:before, .star-cb-group-sicherheit > input + label:hover ~ label:before, .star-cb-group-sicherheit > input + label:hover:before {
   content: "★";
     font-size: 2em;
-  color: #e52;
-  text-shadow: 0 0 1px #333;
+  color: orange;
+
 }
 .star-cb-group-sicherheit > .star-cb-clear + label {
   text-indent: -9999px;
@@ -154,14 +154,14 @@
 .star-cb-group-sicherheit:hover > input + label:before {
   content: "☆";
     font-size: 2em;
-  color: #888;
+  color: orange;
   text-shadow: none;
 }
 .star-cb-group-sicherheit:hover > input + label:hover ~ label:before, .star-cb-group-sicherheit:hover > input + label:hover:before {
   content: "★";
-    font-size: 2em;
-  color: #e52;
-  text-shadow: 0 0 1px #333;
+  font-size: 2em;
+  color: orange;
+
 }
 
 
@@ -183,3 +183,14 @@ fieldset {
     
 color:#FFF;
     font-size:1px}
+
+span.stars, span.stars span {
+    display: block;
+    background: url(../img/stars2.png) 0 -15px repeat-x;
+    width: 80px;
+    height: 16px;
+}
+
+span.stars span {
+    background-position: 0 0;
+}

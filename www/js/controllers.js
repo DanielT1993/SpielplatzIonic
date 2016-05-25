@@ -102,7 +102,10 @@ angular.module('starter.controllers', [])
 )
 
 
-.controller('DetailSpielplatzCtrl', function($scope, $scope, $stateParams ) {
+.controller('DetailSpielplatzCtrl', function($scope, $scope, $scope, $stateParams ) {
+
+
+
     //Accordion ratings
     $('.collapsible').collapsible({
       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
@@ -117,6 +120,7 @@ angular.module('starter.controllers', [])
     //Array Spielplatzdetail erstellen
     $scope.playlistdetails = []; 
     $scope.ratings = []; 
+    $scope.arraysums = [];
     
     //DB-verbindung mit Spielplatztabelle
     Apiomat.spielplatz.getspielplatzs(id, {
@@ -129,10 +133,10 @@ angular.module('starter.controllers', [])
     var hausnr = arrayspielplaetze["hausnummer"];
     var stadtteil = arrayspielplaetze["stadtteil"];
     var groesse = arrayspielplaetze["größe"];
-   
-    $scope.playlistdetails = [
+       $scope.playlistdetails = [
     { title: name, strasse: strasse, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse, url:url },
   ];
+
 },
 onError : function(error) {
 //handle error
@@ -140,7 +144,7 @@ onError : function(error) {
 });
 
 
-     Apiomat.bewertungen.getbewertungens(idbewertung, {
+    Apiomat.bewertungen.getbewertungens(idbewertung, {
     onOk : function(loadedObjs) {
     //Now you can do sth with loaded objects (loadedObjs)
     //Now you can do sth with loaded objects (loadedObjs)
@@ -148,9 +152,8 @@ onError : function(error) {
           var arraybewertungen = loadedObjs[i]["data"];
           //Ausgabe in Konsole
           var name = arraybewertungen["nickname"];
-
-
-          $scope.ratings.push({ title: name});
+          var bewertungaus = arraybewertungen["gesamtbewertung"];
+          $scope.ratings.push({ title: name, bewertung: bewertungaus});
 
           }
     },
@@ -158,9 +161,33 @@ onError : function(error) {
     //handle error
     }
     });   
-})
+    var sum = 0;
+    Apiomat.bewertungen.getbewertungens(idbewertung, {
+    onOk : function(loadedObjs) {
+    //Now you can do sth with loaded objects (loadedObjs)
+    //Now you can do sth with loaded objects (loadedObjs)
+        for (i = 0; i < loadedObjs.length; i++) {
+          var arraybewertungen = loadedObjs[i]["data"];
+          //Ausgabe in Konsole
+          var bewertungaus = arraybewertungen["gesamtbewertung"];
+          sum +=  parseInt(bewertungaus);
+          }
+    var avg = sum/loadedObjs.length;
+    $scope.arraysums.push({ avg: avg});
+    },
+
+    onError : function(error) {
+    //handle error
+    }
+
+});
+
+});
+    
+
 
 function bewertungdb(){
+
     var sauberkeit = ($('input[name="rating-sauber"]:checked', '#sauberkeit').val()); 
     var spielspass = ($('input[name="rating-spass"]:checked', '#spielspass').val()); 
     var sicherheit = ($('input[name="rating-sicherheit"]:checked', '#sicherheit').val());
@@ -171,8 +198,7 @@ function bewertungdb(){
 
     var spid = document.getElementById("spid").innerHTML ;
     var gesamtbewertung = ((sauber + spass + sicher)/3);
-    var gerundet = Math.round(gesamtbewertung);
-    
+    var gerundet = gesamtbewertung;
     var mybewertungen = new Apiomat.bewertungen();
     mybewertungen.setSauberkeit(sauber);
     mybewertungen.setSpielspass(spass);
