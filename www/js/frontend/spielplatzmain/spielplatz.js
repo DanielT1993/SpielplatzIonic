@@ -182,24 +182,6 @@ Apiomat.spielplatz.prototype.setFederwippe = function(_federwippe) {
 
         
 /**
- * get Gesamtbewertungsp
- * @return Gesamtbewertungsp
- */
-Apiomat.spielplatz.prototype.getGesamtbewertungsp = function() 
-{
-    return this.data.gesamtbewertungsp;
-};
-
-/**
- * set Gesamtbewertungsp
- * @param Gesamtbewertungsp
- */
-Apiomat.spielplatz.prototype.setGesamtbewertungsp = function(_gesamtbewertungsp) {
-    this.data.gesamtbewertungsp = _gesamtbewertungsp;
-};
-
-        
-/**
  * get Größe
  * @return Größe
  */
