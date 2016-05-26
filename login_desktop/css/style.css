@@ -89,3 +89,31 @@ outline:none;
 input[type=button]:hover{
 background: linear-gradient(#f1a0bd 5%, #d81b60 100%);
 }
+
+nav ul {
+    text-align: center;
+    /* weitere Angaben */
+}
+ 
+nav li {
+    display: inline-block;
+    /* weitere Angaben */
+}
+ 
+nav a, nav span {
+    display: block;
+    width: 8em;
+    /* weitere Angaben */
+}  
+
+nav a {
+    color: #d81b60;
+    background-color: #000;
+    transition: background-color .25s ease-in;
+  }
+ 
+  nav a:focus, nav a:hover, nav span {
+    color: #fff; 
+    background-color: #d81b60;
+    transition: background-color 0.01s;
+  }

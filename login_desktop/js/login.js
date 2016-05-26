@@ -4,7 +4,7 @@ function validate(){
 var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
 if ( username == "admin" && password == "bier"){
-window.location = "spielplatzanlegen.html"; // Redirecting to other page.
+            window.location = "center.html"; // Redirecting to other page.
 return false;
 }
 else{
