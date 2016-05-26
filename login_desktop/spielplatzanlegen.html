@@ -1,0 +1,93 @@
+<ion-view view-title="Neuen Spielplatz anlegen">
+            <ion-content >
+                <ion-list>            
+                  <ion-item class="input-field col s6">
+                  <div class="row">
+                    <form class="col s12">
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input id="spielplatzname" type="text" class="validate">
+                          <label >Name</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input id="spielplatzstraße" type="text" class="validate">
+                          <label >Straße</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="hausnummer" type="number" class="validate">
+                          <label >Hausnummer</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6">   
+                            <select multiple>
+                              <option value="1">Stadtteil F</option>
+                              <option value="2">Stadtteil B</option>
+                              <option value="3">Stadtteil A</option>
+                            </select>
+                                <label>Stadtteil</label>                    
+                          </div>
+                        <div class="input-field col s6">   
+                            <select multiple>
+                              <option value="1">2 - 5 Jahre</option>
+                              <option value="2">6 - 10 Jahre</option>
+                              <option value="3">11 - 15 Jahre</option>
+                            </select>
+                                <label>Altersgruppe</label>                    
+                          </div>
+                        
+                      </div>
+                      <div class="row">
+                          <div class="input-field col s6">
+                          <input id="groesse" type="number" class="validate">
+                          <label >Größe</label>
+                        </div>
+                        
+                        <div class="input-field col s6">
+                          <input id="status" type="text" class="validate">
+                          <label >Status</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="input-field col s6">
+                          <input id="sitzgelegenheiten" type="text" class="validate">
+                          <label >Sitzgelegenheiten</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="latitude" type="number" class="validate">
+                          <label >Latitude</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="longitude" type="number" class="validate">
+                          <label >Longitude</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input id="seilbahn" type="number" class="validate">
+                          <label >Seilbahn</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6" style="margin-bottom: 100px">
+                          <label class="item">
+                            <button class="waves-effect waves-light btn" type="submit" onclick="neuerSpielplatz()">Spielplatz anlegen</button>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6" style="margin-bottom: 100px">
+                          <label class="item">
+                            <button class="button button-assertive" type="submit" onclick="logout()">Log Out</button>
+                          </label>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  </ion-item>
+                </ion-list>
+            </ion-content>
+</ion-view>
+
