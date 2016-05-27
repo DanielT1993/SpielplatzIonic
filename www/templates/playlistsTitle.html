@@ -1,0 +1,30 @@
+<ion-view view-title="Alle Spielplätze anzeigen" >
+  <ion-content>
+
+
+   <div class="button-bar">
+      <a class="button" href="#/app/playlists">Entfernung</a> 
+      <a class="button" href="#/app/playlistsRating">Bewertung</a> 
+      <a class="button" href="#/app/playlistsTitle" ng-class="{'active': activeButton == $index}">Alphabetisch</a> 
+    </div>
+
+
+    <ion-list>
+      <ion-item ng-repeat="playlist in playlists | orderBy:'title'" href="#/app/playlists/{{playlist.id}}">
+    <ul class="collection">
+    <li class="collection-item avatar">
+      <img src="img/ionic.png" style="border:5px solid {{playlist.color}}" alt="" class="circle">
+      <span class="title">{{playlist.title}}</span>
+      <p>{{playlist.ort}} <br>
+         
+      </p>
+    </li>
+          </ul>    
+    </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+
+
+
+

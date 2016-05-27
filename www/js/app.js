@@ -70,6 +70,26 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
+     .state('app.playlistsTitle', {
+      url: '/playlistsTitle',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/playlistsTitle.html',
+          controller: 'PlaylistsCtrl'
+        }
+      }
+    })
+
+     .state('app.playlistsRating', {
+      url: '/playlistsRating',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/playlistsRating.html',
+          controller: 'PlaylistsCtrl'
+        }
+      }
+    })
+
   .state('app.single', {
     url: '/playlists/:spielplatzId',
     views: {
