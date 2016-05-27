@@ -26,6 +26,16 @@ body
 	color: #090;
 }
 
+.kf {
+margin-left: auto ;
+margin-right: auto ;
+
+}
+
+#kf {	
+  margin-left: auto ;
+  margin-right: auto ;
+}
 
 .navbar-default
 {

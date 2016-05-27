@@ -9,12 +9,22 @@
 		<title>slidoo</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/centerstyle.css">
+		<link rel="stylesheet" href="css/materialize.css">				
 		<link rel="stylesheet" href="css/font-awesome.min.css">
+				      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>		
     <script src="js/login.js"></script>
     <script charset="utf-8" src="js/apiomat.js"></script>
 	</head>
 	<body id="top" data-spy="scroll" data-target=".navbar-collapse">
+
+				<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      	<script type="text/javascript" src="js/materialize.min.js"></script>
+
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -36,7 +46,94 @@
 		</div>
 	</nav>
 	<section id="home" class="text-center">
-	text hier
+<ion-view view-title="Neuen Spielplatz anlegen">
+            <ion-content >
+                <ion-list>            
+                  <ion-item class="input-field col s6">
+                  <div class="row">
+                    <form class="col s12">
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input id="spielplatzname" type="text" class="validate">
+                          <label >Name</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input id="spielplatzstraße" type="text" class="validate">
+                          <label >Straße</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="hausnummer" type="number" class="validate">
+                          <label >Hausnummer</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6">   
+                            <select multiple>
+                              <option value="1">Stadtteil F</option>
+                              <option value="2">Stadtteil B</option>
+                              <option value="3">Stadtteil A</option>
+                            </select>
+                                <label>Stadtteil</label>                    
+                          </div>
+                        <div class="input-field col s6">   
+                            <select multiple>
+                              <option value="1">2 - 5 Jahre</option>
+                              <option value="2">6 - 10 Jahre</option>
+                              <option value="3">11 - 15 Jahre</option>
+                            </select>
+                                <label>Altersgruppe</label>                    
+                          </div>
+                        
+                      </div>
+                      <div class="row">
+                          <div class="input-field col s6">
+                          <input id="groesse" type="number" class="validate">
+                          <label >Größe</label>
+                        </div>
+                        
+                        <div class="input-field col s6">
+                          <input id="status" type="text" class="validate">
+                          <label >Status</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="input-field col s6">
+                          <input id="sitzgelegenheiten" type="text" class="validate">
+                          <label >Sitzgelegenheiten</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="latitude" type="number" class="validate">
+                          <label >Latitude</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="longitude" type="number" class="validate">
+                          <label >Longitude</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input id="seilbahn" type="number" class="validate">
+                          <label >Seilbahn</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6" style="margin-bottom: 100px">
+                          <label class="item">
+                            <button class="waves-effect waves-light btn" type="submit" onclick="neuerSpielplatz()">Spielplatz anlegen</button>
+                          </label>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                  </ion-item>
+                </ion-list>
+            </ion-content>
+</ion-view>
+
+
 	</section>	
 
 
@@ -48,9 +145,12 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/smoothscroll.js"></script>
 	<script src="js/jquery.flexslider.js"></script>
+	<script src="js/materialize.js"></script>	
+	<script src="js/materialize.min.js"></script>
+	<script src="js/controller.js"></script>
+	<script src="js/spielplatz.js"></script>
 
-
-	<script>
+		<script>
 		$(document).ready(function() {
 			// FlexSlider 
 		  	$('.flexslider').flexslider({

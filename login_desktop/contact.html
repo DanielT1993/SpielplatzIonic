@@ -43,46 +43,39 @@
 		</div>
 	</nav>
 	<section id="home" class="text-center">
-	 	<span> rotaract </span>	
-
- 	<form id="kontaktformular" name="kontaktformular" action="">
-
+	<div id="kf">
+ 	<form id="kontaktformuler" name="kontaktformular" action="">
  		<form class="col s12">
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field col s12">
                               <i class="material-icons prefix">account_circle</i>
                               <input id="kontakt_vorname" type="text" class="validate">
                               <label for="kontakt_vorname">Name</label>
                             </div>
                         </div>
-                      </form	
+                      </form>
+
         <form class="col s12">              		
         <div class="row">
-               			<div class="input-field col s6">
-                              <i class="material-icons prefix">account_circle</i>
+               			<div class="input-field col s12">
+                              <i class="material-icons prefix">email</i>
                               <input id="kontakt_vorname" type="text" class="validate">
-                              <label for="kontakt_vorname">Vorname</label>
+                              <label for="kontakt_vorname">E-Mail</label>
                             </div>
                         </div>
-		<div> 
 		</form>  
-                <label>Art der Rückmeldung</label> 
-                <select multiple>
-                  <option value="1">Bug Report</option>
-                  <option value="2">Sicherheitsproblem</option>
-                  <option value="3">Feedback</option>
-                </select>    
-      	</div>
-		<div>
-  			<label for="nachricht">Ihre Nachricht:</label>
- 			<textarea id="nachricht" name="nachricht" cols="20" rows="5"></textarea> 
-		</div>
-		<div>
- 			<input type="submit" value="Abschicken" />
-		</div>
-
+               
+        <form class="col s12">              		
+        <div class="row">
+               			<div class="input-field col s12">
+                              <i class="material-icons prefix">mode_edit</i>
+                              <input id="kontakt_vorname" type="text" class="validate">
+                              <label for="kontakt_vorname">Ihre Nachricht</label>
+                            </div>
+                        </div>
+		</form>  
 	</form>	
-
+	</div>
 	</section>	
 
 
@@ -102,6 +95,7 @@
 		  	$('.flexslider').flexslider({
 		      animation: "fade",
 		      directionNav: false
+		    $('select').material_select();
 		  	});
 
 			// Show or hide the sticky footer button
