@@ -1,73 +1,132 @@
 
-<ion-view view-title="Spielplatzdetail">
+<ion-view view-title="Spielplatzdetail" >
   <ion-content >
-    <ion-list>
-      <ion-item ng-repeat="playlistdetail in playlistdetails" >
-      <h2>{{playlistdetail.title}} </h2>
-    		{{playlistdetail.strasse}}{{playlistdetail.hausnr}}
-          	{{playlistdetail.stadtteil}}
-         	Größe: {{playlistdetail.groesse}}      	
-          
-          <p id="spid">{{playlistdetail.url}}</p>
-
-    </ion-item>
+    <ion-list>  
+        <ion-item ng-repeat="playlistdetail in playlistdetails" >
+                <h2>{{playlistdetail.title}} </h2>
+                {{playlistdetail.strasse}}{{playlistdetail.hausnr}}
+                {{playlistdetail.stadtteil}}
+                Größe: {{playlistdetail.groesse}}  
+                <p id="lat">{{playlistdetail.lat}}</p> 
+                <p id="long">{{playlistdetail.long}}</p>     
+                <p id="spid">{{playlistdetail.url}}</p>
+        </ion-item>
         <ion-item ng-repeat="arraysum in arraysums">
         	<span class="stars">{{arraysum.avg}}</span>
-    </ion-item>
-        </ion-list>
-      <ion-list>
+        </ion-item>
+        <ion-item ng-controller="MapCtrl" id="map" data-tap-disabled="true" ng-style="{'height': '250px'}">
+            <div style="height:100%"></div>
+        </ion-item>
+        <ion-item ng-repeat="playlistdetail in playlistdetails" >
+            <div class="row">
+                <div class="col s3">
+                        <img src="img/{{playlistdetail.kletterturm}}" alt="" style="height:50%">
+                        <p>Rutsche</p> 
+                </div>
+                <div  class="col s3">
+                        <img src="img/{{playlistdetail.schaukel}}" alt="" style="height:50%">
+                        <p>Kletterturm</p> 
+                </div>
+                <div class="col s3">
+                        <img src="img/{{playlistdetail.kletterturm}}" alt="" style="height:50%">
+                        <p>Wippe</p> 
+                </div>
+                        <div  class="col s3">
+                        <img src="img/{{playlistdetail.schaukel}}" alt="" style="height:50%">
+                        <p>Tischtennisplatte</p> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s3">
+                        <img src="img/{{playlistdetail.kletterturm}}" alt="" style="height:50%">
+                        <p>Schaukel</p> 
+                </div>
+                <div  class="col s3">
+                        <img src="img/{{playlistdetail.schaukel}}" alt="" style="height:50%">
+                        <p>Ballspielfeld</p> 
+                </div>
+                <div class="col s3">
+                        <img src="img/{{playlistdetail.kletterturm}}" alt="" style="height:50%">
+                        <p>Sandkasten</p> 
+                </div>
+                <div  class="col s3">
+                        <img src="img/{{playlistdetail.schaukel}}" alt="" style="height:50%">
+                        <p>Wasserspielplatz</p> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s3">
+                        <img src="img/{{playlistdetail.kletterturm}}" alt="" style="height:50%">
+                        <p>Schaukel</p> 
+                </div>
+                <div class="col s3">
+                        <img src="img/{{playlistdetail.schaukel}}" alt="" style="height:50%">
+                        <p>Ballspielfeld</p> 
+                </div>
+                <div class="col s3">
+                        <img src="img/{{playlistdetail.kletterturm}}" alt="" style="height:50%">
+                        <p>Sandkasten</p> 
+                </div>
+                <div  class="col s3">
+                        <img src="img/{{playlistdetail.schaukel}}" alt="" style="height:50%">
+                        <p>Wasserspielplatz</p> 
+                </div>
+            </div>
+       </ion-item>
+    </ion-list>
+    <ion-list>
         <ion-item>
-        <ul class="collapsible" data-collapsible="expandable">
-    <li>
-      <div class="collapsible-header"><i class="material-icons">grade</i>Neue Bewertung</div>
-      <div class="collapsible-body">
-          <form id="sauberkeit"> Sauberkeit
-                <span class="star-cb-group">
-                  <input type="radio" id="rating-5" name="rating-sauber" value="5"  /><label for="rating-5">5</label>
-                  <input type="radio" id="rating-4" name="rating-sauber" value="4" /><label for="rating-4">4</label>
-                  <input type="radio" id="rating-3" name="rating-sauber" value="3" /><label for="rating-3">3</label>
-                  <input type="radio" id="rating-2" name="rating-sauber" value="2" /><label for="rating-2">2</label>
-                  <input type="radio" id="rating-1" name="rating-sauber" value="1" /><label for="rating-1">1</label>
-                </span>     
-          </form>
-          <form id="spielspass"> Spielspaß
-                <span class="star-cb-group-spass">
-                  <input type="radio" id="rating-spass-5" name="rating-spass" value="5"  /><label for="rating-spass-5">5</label>
-                  <input type="radio" id="rating-spass-4" name="rating-spass" value="4" /><label for="rating-spass-4">4</label>
-                  <input type="radio" id="rating-spass-3" name="rating-spass" value="3" /><label for="rating-spass-3">3</label>
-                  <input type="radio" id="rating-spass-2" name="rating-spass" value="2" /><label for="rating-spass-2">2</label>
-                  <input type="radio" id="rating-spass-1" name="rating-spass" value="1" /><label for="rating-spass-1">1</label>
-                </span>  
-          </form>
-          <form id="sicherheit"> Sicherheit
-                <span class="star-cb-group-sicherheit">
-                  <input type="radio" id="rating-sicherheit-5" name="rating-sicherheit" value="5"  /><label for="rating-sicherheit-5">5</label>
-                  <input type="radio" id="rating-sicherheit-4" name="rating-sicherheit" value="4" /><label for="rating-sicherheit-4">4</label>
-                  <input type="radio" id="rating-sicherheit-3" name="rating-sicherheit" value="3" /><label for="rating-sicherheit-3">3</label>
-                  <input type="radio" id="rating-sicherheit-2" name="rating-sicherheit" value="2" /><label for="rating-sicherheit-2">2</label>
-                  <input type="radio" id="rating-sicherheit-1" name="rating-sicherheit" value="1" /><label for="rating-sicherheit-1">1</label>
-                </span>            
-          </form>
-          <label class="item">
-                            <button class="waves-effect waves-light btn" type="submit" onclick="bewertungdb()">Bewertung abgeben</button>
-                          </label>
-         <ion-list>
-             <ion-item >
-                <p id="Headline"></p>
-                </ion-item>
-            </ion-list>
-        </div>
-    </li>
-    <li>
-      <div class="collapsible-header active"><i class="material-icons">view_list</i>Alle Bewertungen</div>
-      <div class="collapsible-body">
-        <ion-item ng-repeat="playlistdetail in ratings">
-      <h2>{{playlistdetail.title}} </h2>
-      <span class="stars">{{playlistdetail.bewertung}}</span>
-    </ion-item>
-          </div>
-    </li>
-  </ul>  
+            <ul class="collapsible" data-collapsible="expandable">
+            <li>
+              <div class="collapsible-header"><i class="material-icons">grade</i>Neue Bewertung</div>
+              <div class="collapsible-body">
+                  <form id="sauberkeit"> Sauberkeit
+                        <span class="star-cb-group">
+                          <input type="radio" id="rating-5" name="rating-sauber" value="5"  /><label for="rating-5">5</label>
+                          <input type="radio" id="rating-4" name="rating-sauber" value="4" /><label for="rating-4">4</label>
+                          <input type="radio" id="rating-3" name="rating-sauber" value="3" /><label for="rating-3">3</label>
+                          <input type="radio" id="rating-2" name="rating-sauber" value="2" /><label for="rating-2">2</label>
+                          <input type="radio" id="rating-1" name="rating-sauber" value="1" /><label for="rating-1">1</label>
+                        </span>     
+                  </form>
+                  <form id="spielspass"> Spielspaß
+                        <span class="star-cb-group-spass">
+                          <input type="radio" id="rating-spass-5" name="rating-spass" value="5"  /><label for="rating-spass-5">5</label>
+                          <input type="radio" id="rating-spass-4" name="rating-spass" value="4" /><label for="rating-spass-4">4</label>
+                          <input type="radio" id="rating-spass-3" name="rating-spass" value="3" /><label for="rating-spass-3">3</label>
+                          <input type="radio" id="rating-spass-2" name="rating-spass" value="2" /><label for="rating-spass-2">2</label>
+                          <input type="radio" id="rating-spass-1" name="rating-spass" value="1" /><label for="rating-spass-1">1</label>
+                        </span>  
+                  </form>
+                  <form id="sicherheit"> Sicherheit
+                        <span class="star-cb-group-sicherheit">
+                          <input type="radio" id="rating-sicherheit-5" name="rating-sicherheit" value="5"  /><label for="rating-sicherheit-5">5</label>
+                          <input type="radio" id="rating-sicherheit-4" name="rating-sicherheit" value="4" /><label for="rating-sicherheit-4">4</label>
+                          <input type="radio" id="rating-sicherheit-3" name="rating-sicherheit" value="3" /><label for="rating-sicherheit-3">3</label>
+                          <input type="radio" id="rating-sicherheit-2" name="rating-sicherheit" value="2" /><label for="rating-sicherheit-2">2</label>
+                          <input type="radio" id="rating-sicherheit-1" name="rating-sicherheit" value="1" /><label for="rating-sicherheit-1">1</label>
+                        </span>            
+                  </form>
+                  <label class="item">
+                                    <button class="waves-effect waves-light btn" type="submit" onclick="bewertungdb()">Bewertung abgeben</button>
+                                  </label>
+                 <ion-list>
+                     <ion-item >
+                        <p id="Headline"></p>
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </li>
+        <li>
+          <div class="collapsible-header active"><i class="material-icons">view_list</i>Alle Bewertungen</div>
+          <div class="collapsible-body">
+            <ion-item ng-repeat="playlistdetail in ratings">
+          <h2>{{playlistdetail.title}} </h2>
+          <span class="stars">{{playlistdetail.bewertung}}</span>
+        </ion-item>
+              </div>
+        </li>
+      </ul>  
     </ion-item>
     </ion-list>
   </ion-content>

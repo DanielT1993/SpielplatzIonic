@@ -1,5 +1,4 @@
-angular.module('starter.controllers', [])
-
+angular.module('starter.controllers', ['ionic'])
 
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
@@ -43,6 +42,8 @@ angular.module('starter.controllers', [])
   };
 })
 
+
+
 .controller('SpielplatzCtrl', function(){
     $('select').material_select();
     
@@ -52,6 +53,105 @@ angular.module('starter.controllers', [])
     $('textarea#kontaktmessage').characterCounter();
 })
 
+.controller('MapCtrl', function ($scope, $ionicLoading, $compile, $window, $stateParams) {
+  
+    var lat2=0;
+        var long2=0;
+    function initialize() {
+        
+        var url = ($stateParams.spielplatzId);
+    var id = "id == id("+url+")";
+    
+    var idbewertung = "bewertungsid == ("+url+")";
+        
+    Apiomat.spielplatz.getspielplatzs(id, {
+    onOk : function(loadedObjs) {
+    //Now you can do sth with loaded objects (loadedObjs)
+    //Now you can do sth with loaded objects (loadedObjs)
+        for (i = 0; i < loadedObjs.length; i++) {
+          var arraylocation = loadedObjs[i]["data"];
+          //Ausgabe in Konsole
+           lat2 = arraylocation["latitude"];
+           long2 = arraylocation["longitude"]; 
+        }
+        
+    },
+    onError : function(error) {
+    //handle error
+    }
+    });      
+       
+        google.maps.event.addDomListener(window, 'load');
+         
+
+        var myLatlng = new google.maps.LatLng(49.351648, 9.148309);
+
+        var mapOptions = {
+            center: myLatlng,
+            zoom: 16,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map"),
+        mapOptions);
+
+        //Marker + infowindow + angularjs compiled ng-click
+        var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
+        var compiled = $compile(contentString)($scope);
+
+        var infowindow = new google.maps.InfoWindow({
+            content: compiled[0]
+        });
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: 'Uluru (Ayers Rock)'
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+            infowindow.open(map, marker);
+        });
+
+        $scope.map = map;
+    }
+
+    $window.initialize = initialize; // callback in global context
+
+    function loadScript(src) {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        document.getElementsByTagName("head")[0].appendChild(script);
+        script.src = src;
+    }
+
+    loadScript('http://www.google.com.mt/jsapi');
+    loadScript('http://maps.googleapis.com/maps/api/js?key=AIzaSyCmpTMw7IitqkPCAfwlwsZGd6cruNNLLnY&sensor=true&callback=initialize');
+
+
+
+    $scope.centerOnMe = function () {
+        if (!$scope.map) {
+            return;
+        }
+
+        $scope.loading = $ionicLoading.show({
+            content: 'Getting location',
+            showBackdrop: false
+        });
+
+        navigator.geolocation.getCurrentPosition(function (pos) {
+            $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+            $scope.loading.hide();
+        }, function (error) {
+            alert('Unable to get location: ' + error.message);
+        });
+    };
+
+    $scope.clickTest = function () {
+        alert('Example of infowindow with ng-click')
+    };
+})
+
 
 .controller('PlaylistsCtrl', function($scope) { 
       var posa = 0;
@@ -59,7 +159,7 @@ angular.module('starter.controllers', [])
      
     //Array anlegen
     $scope.playlists = [];    
-    Apiomat.spielplatz.getspielplatzs("", {
+    Apiomat.spielplatz.getspielplatzs(undefined, {
     onOk : function(loadedObjs) {
         
     //Now you can do sth with loaded objects (loadedObjs)
@@ -69,13 +169,12 @@ angular.module('starter.controllers', [])
         var name = arrayspielplaetze["name"];
         var id = arrayspielplaetze["id"];
         
+        
       function success(pos){
         posa = pos.coords.longitude; 
         posb = pos.coords.latitude;
       }    
-     // alert(posa);   
-      
-
+    
       if (navigator.geolocation){         
          navigator.geolocation.getCurrentPosition(success);
       }else{
@@ -94,7 +193,7 @@ angular.module('starter.controllers', [])
       var d = R * c; // Distance in km
       var gerundetd = Math.round(d * 100)/100;
 
-      $scope.playlists.push({ title: name, ort: gerundetd + " km", color: '#FF880E', id:id });
+      $scope.playlists.push({ title: name, ort: gerundetd + " km", color: '#FF880E', id : id });
         
       }
     },
@@ -106,9 +205,7 @@ angular.module('starter.controllers', [])
 )
 
 
-.controller('DetailSpielplatzCtrl', function($scope, $scope, $scope, $stateParams ) {
-
-
+.controller('DetailSpielplatzCtrl', function($scope, $scope, $scope, $stateParams, $scope, $ionicLoading, $compile ) {
 
     //Accordion ratings
     $('.collapsible').collapsible({
@@ -137,8 +234,12 @@ angular.module('starter.controllers', [])
     var hausnr = arrayspielplaetze["hausnummer"];
     var stadtteil = arrayspielplaetze["stadtteil"];
     var groesse = arrayspielplaetze["größe"];
+            var lat = arrayspielplaetze["latitude"];
+            var long = arrayspielplaetze["longitude"];
+            var kletterturm = arrayspielplaetze["kletterturm"];
+            var schaukel = arrayspielplaetze["schaukel"];
        $scope.playlistdetails = [
-    { title: name, strasse: strasse, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse, url:url },
+    { title: name, strasse: strasse, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse, url:url, lat:lat, long:long,  kletterturm:kletterturm, schaukel:schaukel  },
   ];
 
 },

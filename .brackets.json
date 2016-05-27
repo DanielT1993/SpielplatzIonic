@@ -1,0 +1,7 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/spielplatzappionic/platforms/android/cordova/lib/builders/builders.js",
+        "C:/spielplatzappionic/login_desktop/js/login.js",
+        "C:/spielplatzappionic/platforms/android/cordova/lib/builders/GenericBuilder.js"
+    ]
+}

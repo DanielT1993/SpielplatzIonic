@@ -182,6 +182,24 @@ Apiomat.spielplatz.prototype.setFederwippe = function(_federwippe) {
 
         
 /**
+ * get Gesamtbewertungsp
+ * @return Gesamtbewertungsp
+ */
+Apiomat.spielplatz.prototype.getGesamtbewertungsp = function() 
+{
+    return this.data.gesamtbewertungsp;
+};
+
+/**
+ * set Gesamtbewertungsp
+ * @param Gesamtbewertungsp
+ */
+Apiomat.spielplatz.prototype.setGesamtbewertungsp = function(_gesamtbewertungsp) {
+    this.data.gesamtbewertungsp = _gesamtbewertungsp;
+};
+
+        
+/**
  * get Größe
  * @return Größe
  */
@@ -198,201 +216,22 @@ Apiomat.spielplatz.prototype.setGröße = function(_größe) {
     this.data.größe = _größe;
 };
 
-    /**
- * Returns an URL of the image.
- 
- <br/> You can provide several optional parameters to
- * manipulate the image:
- * 
- * @param width (optional)
- *            the width of the image, 0 to use the original size. If only width
- *            or height are provided, the other value is computed.
- * @param height (optional)
- *            the height of the image, 0 to use the original size. If only width
- *            or height are provided, the other value is computed.
- * @param backgroundColorAsHex (optional)
- *            the background color of the image, null or empty uses the original
- *            background color. Caution: Don't send the '#' symbol! Example:
- *            <i>ff0000</i>
- * @param alpha (optional)
- *            the alpha value of the image (between 0 and 1), null to take the original value.
- * @param format (optional)
- *            the file format of the image to return, e.g. <i>jpg</i> or <i>png</i>
-  * @return the URL of the image
- */
-Apiomat.spielplatz.prototype.getHauptbildURL = function(width, height, bgColorAsHex, alpha, format) 
-{
-    var url = this.data.hauptbildURL;
-    if(!url)
-    {
-        return undefined;
-    }
-    url += ".img?apiKey=" + Apiomat.User.AOMAPIKEY + "&system=" + Apiomat.User.AOMSYS;
-    if (width) {
-        url += "&width=" + width;
-    }
-    if (height) {
-        url += "&height=" + height;
-    }
-    if (bgColorAsHex) {
-        url += "&bgcolor=" + bgColorAsHex;
-    }
-    if (alpha) {
-        url += "&alpha=" + alpha;
-    }
-    if (format) {
-        url += "&format=" + format;
-    }
-    return url;
-}
-
+        
 /**
- * Callback required by loadHauptbild function.
- * callback name loadHauptbildCountCallback
-  * @param {function} onOk Function is called when everything is ok. (containg image as bytearray)
-  * @param {function} onError Function is called when an error occurs. (containing the error object) 
+ * get Hauptbild
+ * @return Hauptbild
  */
-
-/** 
- * Load referenced object(s) and
- * add result from server to member variable of this class. <br/> You can provide several optional parameters to
- * manipulate the image:
- * 
- * @param width (optional)
- *            the width of the image, 0 to use the original size. If only width
- *            or height are provided, the other value is computed.
- * @param height (optional)
- *            the height of the image, 0 to use the original size. If only width
- *            or height are provided, the other value is computed.
- * @param bgColorAsHex (optional)
- *            the background color of the image, null or empty uses the original
- *            background color. Caution: Don't send the '#' symbol! Example:
- *            <i>ff0000</i>
- * @param alpha (optional)
- *            the alpha value of the image (between 0 and 1), null to take the original value.
- * @param format (optional)
- *            the file format of the image to return, e.g. <i>jpg</i> or <i>png</i>
- * @param {loadHauptbildCountCallback} _callback
-  * @return the ressource URL of the image
- */
-Apiomat.spielplatz.prototype.loadHauptbild = function(width, height, bgColorAsHex, alpha, format,_callback)
+Apiomat.spielplatz.prototype.getHauptbild = function() 
 {
-    var resUrl = this.getHauptbildURL(width, height, bgColorAsHex, alpha, format);
-    if (typeof resUrl == "undefined")
-    {
-        throw new Apiomat.ApiomatRequestError(
-                        Apiomat.Status.ATTACHED_HREF_MISSING,200);
-    }    
-    return Apiomat.Datastore.getInstance().loadResource(resUrl, _callback);
-}
-
-/**
- * Callback required by postHauptbild functions.
- * callback name postHauptbildCallback
- * @param {function} onOk Function is called when everything is ok.
- * @param {function} onError Function is called when an error occurs. (containing the error object) 
- */
-
-/**
- * add a image
- * @param _data imagedata as bytearray
- * @param {postHauptbildCallback} _callback
- */
-Apiomat.spielplatz.prototype.postHauptbild = function(_data, _callback) 
-{
-    var postCB = {
-            onOk : function(_imgHref) {
-                if (_imgHref) {
-                    this.parent.data.hauptbildURL = _imgHref;
-                    /* update object again */
-                    this.parent.save({
-                        onOk : function() {
-                            Apiomat.Datastore.positiveCallback(_callback);
-                        },
-                        onError : function(error) {
-                            var deleteCB = {
-                                onOk : function() {
-                                    Apiomat.Datastore.negativeCallback(_callback,error);
-                                },
-                                onError : function(e) {
-                                    Apiomat.Datastore.negativeCallback(_callback,error);
-                                }
-                            };
-                            Apiomat.Datastore.getInstance().deleteOnServer(_imgHref, deleteCB);
-                            delete this.parent.data.hauptbildURL;
-                        }
-                    });
-                }
-                else {
-                    var error = new Apiomat.ApiomatRequestError(Apiomat.Status.HREF_NOT_FOUND);
-                    if (_callback) {
-                        Apiomat.Datastore.negativeCallback(_callback,error);
-                    } else if(console && console.log) {
-                        console.log("Error occured: " + error);
-                    }
-                }
-            },
-            onError : function(error) {
-                Apiomat.Datastore.negativeCallback(_callback,error);
-            }
-    };
-    postCB.parent = this;
-    if(Apiomat.Datastore.getInstance().shouldSendOffline("POST"))
-    {
-        Apiomat.Datastore.getInstance( ).sendOffline( "POST", null, _data, true, postCB );
-    }
-    else
-    {
-        Apiomat.Datastore.getInstance().postStaticDataOnServer(_data, true, postCB);
-    }
+    return this.data.hauptbild;
 };
 
 /**
- * Callback required by deleteHauptbild functions.
- * callback name deleteHauptbildCallback
- * @param {function} onOk Function is called when everything is ok.
- * @param {function} onError Function is called when an error occurs. (containing the error object) 
+ * set Hauptbild
+ * @param Hauptbild
  */
-
-/**
- * delete a image
- * @param {deleteHauptbildCallback} _callback
- */
-Apiomat.spielplatz.prototype.deleteHauptbild = function(_callback) 
-{
-    var imageHref = this.data.hauptbildURL;
-	// First try to delete the attribute and then save, to find out if the caller is allowed to do so
-    delete this.data.hauptbildURL;
-    /* update object again and save deleted image reference in object */
-    var saveCB= {
-        onOk : function() {
-            //save was successful, now call delete on server
-            var deleteCB = {
-                onOk : function() {
-                    Apiomat.Datastore.positiveCallback(_callback);
-                },
-                onError : function(error) {
-                    Apiomat.Datastore.negativeCallback(_callback,error);
-                }
-             };
-             if(Apiomat.Datastore.getInstance().shouldSendOffline("DELETE"))
-             {
-                 Apiomat.Datastore.getInstance( ).sendOffline( "DELETE", imageHref, null, null, deleteCB );
-             }
-             else
-             {
-                 Apiomat.Datastore.getInstance().deleteOnServer(imageHref, deleteCB);
-             }
-        },
-        onError : function(error) {
-            //save was unsuccessful, reset data
-            this.parent.data.hauptbildURL=imageHref;
-        
-           Apiomat.Datastore.negativeCallback(_callback,error);
-           }
-    };
-	saveCB.parent=this;
-    this.save(saveCB);
+Apiomat.spielplatz.prototype.setHauptbild = function(_hauptbild) {
+    this.data.hauptbild = _hauptbild;
 };
 
         
