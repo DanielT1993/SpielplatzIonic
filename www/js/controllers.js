@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic'])
+angular.module('starter.controllers', [])
 
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
@@ -161,7 +161,7 @@ angular.module('starter.controllers', ['ionic'])
      
     //Array anlegen
     $scope.playlists = [];    
-    Apiomat.spielplatz.getspielplatzs(undefined, {
+    Apiomat.spielplatz.getspielplatzs("", {
     onOk : function(loadedObjs) {
         
     //Now you can do sth with loaded objects (loadedObjs)
