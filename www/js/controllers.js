@@ -57,9 +57,8 @@ angular.module('starter.controllers', ['ionic'])
   
     var lat2=0;
         var long2=0;
-    function initialize() {
-        
-        var url = ($stateParams.spielplatzId);
+    
+    var url = ($stateParams.spielplatzId);
     var id = "id == id("+url+")";
     
     var idbewertung = "bewertungsid == ("+url+")";
@@ -74,17 +73,20 @@ angular.module('starter.controllers', ['ionic'])
            lat2 = arraylocation["latitude"];
            long2 = arraylocation["longitude"]; 
         }
-        
+        initialize(lat2, long2);
     },
     onError : function(error) {
     //handle error
     }
-    });      
+    });
+    function initialize(lat2, long2) {
+        
+              
        
         google.maps.event.addDomListener(window, 'load');
          
 
-        var myLatlng = new google.maps.LatLng(49.351648, 9.148309);
+        var myLatlng = new google.maps.LatLng(lat2, long2);
 
         var mapOptions = {
             center: myLatlng,
