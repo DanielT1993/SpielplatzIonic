@@ -19,3 +19,12 @@ return false;
 }
 }
 }
+
+function logout() {
+	alert("Logout erfolgreich!");
+}
+
+
+function download(){
+            window.location = "www.play.google.com/store?hl=de";
+}
