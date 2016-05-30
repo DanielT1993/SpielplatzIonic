@@ -20,6 +20,31 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       StatusBar.styleDefault();
     }
   });
+    
+    var user = new Apiomat.User();
+    user.setUserName("user1");
+    user.setPassword("user1");
+    Apiomat.Datastore.configureWithCredentials(user);
+ 
+    var saveCB = {
+      onOk: function() {
+       
+        
+      },
+      onError: function(error) {
+       
+      }
+    };
+    user.loadMe({
+      onOk: function() {
+      
+        
+      },
+      onError: function(error) {
+       
+        user.save(saveCB);
+      }
+    });
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
