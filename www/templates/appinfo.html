@@ -1,8 +1,26 @@
-<ion-view view-title="Appinformation" ng-controller="MapCtrl">
+<ion-view view-title="Appinformation">
   <ion-content>
-    <div id="map" data-tap-disabled="true"></div>
+     
+      <div  id="appinfo-logo" style="text-align: center">
+       <img class="responsive-img" src="img/slidoo_logo.png" alt="" style="width:50%">
+          <div id="appinfo-h1">Slidoo</div>
+          <div style="color:#c94566; font-size:1.5em;">Deine SpielplatzApp</div>
+      </div>
+      
+      <div  id="appinfo-rotaract" style="text-align: center">
+            <div id="appinfo-rotaract-project">- Ein Projekt von Rotaract -</div>
+            <img class="responsive-img" src="img/rotaract.png" alt="" style="width:60%">          
+      </div>
+      <div style="text-align:center">
+            <div  class="appinfo-text">
+                    <p>Bei Rotaract treffen sich junge Leute zwischen 18 und 30 Jahren, die das gemeinsame Motto „Lernen – Helfen – Feiern“ verbindet. Mehr als 3.100 Mitglieder in über 170 Rotaract Clubs deutschlandweit setzen sich zusammen für andere ein und tragen durch Freundschaft, Fairness und Toleranz zur internationalen Verständigung bei.</p>
+                    <p>Die App ist ebenfalls eine Idee von Rotaract Mitgliedern. Konzeptionell ausgearbeitet und entwickelt wurde Swodoo von einer Gruppe Studenten im Rahmen eines studentischen Projektes der DHBW Mosbach. </p>
+                      <div id="appinfo-link"><a style="color: #c94566;" href="#/app/login"><div style="margin-top:1em"><img class="responsive-img" src="img/login.png" alt="" style="float:left; ">  <div style="float:left; padding-top: 0.4em; margin-left:0.5em;">  HIER GEHTS ZUM KOMMUNE-LOGIN</div></div></a>
+
+            </div>
+      </div> 
+         
+
+         </div>
   </ion-content>
-    <ion-footer-bar class="bar-dark">
-      <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
-    </ion-footer-bar>
 </ion-view>

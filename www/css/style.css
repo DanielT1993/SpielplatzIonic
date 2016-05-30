@@ -194,3 +194,48 @@ span.stars, span.stars span {
 span.stars span {
     background-position: 0 0;
 }
+
+.appinfo-text{
+    font-size:0.9em;
+    text-align:center;
+    display:inline-block;
+    margin-top:3em;
+    color:#424242;
+    width:80%;
+    
+}
+
+#appinfo-logo{
+    padding-bottom:4em;
+    margin-right:10%;
+    margin-left:10%;
+    margin-top:5em;
+    border-bottom: 0.5px solid #b5afaf;
+    
+}
+
+#appinfo-h1{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    color:#831342;
+    font-size:3.5em;
+}
+
+#appinfo-rotaract{
+    margin-top:4em;
+}
+
+#appinfo-rotaract-project{
+    color:#424242;
+    font-size:1.5em;
+    padding-bottom:0.5em;
+}
+
+#appinfo-link{
+    margin-top:4em;
+    border-top: 0.5px solid #b5afaf;
+   
+    margin-bottom:10em;
+    color:#c94566;
+    vertical-align: middle; 
+}
