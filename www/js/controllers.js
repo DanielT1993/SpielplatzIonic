@@ -155,12 +155,16 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('PlaylistsCtrl', function($scope) { 
+.controller('PlaylistsCtrl', function($scope, $scope) { 
+
+
       var posa = 0;
       var posb = 0;   
+      avg = 0;
      
     //Array anlegen
-    $scope.playlists = [];    
+    $scope.playlists = [];  
+    $scope.arraysums = [];    
     Apiomat.spielplatz.getspielplatzs("", {
     onOk : function(loadedObjs) {
         
@@ -169,14 +173,19 @@ angular.module('starter.controllers', [])
         var arrayspielplaetze = loadedObjs[i]["data"];
         //Ausgabe in Konsole
         var name = arrayspielplaetze["name"];
+        var strasse = arrayspielplaetze["straße"];
+        var nummer = arrayspielplaetze["hausnummer"];
+        var stadtteil = arrayspielplaetze["stadtteil"];
+
         var id = arrayspielplaetze["id"];
-        
         
       function success(pos){
         posa = pos.coords.longitude; 
         posb = pos.coords.latitude;
       }    
-    
+     // alert(posa);   
+      
+
       if (navigator.geolocation){         
          navigator.geolocation.getCurrentPosition(success);
       }else{
@@ -195,7 +204,35 @@ angular.module('starter.controllers', [])
       var d = R * c; // Distance in km
       var gerundetd = Math.round(d * 100)/100;
 
-      $scope.playlists.push({ title: name, ort: gerundetd + " km", color: '#FF880E', id : id });
+        var spid = "bewertungsid == ("+id+")";//document.getElementById("spid").innerHTML ;
+        var sum = 0;
+        //var avg =0;
+        //alert(spid);
+          Apiomat.bewertungen.getbewertungens(spid, {
+          onOk : function(loadedObjs) {
+          //alert(loadedObjs.length);
+          for (i = 0; i < loadedObjs.length; i++) {
+                var arraybewertungen = loadedObjs[i]["data"];
+                //Ausgabe in Konsole
+                var bewertungaus = arraybewertungen["gesamtbewertung"];
+                sum +=  parseInt(bewertungaus);
+          }
+          avg = sum/loadedObjs.length;
+          console.log(avg);
+          //alert(avg);
+          $scope.arraysums.push({ avg: avg});
+          },
+
+
+          onError : function(error) {
+          //handle error
+          }
+
+      })
+
+
+
+      $scope.playlists.push({ title: name, strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, ort: gerundetd + " km", color: '#FF880E', id:id, avg: avg});
         
       }
     },
@@ -203,6 +240,9 @@ angular.module('starter.controllers', [])
     onError : function(error) {
     }
     });
+        
+
+
 }
 )
 
@@ -304,6 +344,8 @@ onError : function(error) {
           }
 
 });
+
+
     
  
 

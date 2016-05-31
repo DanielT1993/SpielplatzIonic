@@ -10,16 +10,31 @@
     
 
     <ion-list>
-      <ion-item ng-repeat="playlist in playlists  | orderBy:'ort'" class="superclick" href="#/app/playlists/{{playlist.id}}">
-    <ul class="collection">
-    <li class="collection-item avatar">
-      <img src="img/ionic.png" style="border:5px solid {{playlist.color}}" alt="" class="circle">
-      <span class="title">{{playlist.title}}</span>
-      <p>{{playlist.ort}} <br>
-         
+      <ion-item ng-repeat="playlist in playlists  | orderBy:'ort'" class="superclick" >
+      <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="responsive-image" src="img/Spielplatz_Niederdorf.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">{{playlist.title}}
+              <i class="material-icons right">more_vert</i></span></br>
+              <p style="float: right"><i class="material-icons" style="">room</i>{{playlist.ort}}</p>
+              <p style="">{{playlist.strasse}} {{playlist.hausnummer}}</p>
+              <p style="">{{playlist.stadtteil}}</p>
+              </br>
+              <div class="collection">
+                <a href="#/app/playlists/{{playlist.id}}" class="collection-item active" style="text-align: center">Spielplatz ansehen</a>
+              </div>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">{{playlist.title}}<i class="material-icons right">close</i></span>
+              <p>{{playlist.ort}}</p>
+            </div>
+      </div>
+      <span class="title"></span>
+      <p><br>   
       </p>
-    </li>
-          </ul>    
+  
     </ion-item>
     </ion-list>
   </ion-content>
