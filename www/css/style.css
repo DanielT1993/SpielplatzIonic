@@ -26,12 +26,12 @@
   display: inline-block;
   text-indent: -9999px;
   content: "☆";
-    font-size: 2em;
+    font-size: 1.5em;
   color: orange;
 }
 .star-cb-group > input:checked ~ label:before, .star-cb-group > input + label:hover ~ label:before, .star-cb-group > input + label:hover:before {
   content: "★";
-    font-size: 2em;
+    font-size: 1.5em;
   color: orange;
 
 }
@@ -45,13 +45,13 @@
 }
 .star-cb-group:hover > input + label:before {
   content: "☆";
-    font-size: 2em;
+    font-size: 1.5em;
   color: orange;
   text-shadow: none;
 }
 .star-cb-group:hover > input + label:hover ~ label:before, .star-cb-group:hover > input + label:hover:before {
   content: "★";
-    font-size: 2em;
+    font-size: 1.5em;
   color: orange;
 
 }
@@ -83,12 +83,12 @@
   display: inline-block;
   text-indent: -9999px;
   content: "☆";
-    font-size: 2em;
+    font-size: 1.5em;
   color: orange;
 }
 .star-cb-group-spass > input:checked ~ label:before, .star-cb-group-spass > input + label:hover ~ label:before, .star-cb-group-spass > input + label:hover:before {
   content: "★";
-    font-size: 2em;
+    font-size: 1.5em;
   color: orange;
 
 }
@@ -99,13 +99,13 @@
 }
 .star-cb-group-spass:hover > input + label:before {
   content: "☆";
-    font-size: 2em;
+    font-size: 1.5em;
   color: orange;
   text-shadow: none;
 }
 .star-cb-group-spass:hover > input + label:hover ~ label:before, .star-cb-group-spass:hover > input + label:hover:before {
   content: "★";
-    font-size: 2em;
+    font-size: 1.5em;
   color: orange;
 
 }
@@ -137,12 +137,12 @@
   display: inline-block;
   text-indent: -9999px;
   content: "☆";
-  font-size: 2em;
+  font-size: 1.5em;
   color: orange;
 }
 .star-cb-group-sicherheit > input:checked ~ label:before, .star-cb-group-sicherheit > input + label:hover ~ label:before, .star-cb-group-sicherheit > input + label:hover:before {
   content: "★";
-    font-size: 2em;
+    font-size: 1.5em;
   color: orange;
 
 }
@@ -153,13 +153,13 @@
 }
 .star-cb-group-sicherheit:hover > input + label:before {
   content: "☆";
-    font-size: 2em;
+    font-size: 1.5em;
   color: orange;
   text-shadow: none;
 }
 .star-cb-group-sicherheit:hover > input + label:hover ~ label:before, .star-cb-group-sicherheit:hover > input + label:hover:before {
   content: "★";
-  font-size: 2em;
+  font-size: 1.5em;
   color: orange;
 
 }
