@@ -176,6 +176,11 @@ angular.module('starter.controllers', [])
         var strasse = arrayspielplaetze["straße"];
         var nummer = arrayspielplaetze["hausnummer"];
         var stadtteil = arrayspielplaetze["stadtteil"];
+        var plz = arrayspielplaetze["plz"];
+        var altersgruppe = arrayspielplaetze["altersgruppe"];
+        var groesse = arrayspielplaetze["größe"];
+        var status = arrayspielplaetze["status"];
+        var bild = arrayspielplaetze["hauptbild"];
 
         var id = arrayspielplaetze["id"];
         
@@ -232,7 +237,7 @@ angular.module('starter.controllers', [])
 
 
 
-      $scope.playlists.push({ title: name, strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, ort: gerundetd + " km", color: '#FF880E', id:id, avg: avg});
+      $scope.playlists.push({ title: name, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status , plz: plz ,strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, ort: gerundetd + " km", color: '#FF880E', id:id, avg: avg});
         
       }
     },

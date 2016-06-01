@@ -3,22 +3,40 @@
   <ion-content>
   
     <div class="button-bar">
-      <a class="button" href="#/app/playlists">Entfernung</a> 
-      <a class="button" href="#/app/playlistsRating" ng-class="{'active': activeButton == $index}">Bewertung</a> 
-      <a class="button" href="#/app/playlistsTitle">Alphabetisch</a> 
+      <a class="button" href="#/app/playlists"><i class="material-icons" style="padding-top: 15px">room</i></a> 
+      <a class="button" href="#/app/playlistsRating" ng-class="{'active': activeButton == $index}"><i class="material-icons" style="padding-top: 15px">grade</i></a> 
+      <a class="button" href="#/app/playlistsTitle"><i class="material-icons" style="padding-top: 15px">sort_by_alpha</i></a> 
     </div>
 
     <ion-list>
-      <ion-item ng-repeat="playlist in playlists  | orderBy:'bewertung'" class="superclick" href="#/app/playlists/{{playlist.id}}">
-    <ul class="collection">
-    <li class="collection-item avatar">
-      <img src="img/ionic.png" style="border:5px solid {{playlist.color}}" alt="" class="circle">
-      <span class="title">{{playlist.title}}</span>
-      <p>{{playlist.ort}} <br>
-         
-      </p>
-    </li>
-          </ul>    
+      <ion-item ng-repeat="playlist in playlists  | orderBy:'bewertung'" class="superclick" >
+      <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="responsive-image" src="img/{{playlist.bild}}">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">{{playlist.title}}
+              <i class="material-icons right">more_vert</i></span></br>
+              <p style="float: right"><i class="material-icons" style="">room</i>{{playlist.ort}}</p>
+              <p style="">{{playlist.strasse}} {{playlist.hausnummer}}</p>
+              <p style="">{{playlist.plz}}</p>
+              <p style="">{{playlist.stadtteil}}</p>
+              </br>
+              <div class="collection">
+                <a href="#/app/playlists/{{playlist.id}}" class="collection-item active" style="text-align: center">Spielplatz ansehen</a>
+              </div>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">{{playlist.title}}<i class="material-icons right">close</i></span>
+              <p></br><i class="material-icons" style="">room</i>{{playlist.ort}} entfernt</p> </br>
+              <p style="">{{playlist.strasse}} {{playlist.hausnummer}}</p>
+              <p style="">{{playlist.plz}} Aschaffenburg</p>
+              <p style="">{{playlist.stadtteil}}</p></br>
+              <p style=""><strong>Altersgruppe: </strong>{{playlist.altersgruppe}}</p>
+              <p style=""><strong>Größe: </strong>{{playlist.groesse}} m²</p>
+              <p style=""><strong>Spielplatzstatus: </strong>{{playlist.status}}</p>
+            </div>
+      </div>
     </ion-item>
     </ion-list>
   </ion-content>

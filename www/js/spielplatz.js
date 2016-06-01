@@ -94,6 +94,30 @@ function logout(){
     window.location = "#/app/login"; 
 }
 
+function sterne(){
+    var id = "id == id(5731c934e4b0d0bb222035ef)";
+    var zahl = 4;
+
+    var myspielplatz = new Apiomat.spielplatz();
+        myspielplatz.load(id, {
+          onOk: function() {
+            myspielplatz.setGesamtbewertungsp(zahl);
+            myspielplatz.save({
+              onOk: function() {
+                //do some other stuff here
+                alert("successfully saved");
+              },
+              onError: function() {
+                console.log(error);
+              }
+            })
+          },
+          onError: function(error) {
+            console.log(error);
+          }
+        });
+}
+
 
 
 var attempt = 3;
@@ -117,5 +141,6 @@ var attempt = 3;
         }
     }
 }
+
 
 

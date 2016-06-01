@@ -164,24 +164,6 @@ Apiomat.spielplatz.prototype.setBallsport = function(_ballsport) {
 
         
 /**
- * get Federwippe
- * @return Federwippe
- */
-Apiomat.spielplatz.prototype.getFederwippe = function() 
-{
-    return this.data.federwippe;
-};
-
-/**
- * set Federwippe
- * @param Federwippe
- */
-Apiomat.spielplatz.prototype.setFederwippe = function(_federwippe) {
-    this.data.federwippe = _federwippe;
-};
-
-        
-/**
  * get Gesamtbewertungsp
  * @return Gesamtbewertungsp
  */
@@ -344,6 +326,24 @@ Apiomat.spielplatz.prototype.setName = function(_name) {
 
         
 /**
+ * get Plz
+ * @return Plz
+ */
+Apiomat.spielplatz.prototype.getPlz = function() 
+{
+    return this.data.plz;
+};
+
+/**
+ * set Plz
+ * @param Plz
+ */
+Apiomat.spielplatz.prototype.setPlz = function(_plz) {
+    this.data.plz = _plz;
+};
+
+        
+/**
  * get Rutsche
  * @return Rutsche
  */
@@ -448,6 +448,42 @@ Apiomat.spielplatz.prototype.getSitzgelegenheiten = function()
  */
 Apiomat.spielplatz.prototype.setSitzgelegenheiten = function(_sitzgelegenheiten) {
     this.data.sitzgelegenheiten = _sitzgelegenheiten;
+};
+
+        
+/**
+ * get Sonstiges
+ * @return Sonstiges
+ */
+Apiomat.spielplatz.prototype.getSonstiges = function() 
+{
+    return this.data.sonstiges;
+};
+
+/**
+ * set Sonstiges
+ * @param Sonstiges
+ */
+Apiomat.spielplatz.prototype.setSonstiges = function(_sonstiges) {
+    this.data.sonstiges = _sonstiges;
+};
+
+        
+/**
+ * get Spielobjekt
+ * @return Spielobjekt
+ */
+Apiomat.spielplatz.prototype.getSpielobjekt = function() 
+{
+    return this.data.spielobjekt;
+};
+
+/**
+ * set Spielobjekt
+ * @param Spielobjekt
+ */
+Apiomat.spielplatz.prototype.setSpielobjekt = function(_spielobjekt) {
+    this.data.spielobjekt = _spielobjekt;
 };
 
         
