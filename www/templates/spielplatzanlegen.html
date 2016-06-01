@@ -2,8 +2,13 @@
             <ion-content >
                 <ion-list>            
                   <ion-item class="input-field col s6">
-                  <div class="row">
+                      <div>                     
+                      
+                      
                     <form class="col s12">
+                        <h2>Location</h2> 
+                           
+               
                       <div class="row">
                         <div class="input-field col s6">
                           <input id="spielplatzname" type="text" class="validate">
@@ -15,45 +20,20 @@
                           <input id="spielplatzstraße" type="text" class="validate">
                           <label >Straße</label>
                         </div>
+                        </div>
+                          
+                        <div class="row">  
                         <div class="input-field col s6">
                           <input id="hausnummer" type="number" class="validate">
                           <label >Hausnummer</label>
                         </div>
-                      </div>
-                      <div class="row">
+                      
                         <div class="input-field col s6">
-                            <select>
-                              <option value="1">Stadtteil F</option>
-                              <option value="2">Stadtteil B</option>
-                              <option value="3">Stadtteil A</option>
-                            </select>
-                            <label>Stadtteil</label>
+                          <input id="plz" type="number" class="validate">
+                          <label >Postleitzahl</label>
                         </div>
-                        <div class="input-field col s6">   
-                            <select multiple>
-                              <option value="1">2 - 5 Jahre</option>
-                              <option value="2">6 - 10 Jahre</option>
-                              <option value="3">11 - 15 Jahre</option>
-                            </select>
-                                <label>Altersgruppe</label>                    
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="input-field col s6">
-                          <input id="groesse" type="number" class="validate">
-                          <label >Größe</label>
                         </div>
-                        
-                        <div class="input-field col s6">
-                          <input id="status" type="text" class="validate">
-                          <label >Status</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                          <div class="input-field col s6">
-                          <input id="sitzgelegenheiten" type="text" class="validate">
-                          <label >Sitzgelegenheiten</label>
-                        </div>
+                        <div class="row">  
                         <div class="input-field col s6">
                           <input id="latitude" type="number" class="validate">
                           <label >Latitude</label>
@@ -63,13 +43,118 @@
                           <label >Longitude</label>
                         </div>
                       </div>
+        
                       <div class="row">
                         <div class="input-field col s6">
-                          <input id="seilbahn" type="number" class="validate">
-                          <label >Seilbahn</label>
+                            <select id="stadtteil">
+                              <option  value="1">Gailbach</option>
+                              <option  value="2">Nilkheim</option>
+                              <option  value="3">Obernau</option>
+                                <option  value="4">Schweinheim</option>
+                              <option  value="5">Strietwald</option>
+                            </select>
+                            <label>Stadtteil</label>
+                        </div>
+                        </div>
+                      <h2>Struktur</h2> 
+                        <div class="row">
+                         <div class="input-field col s6">
+                            <select id="alter">
+                              <option  value="1">Bis 5 Jahre</option>
+                              <option  value="2">Bis 10 Jahre</option>
+                              <option  value="3">Bis 15 Jahre</option>
+                            </select>
+                            <label>Altersgruppe</label>
                         </div>
                       </div>
+                        <div class="row">
+                           <div class="input-field col s6">
+                            <select id="sitzgelegenheiten">
+                              <option  value="1">Für bis zu 5 Personen</option>
+                              <option  value="2">Für bis zu 15 Personen</option>
+                              <option  value="3">für mehr als 20 Personen</option>
+                            </select>
+                            <label>Anzahl Sitzgelegenheiten</label>
+                        </div>
+                         </div> 
                       <div class="row">
+                          <div class="input-field col s6">
+                          <input id="groesse" type="number" class="validate">
+                          <label >Größe in m2</label>
+                        </div>
+                        
+                        <div class="input-field col s12">
+                        <select id=status>
+                          <option value="1">Bespielbar</option>
+                          <option value="2">Nicht bespielbar</option>
+                        </select>
+                        <label>Status</label>
+                      </div>
+                          
+                         
+                          
+                      </div>
+                        <h2>Ausstattung</h2> 
+                        <div class="row" >
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="rutsche" />
+                                <label for="rutsche">Rutsche</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="kletterturm" />
+                                <label for="kletterturm">Kletterturm</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="wippe" />
+                                <label for="wippe">Wippe</label>
+                            </div>
+                        </div>
+                        
+                        <div class="row" >
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="ballsport" />
+                                <label for="ballsport">Ballsport</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="tischtennis" />
+                                <label for="tischtennis">Tischtennis</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="schaukel" />
+                                <label for="schaukel">Schaukel</label>
+                            </div>
+                        </div>
+                        
+                          <div class="row" >
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="sandkasten" />
+                                <label for="sandkasten">Sandkasten</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="wasserspiele" />
+                                <label for="wasserspiele">Wasserspiele</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="klettergerust" />
+                                <label for="klettergerust">Klettergerüst</label>
+                            </div>
+                        </div>
+                          <div class="row" >
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="seilbahn" />
+                                <label for="seilbahn">Seilbahn</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="spielobjekt" />
+                                <label for="spielobjekt">Spielobjekt</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="sonstiges" />
+                                <label for="sonstiges">Sonstiges</label>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
                         <div class="input-field col s6" style="margin-bottom: 100px">
                           <label class="item">
                             <button class="waves-effect waves-light btn" type="submit" onclick="neuerSpielplatz()">Spielplatz anlegen</button>
@@ -83,6 +168,7 @@
                           </label>
                         </div>
                       </div>
+                      
                     </form>
                   </div>
                   </ion-item>
