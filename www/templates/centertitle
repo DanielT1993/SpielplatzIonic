@@ -48,23 +48,29 @@
       <a class="button" href="centerrating.html"><i class="material-icons" style="padding-top: 15px">grade</i></a>
       <a class="button" href="centertitle.html"><i class="material-icons" style="padding-top: 15px">sort_by_alpha</i></a> 
     </div>
-    
 
+<ion-view view-title="Alle Spielplätze anzeigen" >
 
-
-			<ion-view view-title="Alle Spielplätze anzeigen" >
-  
-    <ion-content>
+  <ion-content>
   
     <div class="button-bar">
-      <a class="button" href="#/app/playlists" ng-class="{'active': activeButton == $index}"><i class="material-icons" style="padding-top: 15px">room</i></a>
-      <a class="button" href="#/app/playlistsRating"><i class="material-icons" style="padding-top: 15px">grade</i></a>
+      <a class="button" href="#/app/playlists"><i class="material-icons" style="padding-top: 15px">room</i></a> 
+      <a class="button" href="#/app/playlistsRating" ng-class="{'active': activeButton == $index}"><i class="material-icons" style="padding-top: 15px">grade</i></a> 
       <a class="button" href="#/app/playlistsTitle"><i class="material-icons" style="padding-top: 15px">sort_by_alpha</i></a> 
     </div>
-    
+<ion-view view-title="Alle Spielplätze anzeigen" >
+  <ion-content>
+
+
+   <div class="button-bar">
+      <a class="button" href="#/app/playlists"><i class="material-icons" style="padding-top:15px">room</i></a> 
+      <a class="button" href="#/app/playlistsRating"><i class="material-icons" style="padding-top: 15px">grade</i></a> 
+      <a class="button" href="#/app/playlistsTitle" ng-class="{'active': activeButton == $index}"><i class="material-icons" style="padding-top: 15px">sort_by_alpha</i></a> 
+    </div>
+
 
     <ion-list>
-      <ion-item ng-repeat="playlist in playlists  | orderBy:'ort'" class="superclick" >
+      <ion-item ng-repeat="playlist in playlists | orderBy:'title'" >
       <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="responsive-image" src="img/{{playlist.bild}}">
@@ -92,14 +98,12 @@
               <p style=""><strong>Spielplatzstatus: </strong>{{playlist.status}}</p>
             </div>
       </div>
-      <span class="title"></span>
-      <p><br>   
-      </p>
-  
     </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
+
+
 
 <!-- ende kopiert -->
 

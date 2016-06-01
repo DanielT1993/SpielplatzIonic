@@ -6,35 +6,30 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 		<title>slidoo</title>
+
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/centerstyle.css">
 		<link rel="stylesheet" href="css/materialize.css">				
 		<link rel="stylesheet" href="css/font-awesome.min.css">
-				      <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>		
 
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>		
     <script charset="utf-8" src="com/apiomat/apiomat.js"></script>
-    <script src="js/login.js"></script>
-    
+    <script src="js/login.js"></script>    
     <script charset="utf-8" src="js/spielplatz.js"></script>
+    <script charset="utf-8" src="js/controller.js"></script>
+    <script charset="utf-8" src="js/apiomat.js"></script>
     
     
 	</head>
 	<body onload="signup()" id="top" data-spy="scroll" data-target=".navbar-collapse">
     
 			
-
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
-				<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="icon icon-bar"></span>
-					<span class="icon icon-bar"></span>
-					<span class="icon icon-bar"></span>
-				</button>
+
         <a href="center.html" class="navbar-brand">slidoo</a>
 			</div>
 			<div class="collapse navbar-collapse">
@@ -47,8 +42,8 @@
 			</div>
 		</div>
 	</nav>
-	<section id="home" class="text-center">
-<ion-view view-title="Neuen Spielplatz anlegen">
+  <!-- kopiert aus spielplatzanlegen-->
+      <ion-view view-title="Neuen Spielplatz anlegen" onload="neuerSpielplatz()">
             <ion-content >
                 <ion-list>            
                   <ion-item class="input-field col s6">
@@ -71,14 +66,14 @@
                         </div>
                       </div>
                       <div class="row">
-                        <div class="input-field col s6">   
-                            <select multiple>
+                        <div class="input-field col s6">
+                            <select>
                               <option value="1">Stadtteil F</option>
                               <option value="2">Stadtteil B</option>
                               <option value="3">Stadtteil A</option>
                             </select>
-                                <label>Stadtteil</label>                    
-                          </div>
+                            <label>Stadtteil</label>
+                        </div>
                         <div class="input-field col s6">   
                             <select multiple>
                               <option value="1">2 - 5 Jahre</option>
@@ -87,7 +82,6 @@
                             </select>
                                 <label>Altersgruppe</label>                    
                           </div>
-                        
                       </div>
                       <div class="row">
                           <div class="input-field col s6">
@@ -127,7 +121,6 @@
                           </label>
                         </div>
                       </div>
-
                     </form>
                   </div>
                   </ion-item>
@@ -136,40 +129,8 @@
 </ion-view>
 
 
-	</section>	
 
 
-	<!-- start back to top -->
-	<a href="#top" class="go-top"><i class="fa fa-chevron-up fa-1x"></i></a>
-	<!-- end back to top -->
-	
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-	
-
-		<script>
-		$(document).ready(function() {
-			// FlexSlider 
-		  	$('.flexslider').flexslider({
-		      animation: "fade",
-		      directionNav: false
-		  	});
-
-			// Show or hide the sticky footer button
-			$(window).scroll(function() {
-				if ($(this).scrollTop() > 200) {
-					$('.go-top').fadeIn(200);
-				} else {
-					$('.go-top').fadeOut(200);
-				}
-			});		
-			// Animate the scroll to top
-			$('.go-top').click(function(event) {
-				event.preventDefault();
-				$('html, body').animate({scrollTop: 0}, 300);
-			})
-		});
-	</script>
 
 
 	</body>
