@@ -2,8 +2,17 @@
 <ion-view view-title="Bewertungdetail" >
   <ion-content >
     <ion-list>  
-        <ion-item >
-        <p>aaaa</p>
+        <ion-item ng-repeat="bewertungs in bewertung">
+
+                {{bewertungs.name}}
+                <p style="padding-top:15px;padding-bottom: 10px">Sauberkeit <span class="stars">{{bewertungs.sauber}}</span> </p>
+                <p style="padding-top:0px;padding-bottom: 10px">Sicherheit <span class="stars">{{bewertungs.sicher}} </span></p>
+                <p style="padding-top:0px;padding-bottom: 10px">Spielspaß <span class="stars">{{bewertungs.spass}}</span> </p>
+                <p style="padding-top:0px;padding-bottom: 10px"><b>Gesamtbewertung</b><span class="stars">{{bewertungs.bewertung}}</span> </p>
+                <p><b>{{bewertungs.kommentar}}</b></p>
+                <p style="padding-top:0px; white-space: normal;">{{bewertungs.freitext}} </p>
+
+             
  
        </ion-item>
     </ion-list>

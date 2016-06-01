@@ -48,10 +48,7 @@ angular.module('starter.controllers', [])
     $('select').material_select();
     
 })
-.controller('BewertungCtrl', function(){
-    $('select').material_select();
-    
-})
+
 
 
 .controller('KontaktCtrl', function() {
@@ -256,7 +253,46 @@ angular.module('starter.controllers', [])
 }
 )
 
+.controller('BewertungCtrl', function($stateParams, $scope){
 
+    $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+        });
+      });
+    var url = ($stateParams.bewertungId);
+    var id = "id == id("+url+")";
+    $scope.bewertung = []; 
+
+    Apiomat.bewertungen.getbewertungens(id, {
+    onOk : function(loadedObjs) {
+    //Now you can do sth with loaded objects (loadedObjs)
+    //Now you can do sth with loaded objects (loadedObjs)
+        for (i = 0; i < loadedObjs.length; i++) {
+          var arraybewertungen = loadedObjs[i]["data"];
+          //Ausgabe in Konsole
+          var name = arraybewertungen["nickname"];
+          var kommentar = arraybewertungen["ueberschriftbewertungskommentar"];
+          var freitext = arraybewertungen["textbewertung"];
+          var sauber = arraybewertungen["sauberkeit"];
+          var sicher = arraybewertungen["sicherheit"];
+          var spass = arraybewertungen["spielspass"];
+          var bewertungaus = arraybewertungen["gesamtbewertung"];
+
+          $scope.bewertung.push({ name: name, bewertung: bewertungaus, kommentar: kommentar, freitext: freitext, sauber: sauber, sicher: sicher, spass: spass});
+
+          }
+    },
+    onError : function(error) {
+    //handle error
+    }
+    });
+
+        
+
+
+    
+})
 
 .controller('DetailSpielplatzCtrl', function($scope, $scope, $scope, $stateParams, $scope, $ionicLoading, $compile ) {
 
