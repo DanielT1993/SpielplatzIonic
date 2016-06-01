@@ -1,31 +1,4 @@
 
-function signup()
-  {
-    var user = new Apiomat.User();
-    user.setUserName("jackyd1221");
-    user.setPassword("dhbwmos");
-    Apiomat.Datastore.configureWithCredentials(user);
- 
-    var saveCB = {
-      onOk: function() {
-       
-        
-      },
-      onError: function(error) {
-       
-      }
-    };
-    user.loadMe({
-      onOk: function() {
-      
-        
-      },
-      onError: function(error) {
-       
-        user.save(saveCB);
-      }
-    });
-  }
 
 function neuerSpielplatz() {
     

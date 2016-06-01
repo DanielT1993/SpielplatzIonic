@@ -1,31 +1,27 @@
-<!DOCTYPE html>
 <html lang="de">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-		<title>slidoo</title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>slidoo</title>
 
-    <link rel="stylesheet" href="www/css/materialize.css">
     <link href="http://fonts.googleapis.com/icon?family=Material%20Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>   		
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>   
 
-    <script charset="utf-8" src="www/com/apiomat/apiomat.js"></script>
-    <script src="www/js/apiomat.js"></script>     
-    <script src="www/js/app.js"></script> 
-    <script src="www/js/controller.js"></script>     
-    <script src="www/js/login.js"></script>    
-    <script charset="utf-8" src="www/js/materialize.js"></script>   
-    <script charset="utf-8" src="www/js/spielplatz.js"></script>
-
-	</head>
-	<body onload="signup()" id="top" data-spy="scroll" data-target=".navbar-collapse">
     
-			
+    <script src="js/login.js"></script>    
+    <!--<script charset="utf-8" src="js/spielplatzanlegendesktop.js"></script> -->
+    <script charset="utf-8" src="com/apiomat/apiomat.js"></script>
+    
+  </head>
+   <body onload="signup()">
+    
+    <input type="button" id="addTask" onclick="neuerSpielplatzdesktop()" value="Add new task" />
+    
+        
   <nav>
     <div class="nav-wrapper">
       <a href="#" class="brand-logo left">slidoo</a>
@@ -40,25 +36,15 @@
 
 <!-- ab hier von playlist kopiert -->
 
-			<ion-view view-title="Alle Spielplätze anzeigen" >
   
-    <ion-content>
-  
-    <div class="button-bar">
-      <a class="button" href="#/app/playlists" ng-class="{'active': activeButton == $index}"><i class="material-icons" style="padding-top: 15px">room</i></a>
-      <a class="button" href="#/app/playlistsRating"><i class="material-icons" style="padding-top: 15px">grade</i></a>
-      <a class="button" href="#/app/playlistsTitle"><i class="material-icons" style="padding-top: 15px">sort_by_alpha</i></a> 
-    </div>
-    
-
     <div class="button-bar">
       <a class="button" href="center.html"><i class="material-icons" style="padding-top: 15px">room</i></a> 
       <a class="button" href="centerrating.html" ng-class="{'active': activeButton == $index}"><i class="material-icons" style="padding-top: 15px">grade</i></a> 
       <a class="button" href="centertitle.html"><i class="material-icons" style="padding-top: 15px">sort_by_alpha</i></a> 
     </div>
+    
 
-   
-      <div class="card">
+<div class="card">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="responsive-image" src="img/{{playlist.bild}}">
             </div>
@@ -85,11 +71,42 @@
               <p style=""><strong>Spielplatzstatus: </strong>{{playlist.status}}</p>
             </div>
       </div>
+                     
+                      
+                   
+  </body>
+ 
+  
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="../www/js/materialize.min.js"></script>
+  <script>
+ 
+function signup()
+  { 
+    var user = new Apiomat.User();
+    user.setUserName("test23");
+    user.setPassword("test23");
+    Apiomat.Datastore.configureWithCredentials(user);
+ 
+    var saveCB = {
+      onOk: function() {
+
+      },
+      onError: function(error) {
+
+      }
+    };
+    user.loadMe({
+      onOk: function() {
+
+      },
+      onError: function(error) {
+
+        user.save(saveCB);
+      }
+    });
+  }  
 
 
-
-<!-- ende kopiert -->
-<script type="text/javascript" src="www/js/materialize.min.js"></script>
-
-	</body>
+  </script>
 </html>
