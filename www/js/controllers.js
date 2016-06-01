@@ -323,13 +323,25 @@ angular.module('starter.controllers', [])
     var hausnr = arrayspielplaetze["hausnummer"];
     var stadtteil = arrayspielplaetze["stadtteil"];
     var groesse = arrayspielplaetze["größe"];
-            var bild = arrayspielplaetze["hauptbild"];
-            var lat = arrayspielplaetze["latitude"];
-            var long = arrayspielplaetze["longitude"];
-            var kletterturm = arrayspielplaetze["kletterturm"];
-            var schaukel = arrayspielplaetze["schaukel"];
+    var bild = arrayspielplaetze["hauptbild"];
+    var lat = arrayspielplaetze["latitude"];
+    var long = arrayspielplaetze["longitude"];
+            
+    var rutsche = arrayspielplaetze["rutsche"];
+    var kletterturm = arrayspielplaetze["kletterturm"];
+    var wippe = arrayspielplaetze["wippe"];
+    var tischtennis = arrayspielplaetze["tischtennis"];
+    var ballspielfeld = arrayspielplaetze["ballsport"];
+    var schaukel = arrayspielplaetze["schaukel"];
+    var sandkasten = arrayspielplaetze["sandkasten"];
+    var wasserspiele = arrayspielplaetze["wasserspiele"];
+    var klettergerust = arrayspielplaetze["klettergerüst"];
+    var seilbahn = arrayspielplaetze["seilbahn"];
+    var spielobjekt = arrayspielplaetze["spielobjekt"];
+    var sonstiges = arrayspielplaetze["sonstiges"];
+            
        $scope.playlistdetails = [
-    { title: name, strasse: strasse, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse, url:url,bild:bild, lat:lat, long:long,  kletterturm:kletterturm, schaukel:schaukel  },
+    { title: name, strasse: strasse, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse, url:url,bild:bild, lat:lat, long:long, rutsche:rutsche, kletterturm:kletterturm, wippe:wippe, tischtennis:tischtennis, ballspielfeld:ballspielfeld, schaukel:schaukel, sandkasten:sandkasten, wasserspiele:wasserspiele, klettergerust:klettergerust, seilbahn:seilbahn, spielobjekt:spielobjekt, sonstiges:sonstiges     },
   ];
 
 },
