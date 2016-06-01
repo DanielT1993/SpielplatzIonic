@@ -2,14 +2,25 @@
 <ion-view view-title="Spielplatzdetail" >
   <ion-content >
     <ion-list>  
+        <ion-item ng-repeat="playlistdetail in playlistdetails">
+        <img class="responsive-image" src="img/{{playlistdetail.bild}}" style=" width: 100%; left: 0px;
+top: 0px;">
+        </ion-item>
         <ion-item ng-repeat="playlistdetail in playlistdetails" >
+            
                 <h2>{{playlistdetail.title}} </h2>
                 {{playlistdetail.strasse}}{{playlistdetail.hausnr}}
                 {{playlistdetail.stadtteil}}
-                Größe: {{playlistdetail.groesse}}  
+                Größe: {{playlistdetail.groesse}}
+            Größe: {{playlistdetail.bild}}  
                 <p id="lat">{{playlistdetail.lat}}</p> 
                 <p id="long">{{playlistdetail.long}}</p>     
                 <p id="spid">{{playlistdetail.url}}</p>
+            
+            /* Im Design fehlt noch Stadtteil und Altersklasse!!*/
+            
+            
+            
         </ion-item>
         <ion-item ng-repeat="arraysum in arraysums">
         	<span class="stars">{{arraysum.avg}}</span>
@@ -18,58 +29,58 @@
             <div style="height:100%"></div>
         </ion-item>
         <ion-item ng-repeat="playlistdetail in playlistdetails" >
-            <div class="row">
-                <div class="col s3">
-                        <img src="img/{{playlistdetail.kletterturm}}" alt="" style="height:50%">
-                        <p>Rutsche</p> 
+            <div class="row" style="text-align: center">
+                <div  class="col s3">
+                        <img class="responsive-img" src="img/{{playlistdetail.kletterturm}}" alt="">
+                        <p >Rutsche</p> 
                 </div>
                 <div  class="col s3">
-                        <img src="img/{{playlistdetail.schaukel}}" alt="" style="height:50%">
+                        <img  class="responsive-img"  src="img/{{playlistdetail.schaukel}}" alt="">
                         <p>Kletterturm</p> 
                 </div>
                 <div class="col s3">
-                        <img src="img/{{playlistdetail.kletterturm}}" alt="" style="height:50%">
+                        <img  class="responsive-img"  src="img/{{playlistdetail.kletterturm}}" alt="">
                         <p>Wippe</p> 
                 </div>
-                        <div  class="col s3">
-                        <img src="img/{{playlistdetail.schaukel}}" alt="" style="height:50%">
-                        <p>Tischtennisplatte</p> 
+                <div  class="col s3">
+                        <img  class="responsive-img"  src="img/{{playlistdetail.schaukel}}" alt="">
+                        <p>Tischtennis</p> 
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="text-align: center">
                 <div class="col s3">
-                        <img src="img/{{playlistdetail.kletterturm}}" alt="" style="height:50%">
+                        <img class="responsive-img"  src="img/{{playlistdetail.kletterturm}}" alt="">
                         <p>Schaukel</p> 
                 </div>
                 <div  class="col s3">
-                        <img src="img/{{playlistdetail.schaukel}}" alt="" style="height:50%">
+                        <img class="responsive-img" src="img/{{playlistdetail.schaukel}}" alt="">
                         <p>Ballspielfeld</p> 
                 </div>
                 <div class="col s3">
-                        <img src="img/{{playlistdetail.kletterturm}}" alt="" style="height:50%">
+                        <img class="responsive-img" src="img/{{playlistdetail.kletterturm}}" alt="">
                         <p>Sandkasten</p> 
                 </div>
                 <div  class="col s3">
-                        <img src="img/{{playlistdetail.schaukel}}" alt="" style="height:50%">
-                        <p>Wasserspielplatz</p> 
+                        <img class="responsive-img" src="img/{{playlistdetail.schaukel}}" alt="">
+                        <p>Wasserspiele</p> 
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="text-align: center">
                 <div class="col s3">
-                        <img src="img/{{playlistdetail.kletterturm}}" alt="" style="height:50%">
-                        <p>Schaukel</p> 
+                        <img class="responsive-img" src="img/{{playlistdetail.kletterturm}}" alt="">
+                        <p>Klettergerüst</p> 
                 </div>
                 <div class="col s3">
-                        <img src="img/{{playlistdetail.schaukel}}" alt="" style="height:50%">
-                        <p>Ballspielfeld</p> 
+                        <img class="responsive-img" src="img/{{playlistdetail.schaukel}}" alt="">
+                        <p>Seilbahn</p> 
                 </div>
                 <div class="col s3">
-                        <img src="img/{{playlistdetail.kletterturm}}" alt="" style="height:50%">
-                        <p>Sandkasten</p> 
+                        <img class="responsive-img" src="img/{{playlistdetail.kletterturm}}" alt="">
+                        <p>Spielobjekt</p> 
                 </div>
                 <div  class="col s3">
-                        <img src="img/{{playlistdetail.schaukel}}" alt="" style="height:50%">
-                        <p>Wasserspielplatz</p> 
+                        <img class="responsive-img" src="img/{{playlistdetail.schaukel}}" alt="">
+                        <p>Sonstiges</p> 
                 </div>
             </div>
        </ion-item>
@@ -107,9 +118,9 @@
                           <input type="radio" id="rating-sicherheit-1" name="rating-sicherheit" value="1" /><label for="rating-sicherheit-1">1</label>
                         </span>            
                   </form>
-                  <label class="item">
-                                    <button class="waves-effect waves-light btn" type="submit" onclick="bewertungdb()">Bewertung abgeben</button>
-                                  </label>
+                <label class="item">
+                        <button class="waves-effect waves-light btn" type="submit" onclick="bewertungdb()">Bewertung abgeben</button>
+                </label>
                  <ion-list>
                      <ion-item >
                         <p id="Headline"></p>
@@ -128,9 +139,6 @@
         </li>
       </ul>  
     </ion-item>
-                      <label class="item">
-                                    <button class="waves-effect waves-light btn" type="submit" onclick="sterne()">Sterne</button>
-                                  </label>
     </ion-list>
   </ion-content>
 </ion-view>

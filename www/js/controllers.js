@@ -281,12 +281,13 @@ angular.module('starter.controllers', [])
     var hausnr = arrayspielplaetze["hausnummer"];
     var stadtteil = arrayspielplaetze["stadtteil"];
     var groesse = arrayspielplaetze["größe"];
+            var bild = arrayspielplaetze["hauptbild"];
             var lat = arrayspielplaetze["latitude"];
             var long = arrayspielplaetze["longitude"];
             var kletterturm = arrayspielplaetze["kletterturm"];
             var schaukel = arrayspielplaetze["schaukel"];
        $scope.playlistdetails = [
-    { title: name, strasse: strasse, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse, url:url, lat:lat, long:long,  kletterturm:kletterturm, schaukel:schaukel  },
+    { title: name, strasse: strasse, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse, url:url,bild:bild, lat:lat, long:long,  kletterturm:kletterturm, schaukel:schaukel  },
   ];
 
 },
