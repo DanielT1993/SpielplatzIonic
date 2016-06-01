@@ -27,35 +27,15 @@ function signup()
     });
   }
 
+
+
+
 function neuerSpielplatz() {
     
+    alert("geht");
     var myspielplatz = new Apiomat.spielplatz();
-    var myspielplatzausstattung = new Apiomat.ausstattung();
+    
 
-            var spielplatzname = document.getElementById("spielplatzname").value;
-            var spielplatzstraße = document.getElementById("spielplatzstraße").value;
-            var hausnummer = document.getElementById("hausnummer").value;
-            //var stadtteil = document.getElementById("stadtteil").value;
-            //var altersgruppe = document.getElementById("altersgruppe").value;
-            var groesse = document.getElementById("groesse").value;
-            var sitzgelegenheiten = document.getElementById("sitzgelegenheiten").value;
-            var status = document.getElementById("status").value;
-            var latitude = document.getElementById("latitude").value;
-            var longitude = document.getElementById("longitude").value;
-
-            var seilbahn = document.getElementById("seilbahn").value;
-
-            myspielplatz.setName(spielplatzname);
-            myspielplatz.setStraße(spielplatzstraße);
-            myspielplatz.setHausnummer(hausnummer);
-            //myspielplatz.setStadtteil(stadtteil);
-            //myspielplatz.setAltersgruppe(altersgruppe);
-            myspielplatz.setGröße(groesse);
-            myspielplatz.setSitzgelegenheiten(sitzgelegenheiten);
-            myspielplatz.setStatus(status);
-            //myspielplatz.setLatitude(latitude);
-            //myspielplatz.setLongitude(longitude);
-            myspielplatzausstattung.setSeilbahn(seilbahn);
 
         myspielplatz.save({
             onOk : function() {
@@ -63,7 +43,7 @@ function neuerSpielplatz() {
             alert("Saved succesfully spielplatz");
             },
             onError : function(error) {
-            alert(spielplatzname);
+            alert("Error");
         }
         });
 }
