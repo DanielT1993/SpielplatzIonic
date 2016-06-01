@@ -48,6 +48,11 @@ angular.module('starter.controllers', [])
     $('select').material_select();
     
 })
+.controller('BewertungCtrl', function(){
+    $('select').material_select();
+    
+})
+
 
 .controller('KontaktCtrl', function() {
     $('textarea#kontaktmessage').characterCounter();
@@ -252,6 +257,7 @@ angular.module('starter.controllers', [])
 )
 
 
+
 .controller('DetailSpielplatzCtrl', function($scope, $scope, $scope, $stateParams, $scope, $ionicLoading, $compile ) {
 
     //Accordion ratings
@@ -305,8 +311,12 @@ onError : function(error) {
           var arraybewertungen = loadedObjs[i]["data"];
           //Ausgabe in Konsole
           var name = arraybewertungen["nickname"];
+          var kommentar = arraybewertungen["ueberschriftbewertungskommentar"];
+          var freitext = arraybewertungen["textbewertung"];
           var bewertungaus = arraybewertungen["gesamtbewertung"];
-          $scope.ratings.push({ title: name, bewertung: bewertungaus});
+          var id = arraybewertungen["id"];
+          var bid = arraybewertungen["bewertungsid"];
+          $scope.ratings.push({ title: name, bewertung: bewertungaus, kommentar: kommentar, freitext: freitext, id: id , bid: bid});
 
           }
     },
@@ -352,6 +362,8 @@ onError : function(error) {
 });
 
 
+
+
     
  
 
@@ -364,9 +376,11 @@ function bewertungdb(){
     var sauber = parseInt(sauberkeit);
     var spass = parseInt(spielspass);
     var sicher = parseInt(sicherheit);
-    var nickname = "Daniel";
 
     var spid = document.getElementById("spid").innerHTML ;
+    var nickname = document.getElementById("nickname").value ;
+    var kommentar = document.getElementById("kommentar").value ;
+    var freitext = document.getElementById("freitext").value ;
     var gesamtbewertung = ((sauber + spass + sicher)/3);
     var gerundet = gesamtbewertung;
     var mybewertungen = new Apiomat.bewertungen();
@@ -375,7 +389,9 @@ function bewertungdb(){
     mybewertungen.setSicherheit(sicher);
     mybewertungen.setGesamtbewertung(gerundet);
     mybewertungen.setNickname(nickname);
+    mybewertungen.setUeberschriftbewertungskommentar(kommentar);
     mybewertungen.setBewertungsid(spid);
+    mybewertungen.setTextbewertung(freitext);
         mybewertungen.save({
             onOk : function() {
             //object successfully saved
@@ -388,3 +404,5 @@ function bewertungdb(){
     
     //alert (sauberkeit + spielspass + sicherheit + gesamtbewertung);
 }
+
+

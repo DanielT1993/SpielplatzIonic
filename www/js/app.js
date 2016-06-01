@@ -124,6 +124,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
     })
+
+    .state('app.bewertung', {
+    url: '/playlists/:spielplatzId/:bewertungId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/detailBewertung.html',
+        controller: 'BewertungCtrl'
+      }
+    }
+    })
   
     .state('app.appinfo', {
     url: '/appinfo',

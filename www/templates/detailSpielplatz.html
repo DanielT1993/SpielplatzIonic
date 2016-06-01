@@ -91,8 +91,9 @@ top: 0px;">
             <li>
               <div class="collapsible-header"><i class="material-icons">grade</i>Neue Bewertung</div>
               <div class="collapsible-body">
-                  <form id="sauberkeit"> Sauberkeit
-                        <span class="star-cb-group">
+                  <form id="sauberkeit" style="margin:15px 15px 5px 25px;"> 
+                        <p style="font-size: 90%; float: left; padding: 1px 0px 0px 0px;">Sauberkeit</p>
+                        <span class="star-cb-group" style="">
                           <input type="radio" id="rating-5" name="rating-sauber" value="5"  /><label for="rating-5">5</label>
                           <input type="radio" id="rating-4" name="rating-sauber" value="4" /><label for="rating-4">4</label>
                           <input type="radio" id="rating-3" name="rating-sauber" value="3" /><label for="rating-3">3</label>
@@ -100,7 +101,8 @@ top: 0px;">
                           <input type="radio" id="rating-1" name="rating-sauber" value="1" /><label for="rating-1">1</label>
                         </span>     
                   </form>
-                  <form id="spielspass"> Spielspaß
+                  <form id="spielspass" style="margin:0px 15px 5px 25px;">
+                  <p style="font-size: 90%; float: left; padding: 1px 5px 0px 0px;">Spielspaß</p> 
                         <span class="star-cb-group-spass">
                           <input type="radio" id="rating-spass-5" name="rating-spass" value="5"  /><label for="rating-spass-5">5</label>
                           <input type="radio" id="rating-spass-4" name="rating-spass" value="4" /><label for="rating-spass-4">4</label>
@@ -109,7 +111,8 @@ top: 0px;">
                           <input type="radio" id="rating-spass-1" name="rating-spass" value="1" /><label for="rating-spass-1">1</label>
                         </span>  
                   </form>
-                  <form id="sicherheit"> Sicherheit
+                  <form id="sicherheit" style="margin:0px 15px 5px 25px;">
+                  <p style="font-size: 90%; float: left; padding: 1px 5px 0px 0px;">Sicherheit</p> 
                         <span class="star-cb-group-sicherheit">
                           <input type="radio" id="rating-sicherheit-5" name="rating-sicherheit" value="5"  /><label for="rating-sicherheit-5">5</label>
                           <input type="radio" id="rating-sicherheit-4" name="rating-sicherheit" value="4" /><label for="rating-sicherheit-4">4</label>
@@ -118,25 +121,40 @@ top: 0px;">
                           <input type="radio" id="rating-sicherheit-1" name="rating-sicherheit" value="1" /><label for="rating-sicherheit-1">1</label>
                         </span>            
                   </form>
-                <label class="item">
-                        <button class="waves-effect waves-light btn" type="submit" onclick="bewertungdb()">Bewertung abgeben</button>
+                  <form>
+                        <div class="input-field col s6" style="margin-top: 0px; padding: 0px 25px 0px 25px">
+                          <input id="nickname" type="text" class="validate">
+                          <label style="padding: 0px 25px 0px 15px">nickname</label>
+                        </div>
+                        <div class="input-field col s6" style="margin-top: 0px; padding: 0px 25px 0px 25px">
+                          <input id="kommentar" type="text" class="validate">
+                          <label style="padding: 0px 25px 0px 15px">Titel Kommentar</label>
+                        </div>
+                        <div >
+                              <div class="input-field col s6" style="margin-top: 0px; padding: 0px 25px 0px 25px">
+                                <textarea id="freitext" class="materialize-textarea" length="1000"></textarea>
+                                <label for="freitext"  style="padding: 0px 25px 0px 15px">Ihre Nachricht</label>
+                              </div>
+                        </div>
+                  </form>
+                <label class="item" >
+                        <button class="waves-effect waves-light btn" type="submit" onclick="bewertungdb()" style="display: block; margin-left: auto; margin-right: auto">Bewertung abgeben</button>
                 </label>
-                 <ion-list>
-                     <ion-item >
-                        <p id="Headline"></p>
-                        </ion-item>
-                    </ion-list>
                 </div>
             </li>
-        <li>
-          <div class="collapsible-header active"><i class="material-icons">view_list</i>Alle Bewertungen</div>
-          <div class="collapsible-body">
-            <ion-item ng-repeat="playlistdetail in ratings">
-          <h2>{{playlistdetail.title}} </h2>
-          <span class="stars">{{playlistdetail.bewertung}}</span>
-        </ion-item>
-              </div>
-        </li>
+
+            <li>
+                <div class="collapsible-header active"><i class="material-icons">view_list</i>Alle Bewertungen</div>
+                  <div class="collapsible-body">
+                    <ion-item ng-repeat="playlistdetail in ratings">
+                      <a href="#/app/playlists/{{playlistdetail.bid}}/{{playlistdetail.id}}">
+                            <h2>{{playlistdetail.kommentar}} </h2>
+                            <h4 style="color: grey; ">{{playlistdetail.title}} </h4>
+                            <span class="stars">{{playlistdetail.bewertung}}</span>
+                      </a>                      
+                    </ion-item>
+                  </div>
+            </li>
       </ul>  
     </ion-item>
     </ion-list>
