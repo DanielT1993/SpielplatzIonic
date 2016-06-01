@@ -1,31 +1,23 @@
-<!DOCTYPE html>
 <html lang="de">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-		<title>slidoo</title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>slidoo</title>
 
-    <link rel="stylesheet" href="css/centerstyle.css">
     <link href="http://fonts.googleapis.com/icon?family=Material%20Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection">
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>   
 
-
-    <script charset="utf-8" src="www/com/apiomat/apiomat.js"></script>
-    <script src="www/js/apiomat.js"></script>     
-    <script src="www/js/app.js"></script> 
-    <script src="www/js/controller.js"></script>     
-    <script src="www/js/login.js"></script>    
-    <script charset="utf-8" src="www/js/materialize.js"></script> 
-    <script charset="utf-8" src="www/js/spielplatz.js"></script>
     
+    <script src="js/login.js"></script>    
+    <!--<script charset="utf-8" src="js/spielplatzanlegendesktop.js"></script> -->
+    <script charset="utf-8" src="../www/com/apiomat/apiomat.js"></script>
     
-	</head>
-	<body onload="signup()" id="top" data-spy="scroll" data-target=".navbar-collapse">
+  </head>
+   <body onload="signup()">
 
   <nav>
     <div class="nav-wrapper">
@@ -38,9 +30,14 @@
       </ul>
     </div>
   </nav>
-  <!-- kopiert aus spielplatzanlegen-->
-     <div onload="Materialize.updateTextFields()" class="row">
+    
+  <div>                     
+                      
+                      
                     <form class="col s12">
+                        <h2>Location</h2> 
+                           
+               
                       <div class="row">
                         <div class="input-field col s6">
                           <input id="spielplatzname" type="text" class="validate">
@@ -52,45 +49,20 @@
                           <input id="spielplatzstraße" type="text" class="validate">
                           <label >Straße</label>
                         </div>
+                        </div>
+                          
+                        <div class="row">  
                         <div class="input-field col s6">
                           <input id="hausnummer" type="number" class="validate">
                           <label >Hausnummer</label>
                         </div>
-                      </div>
-                      <div class="row">
+                      
                         <div class="input-field col s6">
-                            <select>
-                              <option value="1">Stadtteil F</option>
-                              <option value="2">Stadtteil B</option>
-                              <option value="3">Stadtteil A</option>
-                            </select>
-                            <label>Stadtteil</label>
+                          <input id="plz" type="number" class="validate">
+                          <label >Postleitzahl</label>
                         </div>
-                        <div class="input-field col s6">   
-                            <select multiple>
-                              <option value="1">2 - 5 Jahre</option>
-                              <option value="2">6 - 10 Jahre</option>
-                              <option value="3">11 - 15 Jahre</option>
-                            </select>
-                                <label>Altersgruppe</label>                    
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="input-field col s6">
-                          <input id="groesse" type="number" class="validate">
-                          <label >Größe</label>
                         </div>
-                        
-                        <div class="input-field col s6">
-                          <input id="status" type="text" class="validate">
-                          <label >Status</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                          <div class="input-field col s6">
-                          <input id="sitzgelegenheiten" type="text" class="validate">
-                          <label >Sitzgelegenheiten</label>
-                        </div>
+                        <div class="row">  
                         <div class="input-field col s6">
                           <input id="latitude" type="number" class="validate">
                           <label >Latitude</label>
@@ -100,25 +72,319 @@
                           <label >Longitude</label>
                         </div>
                       </div>
+        
                       <div class="row">
                         <div class="input-field col s6">
-                          <input id="seilbahn" type="number" class="validate">
-                          <label >Seilbahn</label>
+                            <select id="stadtteil">
+                              <option  value="1">Gailbach</option>
+                              <option  value="2">Nilkheim</option>
+                              <option  value="3">Obernau</option>
+                                <option  value="4">Schweinheim</option>
+                              <option  value="5">Strietwald</option>
+                            </select>
+                            <label>Stadtteil</label>
+                        </div>
+                        </div>
+                      <h2>Struktur</h2> 
+                        <div class="row">
+                         <div class="input-field col s6">
+                            <select id="alter">
+                              <option  value="1">Bis 5 Jahre</option>
+                              <option  value="2">Bis 10 Jahre</option>
+                              <option  value="3">Bis 15 Jahre</option>
+                            </select>
+                            <label>Altersgruppe</label>
                         </div>
                       </div>
+                        <div class="row">
+                           <div class="input-field col s6">
+                            <select id="sitzgelegenheiten">
+                              <option  value="1">Für bis zu 5 Personen</option>
+                              <option  value="2">Für bis zu 15 Personen</option>
+                              <option  value="3">für mehr als 20 Personen</option>
+                            </select>
+                            <label>Anzahl Sitzgelegenheiten</label>
+                        </div>
+                         </div> 
                       <div class="row">
+                          <div class="input-field col s6">
+                          <input id="groesse" type="number" class="validate">
+                          <label >Größe in m2</label>
+                        </div>
+                        
+                        <div class="input-field col s12">
+                        <select id=status>
+                          <option value="1">Bespielbar</option>
+                          <option value="2">Nicht bespielbar</option>
+                        </select>
+                        <label>Status</label>
+                      </div>
+                          
+                         
+                          
+                      </div>
+                        <h2>Ausstattung</h2> 
+                        <div class="row" >
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="rutsche" />
+                                <label for="rutsche">Rutsche</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="kletterturm" />
+                                <label for="kletterturm">Kletterturm</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="wippe" />
+                                <label for="wippe">Wippe</label>
+                            </div>
+                        </div>
+                        
+                        <div class="row" >
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="ballsport" />
+                                <label for="ballsport">Ballsport</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="tischtennis" />
+                                <label for="tischtennis">Tischtennis</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="schaukel" />
+                                <label for="schaukel">Schaukel</label>
+                            </div>
+                        </div>
+                        
+                          <div class="row" >
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="sandkasten" />
+                                <label for="sandkasten">Sandkasten</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="wasserspiele" />
+                                <label for="wasserspiele">Wasserspiele</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="klettergerust" />
+                                <label for="klettergerust">Klettergerüst</label>
+                            </div>
+                        </div>
+                          <div class="row" >
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="seilbahn" />
+                                <label for="seilbahn">Seilbahn</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="spielobjekt" />
+                                <label for="spielobjekt">Spielobjekt</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="sonstiges" />
+                                <label for="sonstiges">Sonstiges</label>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
                         <div class="input-field col s6" style="margin-bottom: 100px">
                           <label class="item">
-                            <button class="waves-effect waves-light btn" type="submit" onclick="neuerSpielplatz()">Spielplatz anlegen</button>
+                             <input type="button" id="create" onclick="neuerSpielplatzdesktop()" value="Spielplatz anlegen" />
                           </label>
-                     </div>
-                  </div>
+                        </div>
+                      </div>
+                     
                       
-                </form>
-             </div>
-
-<script type="text/javascript" src="www/js/materialize.min.js"></script>
+                    </form>
+                  </div>
 
 
-	</body>
+    
+    <div>                     
+                      
+                   
+  </body>
+ 
+  
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="../www/js/materialize.min.js"></script>
+  <script>
+ 
+function signup()
+  { 
+    var user = new Apiomat.User();
+    user.setUserName("test23");
+    user.setPassword("test23");
+    Apiomat.Datastore.configureWithCredentials(user);
+ 
+    var saveCB = {
+      onOk: function() {
+
+      },
+      onError: function(error) {
+
+      }
+    };
+    user.loadMe({
+      onOk: function() {
+
+      },
+      onError: function(error) {
+
+        user.save(saveCB);
+      }
+    });
+  }  
+$(document).ready(function() {
+    $('select').material_select();
+  });
+function neuerSpielplatzdesktop() {
+    var myspielplatz = new Apiomat.spielplatz();
+    
+     
+    var spielplatzname = document.getElementById("spielplatzname").value;
+    var spielplatzstrasse = document.getElementById("spielplatzstraße").value;
+    var spielplatzhausnr = document.getElementById("hausnummer").value;
+    var spielplatzplz = document.getElementById("plz").value;
+    var spielplatzlatitude = document.getElementById("latitude").value;
+    var spielplatzlongitude = document.getElementById("longitude").value;
+    var spielplatzstadtteil = document.getElementById("stadtteil").value;
+    var spielplatzalter = document.getElementById("alter").value;
+    var spielplatzsitz = document.getElementById("sitzgelegenheiten").value;
+    var spielplatzgroesse = document.getElementById("groesse").value;
+    var spielplatzstatus = document.getElementById("status").value;
+    var spielplatzrutsche = document.getElementById("rutsche").checked;
+    var spielplatzkletterturm = document.getElementById("kletterturm").checked;   
+    var spielplatzwippe = document.getElementById("wippe").checked;   
+    var spielplatzballsport = document.getElementById("ballsport").checked;   
+    var spielplatztischtennis = document.getElementById("tischtennis").checked;
+    var spielplatzschaukel = document.getElementById("schaukel").checked;  
+    var spielplatzsandkasten = document.getElementById("sandkasten").checked;  
+    var spielplatzwasserspiele = document.getElementById("wasserspiele").checked; 
+    var spielplatzklettergerust = document.getElementById("klettergerust").checked; 
+    var spielplatzseilbahn = document.getElementById("seilbahn").checked;
+    var spielplatzspielobjekt = document.getElementById("spielobjekt").checked; 
+    var spielplatzsonstiges = document.getElementById("sonstiges").checked;      
+
+    myspielplatz.setName(spielplatzname);
+    myspielplatz.setStraße(spielplatzstrasse);
+    myspielplatz.setHausnummer(spielplatzhausnr);
+    myspielplatz.setPlz(spielplatzplz);
+    myspielplatz.setLatitude(spielplatzlatitude);
+    myspielplatz.setLongitude(spielplatzlongitude);
+    
+    if(spielplatzstadtteil == 1){
+        myspielplatz.setStadtteil("Gailbach");}
+    if(spielplatzstadtteil == 2){
+        myspielplatz.setStadtteil("Nilkheim");}
+    if(spielplatzstadtteil == 3){
+        myspielplatz.setStadtteil("Obernau");}
+    if(spielplatzstadtteil == 4){
+        myspielplatz.setStadtteil("Schweinheim");}
+    if(spielplatzstadtteil == 5){
+        myspielplatz.setStadtteil("Strietwald");}
+    
+    if(spielplatzalter == 1){
+        myspielplatz.setAltersgruppe("Bis 5 Jahre");}
+    if(spielplatzalter == 2){
+        myspielplatz.setAltersgruppe("Bis 10 Jahre");}
+    if(spielplatzalter == 3){
+        myspielplatz.setAltersgruppe("Bis 15 Jahre");}
+    
+    if(spielplatzsitz == 1){
+        myspielplatz.setSitzgelegenheiten("Für bis zu 5 Personen");}
+    if(spielplatzsitz == 2){
+        myspielplatz.setSitzgelegenheiten("Für bis zu 10 Personen");}
+    if(spielplatzsitz == 3){
+        myspielplatz.setSitzgelegenheiten("Für mehr als 20 Personen");}
+    
+    myspielplatz.setGröße(spielplatzgroesse);
+    
+    if(spielplatzstatus == 1){
+        myspielplatz.setStadtteil("Bespielbar");}
+    if(spielplatzstatus == 2){
+        myspielplatz.setStadtteil("Nicht bespielbar");}
+    
+     if(spielplatzrutsche == true){
+        myspielplatz.setRutsche("rutsche.png");} 
+    else{
+         myspielplatz.setRutsche("rutscheinaktiv.png");     
+        }
+    
+    if(spielplatzkletterturm == true){
+        myspielplatz.setKletterturm("kletterturm.png");} 
+    else{
+         myspielplatz.setKletterturm("kletterturminaktiv.png");     
+        }
+    
+    if(spielplatzwippe == true){
+        myspielplatz.setWippe("wippe.png");} 
+    else{
+         myspielplatz.setWippe("wippeinaktiv.png");     
+        }
+    
+     if(spielplatzballsport == true){
+        myspielplatz.setBallsport("ballspielfeld.png");} 
+    else{
+         myspielplatz.setBallsport("ballspielfeldinaktiv.png");     
+        }
+    
+    if(spielplatztischtennis == true){
+        myspielplatz.setTischtennis("tischtennisplatte.png");} 
+    else{
+         myspielplatz.setTischtennis("tischtennisplatteinaktiv.png");     
+        }
+    
+    if(spielplatzschaukel == true){
+        myspielplatz.setSchaukel("schaukel.png");} 
+    else{
+         myspielplatz.setSchaukel("schaukelinaktiv.png");     
+        }
+    
+    if(spielplatzsandkasten == true){
+        myspielplatz.setSandkasten("sandkasten.png");} 
+    else{
+         myspielplatz.setSandkasten("sandkasteninaktiv.png");     
+        }
+    
+    if(spielplatzwasserspiele == true){
+        myspielplatz.setWasserspiele("wasserspielplatz.png");} 
+    else{
+         myspielplatz.setWasserspiele("wasserspielplatzinaktiv.png");     
+        }
+    
+    if(spielplatzklettergerust == true){
+        myspielplatz.setKlettergerüst("klettergeruest.png");} 
+    else{
+         myspielplatz.setKlettergerüst("klettergeruestinaktiv.png");     
+        }
+    
+    if(spielplatzseilbahn == true){
+        myspielplatz.setSeilbahn("seilbahn.png");} 
+    else{
+         myspielplatz.setSeilbahn("seilbahninaktiv.png");     
+        }
+    
+    if(spielplatzspielobjekt == true){
+        myspielplatz.setSpielobjekt("spielobjekt.png");} 
+    else{
+         myspielplatz.setSpielobjekt("spielobjektinaktiv.png");     
+        }
+      if(spielplatzsonstiges == true){
+        myspielplatz.setSonstiges("sonstiges.png");} 
+    else{
+         myspielplatz.setSonstiges("sonstigesinaktiv.png");     
+        }
+    
+    
+        myspielplatz.save({
+            onOk : function() {
+            //object successfully saved
+            alert("Saved succesfully spielplatz");
+            },
+            onError : function(error) {
+            alert("Error");
+        }
+        });
+   
+}
+
+  </script>
 </html>

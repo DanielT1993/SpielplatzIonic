@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+		<title>slidoo</title>
+
+    <link rel="stylesheet" href="www/css/materialize.css">
+    <link href="http://fonts.googleapis.com/icon?family=Material%20Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>   		
+
+    <script charset="utf-8" src="www/com/apiomat/apiomat.js"></script>
+    <script src="www/js/apiomat.js"></script>     
+    <script src="www/js/app.js"></script> 
+    <script src="www/js/controller.js"></script>     
+    <script src="www/js/login.js"></script>    
+    <script charset="utf-8" src="www/js/materialize.js"></script>   
+    <script charset="utf-8" src="www/js/spielplatz.js"></script>
+
+	</head>
+	<body onload="signup()" id="top" data-spy="scroll" data-target=".navbar-collapse">
+    
+			
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo left">slidoo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="center.html" class="smoothScroll">Alle Spielpl&auml;tze</a></li>
+          <li><a href="create.html" class="smoothScroll">Spielplatz erstellen</a></li>
+          <li><a href="contact.html" class="smoothScroll">Kontakt</a></li>
+          <li><a href="index.html" onklick="logout()">Logout</a>
+      </ul>
+    </div>
+  </nav>
+
+<!-- ab hier von playlist kopiert -->
+
+			<ion-view view-title="Alle Spielplätze anzeigen" >
+  
+    <ion-content>
+  
+    <div class="button-bar">
+      <a class="button" href="#/app/playlists" ng-class="{'active': activeButton == $index}"><i class="material-icons" style="padding-top: 15px">room</i></a>
+      <a class="button" href="#/app/playlistsRating"><i class="material-icons" style="padding-top: 15px">grade</i></a>
+      <a class="button" href="#/app/playlistsTitle"><i class="material-icons" style="padding-top: 15px">sort_by_alpha</i></a> 
+    </div>
+    
+
+    <div class="button-bar">
+      <a class="button" href="center.html"><i class="material-icons" style="padding-top: 15px">room</i></a> 
+      <a class="button" href="centerrating.html" ng-class="{'active': activeButton == $index}"><i class="material-icons" style="padding-top: 15px">grade</i></a> 
+      <a class="button" href="centertitle.html"><i class="material-icons" style="padding-top: 15px">sort_by_alpha</i></a> 
+    </div>
+
+   
+      <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="responsive-image" src="img/{{playlist.bild}}">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">{{playlist.title}}
+              <i class="material-icons right">more_vert</i></span></br>
+              <p style="float: right"><i class="material-icons" style="">room</i>{{playlist.ort}}</p>
+              <p style="">{{playlist.strasse}} {{playlist.hausnummer}}</p>
+              <p style="">{{playlist.plz}}</p>
+              <p style="">{{playlist.stadtteil}}</p>
+              </br>
+              <div class="collection">
+                <a href="#/app/playlists/{{playlist.id}}" class="collection-item active" style="text-align: center">Spielplatz ansehen</a>
+              </div>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">{{playlist.title}}<i class="material-icons right">close</i></span>
+              <p></br><i class="material-icons" style="">room</i>{{playlist.ort}} entfernt</p> </br>
+              <p style="">{{playlist.strasse}} {{playlist.hausnummer}}</p>
+              <p style="">{{playlist.plz}} Aschaffenburg</p>
+              <p style="">{{playlist.stadtteil}}</p></br>
+              <p style=""><strong>Altersgruppe: </strong>{{playlist.altersgruppe}}</p>
+              <p style=""><strong>Größe: </strong>{{playlist.groesse}} m²</p>
+              <p style=""><strong>Spielplatzstatus: </strong>{{playlist.status}}</p>
+            </div>
+      </div>
+
+
+
+<!-- ende kopiert -->
+<script type="text/javascript" src="www/js/materialize.min.js"></script>
+
+	</body>
+</html>
