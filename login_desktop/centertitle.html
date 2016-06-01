@@ -1,4 +1,31 @@
+<!DOCTYPE html>
 <html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+		<title>slidoo</title>
+
+    <link rel="stylesheet" href="css/centerstyle.css">
+    <link href="http://fonts.googleapis.com/icon?family=Material%20Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>   		
+
+    <script charset="utf-8" src="www/com/apiomat/apiomat.js"></script>
+    <script src="www/js/apiomat.js"></script>     
+    <script src="www/js/app.js"></script> 
+    <script src="www/js/controller.js"></script>     
+    <script src="www/js/login.js"></script>    
+    <script charset="utf-8" src="www/js/materialize.js"></script>   
+    <script charset="utf-8" src="www/js/spielplatz.js"></script>
+
+	</head>
+	<body onload="signup()" id="top" data-spy="scroll" data-target=".navbar-collapse">
+    
+	<html lang="de">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -43,9 +70,7 @@
       <a class="button" href="centertitle.html"><i class="material-icons" style="padding-top: 15px">sort_by_alpha</i></a> 
     </div>
     
-    <ion-list>
-      <ion-item ng-repeat="playlist in playlists  | orderBy:'ort'" class="superclick" >
-      <div class="card">
+ <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="responsive-image" src="img/{{playlist.bild}}">
             </div>
@@ -71,8 +96,7 @@
               <p style=""><strong>Größe: </strong>{{playlist.groesse}} m²</p>
               <p style=""><strong>Spielplatzstatus: </strong>{{playlist.status}}</p>
             </div>
-      </div>
-                     
+      </div>        
                       
                    
   </body>
@@ -108,7 +132,10 @@ function signup()
     });
   }  
 
-
-
   </script>
+</html>
+<!-- ende kopiert -->
+<script type="text/javascript" src="www/js/materialize.min.js"></script>
+
+	</body>
 </html>

@@ -1,4 +1,4 @@
-function neuerSpielplatz() {
+function neuerSpielplatzdesktop() {
     
     var myspielplatz = new Apiomat.spielplatz();
     
