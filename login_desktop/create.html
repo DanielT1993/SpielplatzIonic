@@ -62,16 +62,7 @@
                           <label >Postleitzahl</label>
                         </div>
                         </div>
-                        <div class="row">  
-                        <div class="input-field col s6">
-                          <input id="latitude" type="number" class="validate">
-                          <label >Latitude</label>
-                        </div>
-                        <div class="input-field col s6">
-                          <input id="longitude" type="number" class="validate">
-                          <label >Longitude</label>
-                        </div>
-                      </div>
+
         
                       <div class="row">
                         <div class="input-field col s6">
@@ -182,11 +173,20 @@
                                 <label for="sonstiges">Sonstiges</label>
                             </div>
                         </div>
-                        
+                        <h2> Bildupload </h2>
+                        <div class="file-field input-field">
+                          <div class="btn">
+                            <span>File</span>
+                              <input type="file" multiple>
+                          </div>
+                          <div class="file-path-wrapper">
+                              <input class="file-path validate" type="text" placeholder="Ein oder mehere Bilder hochladen">
+                          </div>
+                        </div>
                         <div class="row">
                         <div class="input-field col s6" style="margin-bottom: 100px">
                           <label class="item">
-                             <input type="button" id="create" onclick="neuerSpielplatzdesktop()" value="Spielplatz anlegen" />
+                             <input type="button" id="createbutton" onclick="neuerSpielplatzdesktop()" value="Spielplatz anlegen" />
                           </label>
                         </div>
                       </div>
