@@ -44,6 +44,7 @@ function neuerSpielplatz() {
     myspielplatz.setPlz(spielplatzplz);
     myspielplatz.setLatitude(spielplatzlatitude);
     myspielplatz.setLongitude(spielplatzlongitude);
+    myspielplatz.setGesamtbewertungsp(0);
     
     if(spielplatzstadtteil == 1){
         myspielplatz.setStadtteil("Gailbach");}
