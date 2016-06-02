@@ -37,7 +37,9 @@ function neuerSpielplatz() {
     var spielplatzseilbahn = document.getElementById("seilbahn").checked;
     var spielplatzspielobjekt = document.getElementById("spielobjekt").checked; 
     var spielplatzsonstiges = document.getElementById("sonstiges").checked;      
-
+    var spielplatzsanitar = document.getElementById("sanitar").checked;  
+    var spielplatzgrillplatz = document.getElementById("grillplatz").checked;  
+    
     myspielplatz.setName(spielplatzname);
     myspielplatz.setStraße(spielplatzstrasse);
     myspielplatz.setHausnummer(spielplatzhausnr);
@@ -149,6 +151,17 @@ function neuerSpielplatz() {
          myspielplatz.setSonstiges("sonstigesinaktiv.png");     
         }
     
+    if(spielplatzsanitar == true){
+        myspielplatz.setSanitäranlagen("sanitar.png");} 
+    else{
+         myspielplatz.setSanitäranlagen("sanitarinaktiv.png");     
+        }
+    if(spielplatzgrillplatz == true){
+        myspielplatz.setGrillplatz("grillplatz.png");} 
+    else{
+         myspielplatz.setGrillplatz("grillplatzinaktiv.png");     
+        }
+    
     
         myspielplatz.save({
             onOk : function() {
@@ -210,8 +223,6 @@ function sterne(){
           }
         });
 }
-
-
 
 var attempt = 3;
     function login(){

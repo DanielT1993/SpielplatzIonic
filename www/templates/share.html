@@ -4,25 +4,25 @@
                 <p>Teile diesen Spielplatz mit deinen Freunden und Bekannten</p>
         
          <ul class="list">
-               
-                    <div class="item item-text-wrap">
-                        <button class="button button-block button-royal item-icon-left" ng-click="whatsappShare()">
+                   
+          <div class="item item-text-wrap">
+            <button class="button button-block button-royal item-icon-left blue darken-4" ng-click="shareViaTwitter('some message', null, 'https://www.thepolyglotdeveloper.com')">
+                <i class="icon ion-social-facebook"></i>
+                  Facebook
+          </button>
+               </div>   
+              <div class="item item-text-wrap">
+                        <button class="button button-block button-royal item-icon-left light-green accent-4" ng-click="whatsappShare()">
                             <i class="icon ion-social-whatsapp"></i>
                               WhatsApp
                       </button>
                    </div>
-                   
           <div class="item item-text-wrap">
-            <button class="button button-block button-royal item-icon-left" ng-click="facebookShare()">
-                <i class="icon ion-social-facebook"></i>
-                  Facebook
-          </button>
-               </div>         
-          <div class="item item-text-wrap">
-            <button class="button button-block button-royal item-icon-left" ng-click="OtherShare()">
+            <button class="button button-block button-royal item-icon-left blue-grey darken-3"  ng-click="shareAnywhere()">
                  <i class="icon ion-android-share-alt"></i>
                   Other
           </button>
+              <button onclick="window.plugins.socialsharing.shareViaFacebook('Message via Facebook', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">msg via Facebook (with errcallback)</button>
               </div>
          
         </ul>
