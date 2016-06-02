@@ -164,6 +164,18 @@
 
 }
 
+span.stars, span.stars span {
+    display: block;
+    background: url(../img/stars4.png) 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+}
+
+span.stars span {
+    background-position: 0 0;
+}
+
+
 
 
 fieldset {
@@ -179,21 +191,16 @@ fieldset {
   background: transparent;
 }
 
+#spid2{
+    
+color:#FFF;
+    font-size:1px}
+
 #spid{
     
 color:#FFF;
     font-size:1px}
 
-span.stars, span.stars span {
-    display: block;
-    background: url(../img/stars4.png) 0 -16px repeat-x;
-    width: 80px;
-    height: 16px;
-}
-
-span.stars span {
-    background-position: 0 0;
-}
 
 .appinfo-text{
     font-size:0.9em;
@@ -238,4 +245,138 @@ span.stars span {
     margin-bottom:10em;
     color:#c94566;
     vertical-align: middle; 
+}
+
+
+/*______________________________________________*/
+.star2-cb-group-sicherheit {
+  /* remove inline-block whitespace */
+  font-size: 0;
+  /* flip the order so we can use the + and ~ combinators */
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  /* the hidden clearer */
+}
+.star2-cb-group-sicherheit * {
+  font-size: 1rem;
+}
+.star2-cb-group-sicherheit > input {
+  display: none;
+}
+.star2-cb-group-sicherheit > input + label {
+  /* only enough room for the star */
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 9999px;
+  width: 1em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.star2-cb-group-sicherheit > input + label:before {
+  display: inline-block;
+  text-indent: -9999px;
+  content: "☆";
+  font-size: 1.5em;
+  color: orange;
+}
+.star2-cb-group-sicherheit > input:checked ~ label:before, .star2-cb-group-sicherheit > input + label:hover ~ label:before, .star2-cb-group-sicherheit > input + label:hover:before {
+  content: "★";
+    font-size: 1.5em;
+  color: orange;
+
+}
+.star2-cb-group-sicherheit > .star2-cb-clear + label {
+  text-indent: -9999px;
+  width: .5em;
+  margin-left: -.5em;
+}
+.star2-cb-group-sicherheit:hover > input + label:before {
+  content: "☆";
+    font-size: 1.5em;
+  color: orange;
+  text-shadow: none;
+}
+.star2-cb-group-sicherheit:hover > input + label:hover ~ label:before, .star2-cb-group-sicherheit:hover > input + label:hover:before {
+  content: "★";
+  font-size: 1.5em;
+  color: orange;
+
+}
+
+span.stars2, span.stars2 span {
+    display: block;
+    background: url(../img/stars4.png) 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+}
+
+span.stars2 span {
+    background-position: 0 0;
+}
+
+/*_______________________________________________*/
+
+.star3-cb-group-sicherheit {
+  /* remove inline-block whitespace */
+  font-size: 0;
+  /* flip the order so we can use the + and ~ combinators */
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  /* the hidden clearer */
+}
+.star3-cb-group-sicherheit * {
+  font-size: 1rem;
+}
+.star3-cb-group-sicherheit > input {
+  display: none;
+}
+.star3-cb-group-sicherheit > input + label {
+  /* only enough room for the star */
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 9999px;
+  width: 1em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.star3-cb-group-sicherheit > input + label:before {
+  display: inline-block;
+  text-indent: -9999px;
+  content: "☆";
+  font-size: 1.5em;
+  color: orange;
+}
+.star3-cb-group-sicherheit > input:checked ~ label:before, .star3-cb-group-sicherheit > input + label:hover ~ label:before, .star3-cb-group-sicherheit > input + label:hover:before {
+  content: "★";
+    font-size: 1.5em;
+  color: orange;
+
+}
+.star3-cb-group-sicherheit > .star3-cb-clear + label {
+  text-indent: -9999px;
+  width: .5em;
+  margin-left: -.5em;
+}
+.star3-cb-group-sicherheit:hover > input + label:before {
+  content: "☆";
+    font-size: 1.5em;
+  color: orange;
+  text-shadow: none;
+}
+.star3-cb-group-sicherheit:hover > input + label:hover ~ label:before, .star3-cb-group-sicherheit:hover > input + label:hover:before {
+  content: "★";
+  font-size: 1.5em;
+  color: orange;
+
+}
+
+span.stars3, span.stars3 span {
+    display: block;
+    background: url(../img/stars4.png) 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+}
+
+span.stars3 span {
+    background-position: 0 0;
 }

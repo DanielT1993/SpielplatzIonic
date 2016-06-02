@@ -189,6 +189,7 @@ angular.module('starter.controllers', [])
         var groesse = arrayspielplaetze["größe"];
         var status = arrayspielplaetze["status"];
         var bild = arrayspielplaetze["hauptbild"];
+        var bewertung = arrayspielplaetze["gesamtbewertungsp"];
 
         var id = arrayspielplaetze["id"];
         
@@ -245,7 +246,7 @@ angular.module('starter.controllers', [])
 
 
 
-      $scope.playlists.push({ title: name, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status , plz: plz ,strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, ort: gerundetd + " km", color: '#FF880E', id:id, avg: avg});
+      $scope.playlists.push({ title: name, bewertung: bewertung, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status , plz: plz ,strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, ort: gerundetd + " km", color: '#FF880E', id:id, avg: avg});
         
       }
     },
@@ -253,6 +254,20 @@ angular.module('starter.controllers', [])
     onError : function(error) {
     }
     });
+
+    var checkExist = setInterval(function() {
+           if ($('span.stars2').length) {
+              $('span.stars2').stars2();
+              clearInterval(checkExist);
+           }
+        }, 20);
+          
+    
+        $.fn.stars2 = function() {
+            return $(this).each(function() {
+                $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+            });
+          }
         
 
 
@@ -293,7 +308,20 @@ angular.module('starter.controllers', [])
     //handle error
     }
     });
-
+        var checkExist = setInterval(function() {
+           if ($('span.stars3').length) {
+              $('span.stars3').stars3();
+              clearInterval(checkExist);
+           }
+        }, 20);
+          
+    
+        $.fn.stars3 = function() {
+            return $(this).each(function() {
+                $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+            });
+          }
+        
         
 
 
@@ -310,6 +338,7 @@ angular.module('starter.controllers', [])
     //Spielplatzid holen
     var url = ($stateParams.spielplatzId);
     var id = "id == id("+url+")";
+    var avg;
     
     var idbewertung = "bewertungsid == ("+url+")";
     
@@ -389,8 +418,31 @@ onError : function(error) {
           var bewertungaus = arraybewertungen["gesamtbewertung"];
           sum +=  parseInt(bewertungaus);
           }
-    var avg = sum/loadedObjs.length;
+    avg = sum/loadedObjs.length;
     $scope.arraysums.push({ avg: avg});
+    //alert(url);
+    var myspielplatz;
+    var id = url; // replace this with the id of the item yout want to fetch
+    Apiomat.spielplatz.getspielplatzs("id==id(" + id + ")", {
+      onOk: function(result) {
+        myspielplatz = result[0];
+        myspielplatz.setGesamtbewertungsp(avg);
+        myspielplatz.save({
+          onOk: function() {
+            //do some other stuff here
+            //alert("successfully saved");
+          },
+          onError: function(error) {
+            console.log(error);
+          }
+        })
+      },
+      onError: function(error) {
+        console.log(error);
+      }
+    });
+
+
     },
 
     onError : function(error) {
