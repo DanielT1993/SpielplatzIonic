@@ -182,6 +182,24 @@ Apiomat.spielplatz.prototype.setGesamtbewertungsp = function(_gesamtbewertungsp)
 
         
 /**
+ * get Grillplatz
+ * @return Grillplatz
+ */
+Apiomat.spielplatz.prototype.getGrillplatz = function() 
+{
+    return this.data.grillplatz;
+};
+
+/**
+ * set Grillplatz
+ * @param Grillplatz
+ */
+Apiomat.spielplatz.prototype.setGrillplatz = function(_grillplatz) {
+    this.data.grillplatz = _grillplatz;
+};
+
+        
+/**
  * get Größe
  * @return Größe
  */

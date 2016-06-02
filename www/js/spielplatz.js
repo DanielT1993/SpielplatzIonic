@@ -36,7 +36,9 @@ function neuerSpielplatz() {
     var spielplatzklettergerust = document.getElementById("klettergerust").checked; 
     var spielplatzseilbahn = document.getElementById("seilbahn").checked;
     var spielplatzspielobjekt = document.getElementById("spielobjekt").checked; 
-    var spielplatzsonstiges = document.getElementById("sonstiges").checked;      
+    var spielplatzsonstiges = document.getElementById("sonstiges").checked;  
+    var spielplatzsanitar = document.getElementById("sanitar").checked; 
+    var spielplatzgrillplatz = document.getElementById("grillplatz").checked;
 
     myspielplatz.setName(spielplatzname);
     myspielplatz.setStraße(spielplatzstrasse);
@@ -148,6 +150,18 @@ function neuerSpielplatz() {
     else{
          myspielplatz.setSonstiges("sonstigesinaktiv.png");     
         }
+    
+    if(spielplatzsanitar == true){
+        myspielplatz.setSanitäranlagen("sanitar.png");} 
+    else{
+         myspielplatz.setSanitäranlagen("sanitarinaktiv.png");     
+        }
+      if(spielplatzgrillplatz == true){
+        myspielplatz.setGrillplatz("grillplatz.png");} 
+    else{
+         myspielplatz.setGrillplatz("grillplatzinaktiv.png");     
+        }
+    
     
     
         myspielplatz.save({
