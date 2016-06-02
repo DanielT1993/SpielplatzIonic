@@ -46,6 +46,7 @@ angular.module('starter.controllers', [])
 
 .controller('SpielplatzCtrl', function(){
     $('select').material_select();
+      $('textarea#kontaktmessage').characterCounter();
     
 })
 
@@ -54,6 +55,11 @@ angular.module('starter.controllers', [])
 .controller('KontaktCtrl', function() {
     $('textarea#kontaktmessage').characterCounter();
 })
+
+
+.controller('ShareCtrl', function($scope, $cordovaSocialSharing) {
+    })
+
 
 .controller('MapCtrl', function ($scope, $ionicLoading, $compile, $window, $stateParams) {
   
@@ -129,7 +135,7 @@ angular.module('starter.controllers', [])
     }
 
     loadScript('http://www.google.com.mt/jsapi');
-    loadScript('http://maps.googleapis.com/maps/api/js?key=AIzaSyCmpTMw7IitqkPCAfwlwsZGd6cruNNLLnY&sensor=true&callback=initialize');
+    loadScript('http://maps.googleapis.com/maps/api/js?key=AIzaSyCmpTMw7IitqkPCAfwlwsZGd6cruNNLLnY&callback=initialize');
 
 
 
@@ -341,7 +347,7 @@ angular.module('starter.controllers', [])
     var sonstiges = arrayspielplaetze["sonstiges"];
             
        $scope.playlistdetails = [
-    { title: name, strasse: strasse, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse, url:url,bild:bild, lat:lat, long:long, rutsche:rutsche, kletterturm:kletterturm, wippe:wippe, tischtennis:tischtennis, ballspielfeld:ballspielfeld, schaukel:schaukel, sandkasten:sandkasten, wasserspiele:wasserspiele, klettergerust:klettergerust, seilbahn:seilbahn, spielobjekt:spielobjekt, sonstiges:sonstiges     },
+    { title: name, strasse: strasse, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse, url:url, bild:bild, lat:lat, long:long, rutsche:rutsche, kletterturm:kletterturm, wippe:wippe, tischtennis:tischtennis, ballspielfeld:ballspielfeld, schaukel:schaukel, sandkasten:sandkasten, wasserspiele:wasserspiele, klettergerust:klettergerust, seilbahn:seilbahn, spielobjekt:spielobjekt, sonstiges:sonstiges},
   ];
 
 },
@@ -409,13 +415,6 @@ onError : function(error) {
 
 });
 
-
-
-
-    
- 
-
-
 function bewertungdb(){
 
     var sauberkeit = ($('input[name="rating-sauber"]:checked', '#sauberkeit').val()); 
@@ -452,5 +451,6 @@ function bewertungdb(){
     
     //alert (sauberkeit + spielspass + sicherheit + gesamtbewertung);
 }
+
 
 
