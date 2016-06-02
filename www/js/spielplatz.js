@@ -3,14 +3,23 @@
 function neuerSpielplatz() {
     
     var myspielplatz = new Apiomat.spielplatz();
-    
-     
-    var spielplatzname = document.getElementById("spielplatzname").value;
     var spielplatzstrasse = document.getElementById("spielplatzstraße").value;
     var spielplatzhausnr = document.getElementById("hausnummer").value;
-    var spielplatzplz = document.getElementById("plz").value;
-    var spielplatzlatitude = document.getElementById("latitude").value;
-    var spielplatzlongitude = document.getElementById("longitude").value;
+    var spielplatzplz = document.getElementById("plz").value;    
+    
+    var geocoder = new google.maps.Geocoder();
+    var address = plz + " aschaffenburg " + spielplatzstrasse + " " + spielplatzhausnr ;
+    var spielplatzlatitude;
+    var spielplatzlongitude ;    
+    geocoder.geocode( { 'address': address}, function(results, status) {
+
+      if (status == google.maps.GeocoderStatus.OK) {
+         spielplatzlatitude = results[0].geometry.location.lat();
+        spielplatzlongitude = results[0].geometry.location.lng();
+      } 
+    })
+     
+    var spielplatzname = document.getElementById("spielplatzname").value;
     var spielplatzstadtteil = document.getElementById("stadtteil").value;
     var spielplatzalter = document.getElementById("alter").value;
     var spielplatzsitz = document.getElementById("sitzgelegenheiten").value;
@@ -94,7 +103,7 @@ function neuerSpielplatz() {
     
     if(spielplatztischtennis == true){
         myspielplatz.setTischtennis("tischtennisplatte.png");} 
-    else{t
+    else{
          myspielplatz.setTischtennis("tischtennisplatteinaktiv.png");     
         }
     

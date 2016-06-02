@@ -29,21 +29,11 @@
                         </div>
                       
                         <div class="input-field col s6">
-                          <input id="plz" type="number" class="validate">
+                          <input id="plz" type="number" class="validate" length="5">
                           <label >Postleitzahl</label>
                         </div>
                         </div>
-                        <div class="row">  
-                        <div class="input-field col s6">
-                          <input id="latitude" type="number" class="validate">
-                          <label >Latitude</label>
-                        </div>
-                        <div class="input-field col s6">
-                          <input id="longitude" type="number" class="validate">
-                          <label >Longitude</label>
-                        </div>
-                      </div>
-        
+                                
                       <div class="row">
                         <div class="input-field col s6">
                             <select id="stadtteil">
@@ -90,10 +80,8 @@
                         </select>
                         <label>Status</label>
                       </div>
-                          
-                         
-                          
-                      </div>
+                        </div>
+                       
                         <h2>Ausstattung</h2> 
                         <div class="row" >
                             <div class="input-field col s6">
@@ -104,17 +92,21 @@
                                 <input type="checkbox" class="filled-in" id="kletterturm" />
                                 <label for="kletterturm">Kletterturm</label>
                             </div>
-                            <div class="input-field col s6">
-                                <input type="checkbox" class="filled-in" id="wippe" />
-                                <label for="wippe">Wippe</label>
-                            </div>
+                            
                         </div>
                         
                         <div class="row" >
                             <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="wippe" />
+                                <label for="wippe">Wippe</label>
+                            </div>
+                            <div class="input-field col s6">
                                 <input type="checkbox" class="filled-in" id="ballsport" />
                                 <label for="ballsport">Ballsport</label>
                             </div>
+                        </div>
+                            
+                        <div class="row" >
                             <div class="input-field col s6">
                                 <input type="checkbox" class="filled-in" id="tischtennis" />
                                 <label for="tischtennis">Tischtennis</label>
@@ -134,16 +126,18 @@
                                 <input type="checkbox" class="filled-in" id="wasserspiele" />
                                 <label for="wasserspiele">Wasserspiele</label>
                             </div>
-                            <div class="input-field col s6">
+                        </div>
+                        <div class="row" >
+                        <div class="input-field col s6">
                                 <input type="checkbox" class="filled-in" id="klettergerust" />
                                 <label for="klettergerust">Klettergerüst</label>
                             </div>
-                        </div>
-                          <div class="row" >
                             <div class="input-field col s6">
                                 <input type="checkbox" class="filled-in" id="seilbahn" />
                                 <label for="seilbahn">Seilbahn</label>
                             </div>
+                        </div>
+                            <div class="row" >
                             <div class="input-field col s6">
                                 <input type="checkbox" class="filled-in" id="spielobjekt" />
                                 <label for="spielobjekt">Spielobjekt</label>
@@ -153,7 +147,18 @@
                                 <label for="sonstiges">Sonstiges</label>
                             </div>
                         </div>
-                        
+                        <h2>Bild</h2> 
+                         <div class="row">
+                             <div class="file-field input-field col s12">
+                                  <div class="btn">
+                                        <span>File</span>
+                                        <input type="file">
+                                  </div>
+                                  <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text">
+                                  </div>
+                            </div>
+                      </div>
                         <div class="row">
                         <div class="input-field col s6" style="margin-bottom: 100px">
                           <label class="item">
@@ -168,6 +173,8 @@
                           </label>
                         </div>
                       </div>
+                        
+                    
                       
                     </form>
                   </div>
