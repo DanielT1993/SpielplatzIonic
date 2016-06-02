@@ -1,25 +1,25 @@
 <ion-view view-title="Login">
       <ion-content>
         <ion-item>
+            <h1 style="height:1.8em; text-align:center; margin-top:1em;" >Login Kommune</h1>
           <form ng-submit="doLogin()">
-                <ion-list>
-                    <ion-item >
-                        <p id="Headline"></p>
-                    </ion-item>
-                </ion-list>
+               
+                    
             <div class="list">
-                <label class="item item-input">
-                 <span class="input-label">Username</span>
+                
+                <label class="input-field col s6">
                   <input type="text" name="username" id="username">
+                    <label >Username</label>
                 </label>
-                <label class="item item-input">
-                  <span class="input-label">Password</span>
+                <label class="input-field col s6">
                   <input type="password" name="password" id="password">
+                    <label >Password</label>
                 </label>
-                <label class="item">
-                  <button class="button button-block button-positive" type="submit" onclick="login()" >Log in</button>
-                </label>          
+                
+                  <button  class="waves-effect waves-light btn orange accent-3" style="width:100%; margin-top:2em;" type="submit" onclick="login()" >Log in</button>
+                        
             </div>
+                    
           </form> 
         </ion-item>
       </ion-content>
