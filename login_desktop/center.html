@@ -19,7 +19,6 @@
   </head>
    <body onload="signup()">
     
-    <input type="button" id="addTask" onclick="neuerSpielplatzdesktop()" value="Add new task" />
     
  <div class="navbar-fixed">       
   <nav>
@@ -43,8 +42,6 @@
       <a class="button" href="centertitle.html"><i class="material-icons" style="padding-top: 15px">sort_by_alpha</i></a> 
     </div>
     
-    <ion-list>
-      <ion-item ng-repeat="playlist in playlists  | orderBy:'ort'" class="superclick" >
       <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="responsive-image" src="img/{{playlist.bild}}">
