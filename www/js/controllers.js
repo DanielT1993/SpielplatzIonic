@@ -335,19 +335,6 @@ angular.module('starter.controllers', [])
       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
 
-
-      $('.slider').slider({full_width: false});
-      
-      // Pause slider
-      $('.slider').slider('pause');
-      // Start slider
-      $('.slider').slider('start');
-      // Next slide
-      $('.slider').slider('next');
-      // Previous slide
-      $('.slider').slider('prev');
-
-        
     //Spielplatzid holen
     var url = ($stateParams.spielplatzId);
     var id = "id == id("+url+")";
@@ -382,6 +369,14 @@ angular.module('starter.controllers', [])
     var sanitar = arrayspielplaetze["sanitäranlagen"];
     var lat = arrayspielplaetze["latitude"];
     var long = arrayspielplaetze["longitude"];
+    var status = arrayspielplaetze["status"];   
+            
+            var statusfarbe;
+            if(status=="bespielbar"){
+                statusfarbe ="#00e676"
+            }else{
+                statusfarbe ="#ff5252"
+            }
             
     var rutsche = arrayspielplaetze["rutsche"];
     var kletterturm = arrayspielplaetze["kletterturm"];
@@ -397,7 +392,7 @@ angular.module('starter.controllers', [])
     var sonstiges = arrayspielplaetze["sonstiges"];
             
        $scope.playlistdetails = [
-    { title: name, sanitar: sanitar, feuer: feuer, strasse: strasse,plz: plz , bank: bank, alter: alter, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse, url:url, bild:bild, lat:lat, long:long, rutsche:rutsche, kletterturm:kletterturm, wippe:wippe, tischtennis:tischtennis, ballspielfeld:ballspielfeld, schaukel:schaukel, sandkasten:sandkasten, wasserspiele:wasserspiele, klettergerust:klettergerust, seilbahn:seilbahn, spielobjekt:spielobjekt, sonstiges:sonstiges},
+    { title: name, sanitar: sanitar, feuer: feuer, strasse: strasse,plz: plz , bank: bank, alter: alter, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse, url:url, bild:bild, lat:lat, long:long, rutsche:rutsche, kletterturm:kletterturm, wippe:wippe, tischtennis:tischtennis, ballspielfeld:ballspielfeld, schaukel:schaukel, sandkasten:sandkasten, wasserspiele:wasserspiele, klettergerust:klettergerust, seilbahn:seilbahn, spielobjekt:spielobjekt, sonstiges:sonstiges, status:status, statusfarbe:statusfarbe},
   ];
 
 },

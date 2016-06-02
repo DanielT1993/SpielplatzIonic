@@ -6,6 +6,10 @@
         <img class="materialboxed" src="img/{{playlistdetail.bild}}" style=" width: 100%; left: 0px;
 top: 0px;">
         </ion-item>
+        
+        <ion-item ng-repeat="playlistdetail in playlistdetails"style="background-color:{{playlistdetail.statusfarbe}}; text-align:center; padding:5px;">
+        <p style="color:white;">{{playlistdetail.status}}</p>
+        </ion-item>
         <ion-item ng-repeat="playlistdetail in playlistdetails">
             <ion-item style="width: 50%; float: left; border: none; padding: 0px;font-size:12px;">
                     <h2>{{playlistdetail.title}} </h2>
