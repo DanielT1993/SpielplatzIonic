@@ -24,6 +24,7 @@ top: 0px;">
         </ion-item>
         <ion-item ng-repeat="arraysum in arraysums">
         	<span class="stars">{{arraysum.avg}}</span>
+          <p id="">{{arraysum.avg2}}</p> 
         </ion-item>
         <ion-item ng-controller="MapCtrl" id="map" data-tap-disabled="true" ng-style="{'height': '250px'}">
             <div style="height:100%"></div>
@@ -157,6 +158,11 @@ top: 0px;">
             </li>
       </ul>  
     </ion-item>
+    <ion-item>
+                <label class="item" >
+                        <button class="waves-effect waves-light btn" type="submit" onclick="dbhochladen()" style="display: block; margin-left: auto; margin-right: auto">dbhochladen</button>
+                </label>
+  </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
