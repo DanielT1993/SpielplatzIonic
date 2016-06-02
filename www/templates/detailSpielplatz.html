@@ -2,30 +2,62 @@
 <ion-view view-title="Spielplatzdetail" >
   <ion-content >
     <ion-list>  
-        <ion-item ng-repeat="playlistdetail in playlistdetails">
+        <ion-item ng-repeat="playlistdetail in playlistdetails" style="padding: 0px">
         <img class="responsive-image" src="img/{{playlistdetail.bild}}" style=" width: 100%; left: 0px;
 top: 0px;">
         </ion-item>
-        <ion-item ng-repeat="playlistdetail in playlistdetails" >
-            
-                <h2>{{playlistdetail.title}} </h2>
-                {{playlistdetail.strasse}}{{playlistdetail.hausnr}}
-                {{playlistdetail.stadtteil}}
-                Größe: {{playlistdetail.groesse}}
-            Größe: {{playlistdetail.bild}}  
-                <p id="lat">{{playlistdetail.lat}}</p> 
-                <p id="long">{{playlistdetail.long}}</p>     
-                <p id="spid">{{playlistdetail.url}}</p>
-            
-            /* Im Design fehlt noch Stadtteil und Altersklasse!!*/
-            
-            
-            
+        <ion-item ng-repeat="playlistdetail in playlistdetails">
+            <ion-item style="width: 50%; float: left; border: none; padding: 0px;font-size:12px;">
+                    <h2>{{playlistdetail.title}} </h2>
+
+                    {{playlistdetail.strasse}} {{playlistdetail.hausnr}} </br>
+                    {{playlistdetail.plz}} {{playlistdetail.stadtteil}}</br>
+                    {{playlistdetail.groesse}} m² Fläche
+                    <p id="spid" style="height: 2px">{{playlistdetail.url}}</p>       
+            </ion-item>
+            <ion-item style="width: 50%; float: right; border: none; padding: 0px;font-size:12px;">
+                    
+                    <a href="#/app/share" style="float:right; padding-right: 20px; color: #C94566"><i class="material-icons" style="padding-top: 15px; float:right">speaker_phone</i><br> Teilen Sie </br>Ihren Standort</a>
+            </ion-item>
         </ion-item>
-        <ion-item ng-repeat="arraysum in arraysums">
-        	<span class="stars">{{arraysum.avg}}</span>
-          <p id="">{{arraysum.avg2}}</p> 
+        <ion-item ng-repeat="playlistdetail in playlistdetails" style="background-color: #eeeeee">
+            <ion-item style="width: 45%; float: left; border: none; padding: 0px; background-color: #eeeeee">
+            <i class="material-icons" style="font-size:18px; float: left">cake</i><p style="font-size:12px; float:left; padding-left: 10px"> {{playlistdetail.alter}}</p>
+            </ion-item>
+            <ion-item style="width: 55%; float: left; border: none; padding: 0px; background-color: #eeeeee">
+            <i class="material-icons" style="font-size:18px; float: left">event_seat</i><p style="font-size:12px; float:left; padding-left: 10px"> {{playlistdetail.bank}}</p>
+            </ion-item>
         </ion-item>
+        <ion-item>
+            <ion-item ng-repeat="arraysum in arraysums" style="width: 45%; float: left; border: none; padding: 0px">
+              <p style=" margin-left: auto; margin-right: auto"><b>Gesamtbewertung</b></p>
+              <span class="stars" style="font-size: 18px; padding-bottom: 20px">{{arraysum.avg}}</span>
+              <p style="font-size: 12px">Sauberkeit: Ø {{arraysum.avgsau}}</p>
+              <p style="font-size: 12px">Sicherheit: Ø {{arraysum.avgsich}}</p>
+              <p style="font-size: 12px">Spielspaß: Ø {{arraysum.avgspa}}</p>
+              <p id="">{{arraysum.avg2}}</p> 
+              
+
+            </ion-item>
+
+            <ion-item ng-repeat="playlistdetail in playlistdetails" style="width: 55%; float: right; border: none; padding: 0px">
+                <div  class="col s3" style="padding-bottom: 20px; padding-top: 20px">
+                        <img  src="img/{{playlistdetail.feuer}}" alt="" style="width:20%; float: left; ">
+                        <p style=" float: left; padding-left: 10px; padding-top: 5px">Grillstelle</p> </br>
+                </div>
+                <div  class="col s3">
+                        <img  src="img/{{playlistdetail.sanitar}}" alt="" style="width:20%; float: left">
+                        <p style=" float: left; padding-left: 10px; padding-top: 5px">Sanitäranlagen</p> 
+                </div>
+ 
+ 
+                
+            </ion-item>
+        </ion-item>
+
+
+
+
         <ion-item ng-controller="MapCtrl" id="map" data-tap-disabled="true" ng-style="{'height': '250px'}">
             <div style="height:100%"></div>
         </ion-item>
@@ -158,11 +190,6 @@ top: 0px;">
             </li>
       </ul>  
     </ion-item>
-    <ion-item>
-                <label class="item" >
-                        <button class="waves-effect waves-light btn" type="submit" onclick="dbhochladen()" style="display: block; margin-left: auto; margin-right: auto">dbhochladen</button>
-                </label>
-  </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>

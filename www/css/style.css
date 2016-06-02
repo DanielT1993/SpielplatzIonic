@@ -357,6 +357,7 @@ span.stars2 span {
   width: .5em;
   margin-left: -.5em;
 }
+
 .star3-cb-group-sicherheit:hover > input + label:before {
   content: "☆";
     font-size: 1.5em;

@@ -334,11 +334,27 @@ angular.module('starter.controllers', [])
     $('.collapsible').collapsible({
       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
-    
+
+
+      $('.slider').slider({full_width: false});
+      
+      // Pause slider
+      $('.slider').slider('pause');
+      // Start slider
+      $('.slider').slider('start');
+      // Next slide
+      $('.slider').slider('next');
+      // Previous slide
+      $('.slider').slider('prev');
+
+        
     //Spielplatzid holen
     var url = ($stateParams.spielplatzId);
     var id = "id == id("+url+")";
     var avg;
+    var avgsau;
+    var avgsich;
+    var avgspa;
     
     var idbewertung = "bewertungsid == ("+url+")";
     
@@ -358,7 +374,12 @@ angular.module('starter.controllers', [])
     var hausnr = arrayspielplaetze["hausnummer"];
     var stadtteil = arrayspielplaetze["stadtteil"];
     var groesse = arrayspielplaetze["größe"];
+    var bank = arrayspielplaetze["sitzgelegenheiten"];
+    var alter = arrayspielplaetze["altersgruppe"];
     var bild = arrayspielplaetze["hauptbild"];
+    var plz = arrayspielplaetze["plz"];
+    var feuer = arrayspielplaetze["grillplatz"];
+    var sanitar = arrayspielplaetze["sanitäranlagen"];
     var lat = arrayspielplaetze["latitude"];
     var long = arrayspielplaetze["longitude"];
             
@@ -376,7 +397,7 @@ angular.module('starter.controllers', [])
     var sonstiges = arrayspielplaetze["sonstiges"];
             
        $scope.playlistdetails = [
-    { title: name, strasse: strasse, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse, url:url, bild:bild, lat:lat, long:long, rutsche:rutsche, kletterturm:kletterturm, wippe:wippe, tischtennis:tischtennis, ballspielfeld:ballspielfeld, schaukel:schaukel, sandkasten:sandkasten, wasserspiele:wasserspiele, klettergerust:klettergerust, seilbahn:seilbahn, spielobjekt:spielobjekt, sonstiges:sonstiges},
+    { title: name, sanitar: sanitar, feuer: feuer, strasse: strasse,plz: plz , bank: bank, alter: alter, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse, url:url, bild:bild, lat:lat, long:long, rutsche:rutsche, kletterturm:kletterturm, wippe:wippe, tischtennis:tischtennis, ballspielfeld:ballspielfeld, schaukel:schaukel, sandkasten:sandkasten, wasserspiele:wasserspiele, klettergerust:klettergerust, seilbahn:seilbahn, spielobjekt:spielobjekt, sonstiges:sonstiges},
   ];
 
 },
@@ -408,6 +429,9 @@ onError : function(error) {
     }
     });   
     var sum = 0;
+    var sum2 = 0;
+    var sum3 = 0;
+    var sum4 = 0;
     Apiomat.bewertungen.getbewertungens(idbewertung, {
     onOk : function(loadedObjs) {
     //Now you can do sth with loaded objects (loadedObjs)
@@ -416,10 +440,19 @@ onError : function(error) {
           var arraybewertungen = loadedObjs[i]["data"];
           //Ausgabe in Konsole
           var bewertungaus = arraybewertungen["gesamtbewertung"];
+          var sauberkeit2 = arraybewertungen["sauberkeit"];
+          var sicherheit2 = arraybewertungen["sicherheit"];
+          var spielspass2 = arraybewertungen["spielspass"];
           sum +=  parseInt(bewertungaus);
+          sum2 +=  parseInt(sauberkeit2);
+          sum3 +=  parseInt(sicherheit2);
+          sum4 +=  parseInt(spielspass2);
           }
     avg = sum/loadedObjs.length;
-    $scope.arraysums.push({ avg: avg});
+    avgsau = sum2/loadedObjs.length;
+    avgsich = sum3/loadedObjs.length;
+    avgspa = sum4/loadedObjs.length;
+    $scope.arraysums.push({ avg: avg, avgsau: avgsau, avgsich: avgsich, avgspa: avgspa});
     //alert(url);
     var myspielplatz;
     var id = url; // replace this with the id of the item yout want to fetch
