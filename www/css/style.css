@@ -202,6 +202,15 @@ color:#FFF;
     font-size:1px}
 
 
+.kontakt-text{
+    font-size:0.9em;
+    text-align:center;
+    display:inline-block;
+    color:#424242;
+    width:80%;
+     margin-bottom:2em;
+}
+
 .appinfo-text{
     font-size:0.9em;
     text-align:center;
@@ -209,6 +218,7 @@ color:#FFF;
     margin-top:3em;
     color:#424242;
     width:80%;
+   
     
 }
 

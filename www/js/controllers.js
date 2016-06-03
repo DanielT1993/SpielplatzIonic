@@ -42,15 +42,10 @@ angular.module('starter.controllers', [])
   };
 })
 
-
-
 .controller('SpielplatzCtrl', function(){
     $('select').material_select();
-      $('textarea#kontaktmessage').characterCounter();
-    
+      $('numberarea#plz').characterCounter();
 })
-
-
 
 .controller('KontaktCtrl', function() {
     $('textarea#kontaktmessage').characterCounter();
@@ -275,6 +270,7 @@ angular.module('starter.controllers', [])
 )
 
 .controller('BewertungCtrl', function($stateParams, $scope){
+     
 
     $(document).ready(function(){
     $('.collapsible').collapsible({
@@ -329,6 +325,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('DetailSpielplatzCtrl', function($scope, $scope, $scope, $stateParams, $scope, $ionicLoading, $compile ) {
+    $('textarea#freitext').characterCounter();
 
     //Accordion ratings
     $('.collapsible').collapsible({
@@ -469,8 +466,6 @@ onError : function(error) {
         console.log(error);
       }
     });
-
-
     },
 
     onError : function(error) {
