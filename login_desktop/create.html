@@ -124,11 +124,21 @@
                         </select>
                         <label>Status</label>
                       </div>
-                          
-                         
-                          
+                      </br>    
                       </div>
-                        <h2>Ausstattung</h2> 
+                        <div class="row" >
+                           <h2>Ausstattung</h2> 
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="sanitar" />
+                                <label for="sanitar">Sanitäranlagen</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="grillplatz" />
+                                <label for="grillplatz">Grillplatz</label>
+                            </div>
+                        </div>
+                       </br>
+                        <h2>Spielgeräte</h2> 
                         <div class="row" >
                             <div class="input-field col s6">
                                 <input type="checkbox" class="filled-in" id="rutsche" />
@@ -138,17 +148,20 @@
                                 <input type="checkbox" class="filled-in" id="kletterturm" />
                                 <label for="kletterturm">Kletterturm</label>
                             </div>
-                            <div class="input-field col s6">
-                                <input type="checkbox" class="filled-in" id="wippe" />
-                                <label for="wippe">Wippe</label>
-                            </div>
                         </div>
                         
                         <div class="row" >
                             <div class="input-field col s6">
+                                <input type="checkbox" class="filled-in" id="wippe" />
+                                <label for="wippe">Wippe</label>
+                            </div>
+                            <div class="input-field col s6">
                                 <input type="checkbox" class="filled-in" id="ballsport" />
                                 <label for="ballsport">Ballsport</label>
                             </div>
+                        </div>
+                            
+                        <div class="row" >
                             <div class="input-field col s6">
                                 <input type="checkbox" class="filled-in" id="tischtennis" />
                                 <label for="tischtennis">Tischtennis</label>
@@ -168,16 +181,18 @@
                                 <input type="checkbox" class="filled-in" id="wasserspiele" />
                                 <label for="wasserspiele">Wasserspiele</label>
                             </div>
-                            <div class="input-field col s6">
+                        </div>
+                        <div class="row" >
+                        <div class="input-field col s6">
                                 <input type="checkbox" class="filled-in" id="klettergerust" />
                                 <label for="klettergerust">Klettergerüst</label>
                             </div>
-                        </div>
-                          <div class="row" >
                             <div class="input-field col s6">
                                 <input type="checkbox" class="filled-in" id="seilbahn" />
                                 <label for="seilbahn">Seilbahn</label>
                             </div>
+                        </div>
+                            <div class="row" >
                             <div class="input-field col s6">
                                 <input type="checkbox" class="filled-in" id="spielobjekt" />
                                 <label for="spielobjekt">Spielobjekt</label>
@@ -187,7 +202,7 @@
                                 <label for="sonstiges">Sonstiges</label>
                             </div>
                         </div>
-                        <br>
+                        </br>
                         <h2>Bildupload</h2>  
                         <form action="#">
                           <div class="file-field input-field">
@@ -222,7 +237,8 @@
  
   
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="../www/js/materialize.min.js"></script>
+<script type="text/javascript" src="../www/js/materialize.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCmpTMw7IitqkPCAfwlwsZGd6cruNNLLnY"></script>
   <script>
  
 function signup()
@@ -255,14 +271,23 @@ $(document).ready(function() {
   });
 function neuerSpielplatzdesktop() {
     var myspielplatz = new Apiomat.spielplatz();
-    
-     
-    var spielplatzname = document.getElementById("spielplatzname").value;
     var spielplatzstrasse = document.getElementById("spielplatzstraße").value;
     var spielplatzhausnr = document.getElementById("hausnummer").value;
-    var spielplatzplz = document.getElementById("plz").value;
-    var spielplatzlatitude = document.getElementById("latitude").value;
-    var spielplatzlongitude = document.getElementById("longitude").value;
+    var spielplatzplz = document.getElementById("plz").value;    
+    
+    var geocoder = new google.maps.Geocoder();
+    var address = plz + " aschaffenburg " + spielplatzstrasse + " " + spielplatzhausnr ;
+    var spielplatzlatitude;
+    var spielplatzlongitude ;    
+    geocoder.geocode( { 'address': address}, function(results, status) {
+
+      if (status == google.maps.GeocoderStatus.OK) {
+         spielplatzlatitude = results[0].geometry.location.lat();
+        spielplatzlongitude = results[0].geometry.location.lng();
+      } 
+    })
+     
+    var spielplatzname = document.getElementById("spielplatzname").value;
     var spielplatzstadtteil = document.getElementById("stadtteil").value;
     var spielplatzalter = document.getElementById("alter").value;
     var spielplatzsitz = document.getElementById("sitzgelegenheiten").value;
@@ -279,7 +304,9 @@ function neuerSpielplatzdesktop() {
     var spielplatzklettergerust = document.getElementById("klettergerust").checked; 
     var spielplatzseilbahn = document.getElementById("seilbahn").checked;
     var spielplatzspielobjekt = document.getElementById("spielobjekt").checked; 
-    var spielplatzsonstiges = document.getElementById("sonstiges").checked;      
+    var spielplatzsonstiges = document.getElementById("sonstiges").checked;  
+    var spielplatzsanitar = document.getElementById("sanitar").checked; 
+    var spielplatzgrillplatz = document.getElementById("grillplatz").checked;
 
     myspielplatz.setName(spielplatzname);
     myspielplatz.setStraße(spielplatzstrasse);
@@ -287,6 +314,7 @@ function neuerSpielplatzdesktop() {
     myspielplatz.setPlz(spielplatzplz);
     myspielplatz.setLatitude(spielplatzlatitude);
     myspielplatz.setLongitude(spielplatzlongitude);
+    myspielplatz.setGesamtbewertungsp(0);
     
     if(spielplatzstadtteil == 1){
         myspielplatz.setStadtteil("Gailbach");}
@@ -389,6 +417,17 @@ function neuerSpielplatzdesktop() {
         myspielplatz.setSonstiges("sonstiges.png");} 
     else{
          myspielplatz.setSonstiges("sonstigesinaktiv.png");     
+        }
+    
+    if(spielplatzsanitar == true){
+        myspielplatz.setSanitäranlagen("sanitar.png");} 
+    else{
+         myspielplatz.setSanitäranlagen("sanitarinaktiv.png");     
+        }
+      if(spielplatzgrillplatz == true){
+        myspielplatz.setGrillplatz("grillplatz.png");} 
+    else{
+         myspielplatz.setGrillplatz("grillplatzinaktiv.png");     
         }
     
     
