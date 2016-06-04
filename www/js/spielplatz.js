@@ -175,23 +175,6 @@ function neuerSpielplatz() {
         });
 }
 
-function detail(){
- Apiomat.spielplatz.getspielplatzs("", {
-    onOk : function(loadedObjs) {
-    //Now you can do sth with loaded objects (loadedObjs)
-    
-    var deeper = loadedObjs[1]["data"];
-    console.log(deeper["name"]);
-    document.getElementById("demo").innerHTML = deeper["name"];
-    },
-    onError : function(error) {
-    }
-    });
-
-     alert("Function functioniert");
-}
-
-
 function deg2rad(deg) {
   return deg * (Math.PI/180)
 }
@@ -225,8 +208,6 @@ function sterne(){
         });
 }
 
-
-
 var attempt = 3;
     function login(){
     var username = document.getElementById("username").value;
@@ -248,7 +229,3 @@ var attempt = 3;
         }
     }
 }
-
-
-
-

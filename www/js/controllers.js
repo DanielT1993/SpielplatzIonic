@@ -51,10 +51,151 @@ angular.module('starter.controllers', [])
     $('textarea#kontaktmessage').characterCounter();
 })
 
+.controller('FilterspielplatzCtrl', function($scope, $scope, $scope) {
+    
+    $scope.showMe = true;
+    $scope.filter = function() {
+    var posa = 0;
+    var posb = 0;   
+    avg = 0;
+        
+        
+    var spielplatzsanitar = document.getElementById("sanitar").checked; 
+    var spielplatzgrillplatz = document.getElementById("grillplatz").checked;    
+        
+    var grillen;
+    var sanitar;
+    var filter3;
+        
+    if(spielplatzsanitar == true){
+       sanitar = "sanitar.png";
+        filter3 ="sanitäranlagen==\"" + sanitar + "\"";
+    }else{
+          filter3 ="";
+    }
+    if(spielplatzgrillplatz == true){
+             grillen ="grillplatz.png";
+            filter4 = "grillplatz==\"" +grillen + "\"";  }
+    else{
+          filter4 ="";
+    }  
+        
+     if(spielplatzgrillplatz == true && spielplatzsanitar == true ){
+             grillen ="grillplatz.png";
+            filter3 ="sanitäranlagen==\"" + sanitar + "\"";
+            filter4 = "and grillplatz==\"" +grillen + "\"";  }
+    else{
+          filter5 ="";
+    }     
+        
+    filter5 = filter3  + filter4;    
+     console.log(filter5);    
+    var filter= "grillplatz==\"grillplatz.png\"and sanitäranlagen==\"sanitarinaktiv.png\"";   
+    var filter2 = "grillplatz==\"" + grillen + "\" and sanitäranlagen==\"" +sanitar + "\"" ;   
+ 
+    //Array anlegen
+    $scope.playlists = [];  
+    $scope.arraysums = [];    
+    Apiomat.spielplatz.getspielplatzs(filter5, {
+    onOk : function(loadedObjs) {
+        
+    //Now you can do sth with loaded objects (loadedObjs)
+    for (i = 0; i < loadedObjs.length; i++) {
+        var arrayspielplaetze = loadedObjs[i]["data"];
+        //Ausgabe in Konsole
+        var name = arrayspielplaetze["name"];
+        var strasse = arrayspielplaetze["straße"];
+        var nummer = arrayspielplaetze["hausnummer"];
+        var stadtteil = arrayspielplaetze["stadtteil"];
+        var plz = arrayspielplaetze["plz"];
+        var altersgruppe = arrayspielplaetze["altersgruppe"];
+        var groesse = arrayspielplaetze["größe"];
+        var status = arrayspielplaetze["status"];
+        var bild = arrayspielplaetze["hauptbild"];
+        var bewertung = arrayspielplaetze["gesamtbewertungsp"];
 
-.controller('ShareCtrl', function($scope, $cordovaSocialSharing) {
-    })
+        var id = arrayspielplaetze["id"];
+        
+      function success(pos){
+        posa = pos.coords.longitude; 
+        posb = pos.coords.latitude;
+      }    
+     // alert(posa);   
+      
 
+      if (navigator.geolocation){         
+         navigator.geolocation.getCurrentPosition(success);
+      }else{
+           alert("Geoortung wird nicht unterstützt!");
+         }
+     
+      var lat1 = arrayspielplaetze["latitude"];
+      var lon1 = arrayspielplaetze["longitude"];
+      var lat2 = 49.351648;
+      var lon2 = 9.148309;
+      var R = 6371; // Radius of the earth in km
+      var dLat = deg2rad(lat2-lat1);  // deg2rad below
+      var dLon = deg2rad(lon2-lon1); 
+      var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon/2) * Math.sin(dLon/2);        ; 
+      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+      var d = R * c; // Distance in km
+      var gerundetd = Math.round(d * 100)/100;
+
+        var spid = "bewertungsid == ("+id+")";//document.getElementById("spid").innerHTML ;
+        var sum = 0;
+        //var avg =0;
+        //alert(spid);
+          Apiomat.bewertungen.getbewertungens(spid, {
+          onOk : function(loadedObjs) {
+          //alert(loadedObjs.length);
+          for (i = 0; i < loadedObjs.length; i++) {
+                var arraybewertungen = loadedObjs[i]["data"];
+                //Ausgabe in Konsole
+                var bewertungaus = arraybewertungen["gesamtbewertung"];
+                sum +=  parseInt(bewertungaus);
+          }
+          avg = sum/loadedObjs.length;
+          console.log(avg);
+          //alert(avg);
+          $scope.arraysums.push({ avg: avg});
+          },
+
+
+          onError : function(error) {
+          //handle error
+          }
+
+      })
+
+
+
+      $scope.playlists.push({ title: name, bewertung: bewertung, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status , plz: plz ,strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, ort: gerundetd + " km", color: '#FF880E', id:id, avg: avg});
+        
+      }
+    },
+        
+    onError : function(error) {
+    }
+    });
+
+    var checkExist = setInterval(function() {
+           if ($('span.stars2').length) {
+              $('span.stars2').stars2();
+              clearInterval(checkExist);
+           }
+        }, 20);
+          
+    
+        $.fn.stars2 = function() {
+            return $(this).each(function() {
+                $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+            });
+          }
+    }
+
+  })
+
+.controller('ShareCtrl', function($scope, $cordovaSocialSharing) {})
 
 .controller('MapCtrl', function ($scope, $ionicLoading, $compile, $window, $stateParams) {
   
@@ -156,7 +297,6 @@ angular.module('starter.controllers', [])
         alert('Example of infowindow with ng-click')
     };
 })
-
 
 .controller('PlaylistsCtrl', function($scope, $scope) { 
 
@@ -266,8 +406,7 @@ angular.module('starter.controllers', [])
         
 
 
-}
-)
+})
 
 .controller('BewertungCtrl', function($stateParams, $scope){
      

@@ -114,6 +114,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
         }
       }
     })
+  
+     .state('app.filter', {
+      url: '/filter',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/filter.html',
+          controller: 'FilterspielplatzCtrl'
+        }
+      }
+    })
 
   .state('app.single', {
     url: '/playlists/:spielplatzId',
