@@ -95,12 +95,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
       }
     })
 
+
+
      .state('app.playlistsTitle', {
       url: '/playlistsTitle',
       views: {
         'menuContent': {
           templateUrl: 'templates/playlistsTitle.html',
-          controller: 'PlaylistsCtrl'
+          controller: 'PlaylistsCtrl3'
         }
       }
     })
@@ -110,7 +112,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
       views: {
         'menuContent': {
           templateUrl: 'templates/playlistsRating.html',
-          controller: 'PlaylistsCtrl'
+          controller: 'PlaylistsCtrl2'
         }
       }
     })
