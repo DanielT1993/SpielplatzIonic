@@ -170,7 +170,7 @@ body {
   transition: none;
 }
 #nav li.active a {
-  border-bottom: 2px solid #e6af2a;
+  border-bottom: 2px solid #c94566;
 }
 .nav.nav-tabs {
   border-bottom: 0 none;
@@ -184,7 +184,7 @@ body {
   border-radius: 0;
 }
 #nav a:hover{
-  border-bottom:2px solid #e6af2a;
+  border-bottom:2px solid #c94566;
   background:none;
 }
 /*jquery-sticky-menu*/
@@ -245,7 +245,7 @@ html,body{height:100%;}
   text-transform: uppercase;
 }
 .bg-yellow {
-  background: #e6af2a none repeat scroll 0 0;
+  background: #c94566 none repeat scroll 0 0;
   height: 2px !important;
   margin: 14% 0;
   width: 30px;
@@ -266,8 +266,8 @@ html,body{height:100%;}
 	display:inline-block;
 }
 .digital:hover{
-  background:#e6af2a;
-  border:2px solid #e6af2a;
+  background:#c94566;
+  border:2px solid #c94566;
 }
 /*-------------------
 [ 2.2 Fawesome-Control ]
@@ -320,7 +320,7 @@ html,body{height:100%;}
   left: 44%;
 }
 .black_number {
-  color: #f7d23d;
+  color: #c94566;
 }
 .about_text:hover .black_number {
   transform: translateY(-100%);
@@ -386,7 +386,7 @@ html,body{height:100%;}
 .team_icon i {
   font-size: 20px;
   margin: 15px 15px 25px;
-  color: #E6AF2A;
+  color: #c94566;
   transition: all 0.3s ease 0s;
 }
 .team_icon  a:hover,.social_icon i :hover {
@@ -432,7 +432,7 @@ html,body{height:100%;}
 [5. What-We-Do ]
 --------------------------------------------------------------------*/
 .what_do.section_padding {
-  background: #e6af2a none repeat scroll 0 0;
+  background: #c94566 none repeat scroll 0 0;
   color: #fff;
 }
 .blog-title p ,.what_do p {
@@ -482,7 +482,7 @@ html,body{height:100%;}
   margin-bottom: 20%;
 }
 .single_sercives_icon {
-  border: 1px solid #E7B02D;
+  border: 1px solid #c94566;
   border-radius: 50%;
   height: 100px;
   margin-bottom: 30px;
@@ -491,12 +491,12 @@ html,body{height:100%;}
   width: 100px;
 }
 .single_sercives_icon i {
-  color: #E7B02D;
+  color: #c94566;
   font-size: 54px;
   padding-top: 22%;
 }
 .single_sercives_icon::after {
-  background: #E7B02D none repeat scroll 0 0;
+  background: #c94566 none repeat scroll 0 0;
   border-radius: 50%;
   content: "";
   height: 100%;
@@ -519,7 +519,7 @@ html,body{height:100%;}
   margin-bottom: 10px;
 }
 .block-title a h4:hover {
-  color: #E7B02D;
+  color: #c94566;
 }
 /*------------------------------------------------------------------
 [7. Percent ]
@@ -685,11 +685,11 @@ html,body{height:100%;}
   padding: 0;
 }
 .modal-footer i {
-  color: #FBC011;
+  color: #c94566;
   font-size: 45px;
 }
 .modal-footer:hover,.modal-footer:hover i{
-  background: #FBC011 none repeat scroll 0 0;
+  background: #c94566 none repeat scroll 0 0;
   color:#fff;
 }
 /*------------------------------------------------------------------
@@ -796,7 +796,7 @@ html,body{height:100%;}
   padding: 10px 14px;
 }
 .all_veiw a:hover,.btn-black:hover{
-  background:#E7B02D;
+  background:#c94566;
   color:#fff;
 }
 /*------------------------------------------------------------------
@@ -812,7 +812,7 @@ html,body{height:100%;}
   padding-bottom: 100px;
 }
 .contact_icon i {
-  color: #e6af2a;
+  color: #c94566;
   font-size: 45px;
   margin-bottom: 15px;
 }
@@ -832,7 +832,7 @@ input, textarea {
   width: 100%;
 }
 input:focus,textarea:focus {
-  border: 1px solid #e6af2a;
+  border: 1px solid #c94566;
 }
 .required {
   font-size: 11px;
@@ -849,7 +849,7 @@ input:focus,textarea:focus {
 [ 14 Happy ]
 --------------------------------------------------------------------*/
 .happy {
-  background: #e6af2a none repeat scroll 0 0;
+  background: #c94566 none repeat scroll 0 0;
   color: #fff;
 }
 #counter_happy {
@@ -870,7 +870,7 @@ input:focus,textarea:focus {
   background: #f4f4f4 none repeat scroll 0 0;
 }
 .social_icon i {
-  color: #DFA92D;
+  color: #c94566;
   font-size: 22px;
   margin: 0 25px;
 }
