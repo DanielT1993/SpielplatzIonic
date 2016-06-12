@@ -803,9 +803,9 @@ onError : function(error) {
           sum4 +=  parseInt(spielspass2);
           }
     avg = sum/loadedObjs.length;
-    avgsau = sum2/loadedObjs.length;
-    avgsich = sum3/loadedObjs.length;
-    avgspa = sum4/loadedObjs.length;
+    avgsau = Math.round(sum2/loadedObjs.length * 100) / 100 ;
+    avgsich = Math.round(sum3/loadedObjs.length * 100) / 100 ;
+    avgspa = Math.round(sum4/loadedObjs.length * 100) / 100 ;
     $scope.arraysums.push({ avg: avg, avgsau: avgsau, avgsich: avgsich, avgspa: avgspa});
     //alert(url);
     var myspielplatz;

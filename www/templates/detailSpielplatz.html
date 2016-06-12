@@ -58,8 +58,8 @@ top: 0px;">
         <ion-item ng-controller="MapCtrl" id="map" data-tap-disabled="true" ng-style="{'height': '250px'}">
             <div style="height:100%"></div>
         </ion-item>
-      <ion-item ng-repeat="playlistdetail in playlistdetails" >
-            <div class="row" style="text-align: center">
+      <ion-item ng-repeat="playlistdetail in playlistdetails" style="padding:0px; padding-top:10px" >
+            <div class="row" style="text-align: center; padding:0px">
                 <div  class="col s3">
                         <img class="responsive-img" style=" width:75%;" src="img/{{playlistdetail.rutsche}}" alt="">
                         <p  style="font-size: 12px; color:#757575;">Rutsche</p> 
@@ -73,7 +73,7 @@ top: 0px;">
                         <p  style="font-size: 12px; color:#757575;">Wippe</p> 
                 </div>
             </div>
-            <div class="row" style="text-align: center">
+            <div class="row" style="text-align: center; padding:0px">
                 <div  class="col s3">
                         <img  class="responsive-img" style=" width:75%;" src="img/{{playlistdetail.tischtennis}}" alt="">
                         <p  style="font-size: 12px; color:#757575;">Tischtennis</p> 
@@ -88,7 +88,7 @@ top: 0px;">
                 </div>
                 
             </div>
-            <div class="row" style="text-align: center">
+            <div class="row" style="text-align: center; padding:0px">
                 <div class="col s3">
                         <img class="responsive-img" style=" width:75%;" src="img/{{playlistdetail.sandkasten}}" alt="">
                         <p  style="font-size: 12px; color:#757575;">Sandkasten</p> 
@@ -102,7 +102,7 @@ top: 0px;">
                         <p  style="font-size: 12px; color:#757575;">Klettergerüst</p> 
                 </div>
           </div>    
-            <div class="row" style="text-align: center">    
+            <div class="row" style="text-align: center; padding:0px">    
                 <div class="col s3">
                         <img class="responsive-img" style=" width:75%;" src="img/{{playlistdetail.seilbahn}}" alt="">
                         <p  style="font-size: 12px; color:#757575;">Seilbahn</p> 
@@ -170,7 +170,7 @@ top: 0px;">
                               </div>
                         </div>
                   </form>
-                <label class="item" style="border-top:none;" >
+                <label class="item" style="border-top:none; padding-top: 0px" >
                         <button class="waves-effect waves-light btn orange accent-3" type="submit" onclick="bewertungdb()" style="display: block; width:100%; margin-left: auto; margin-right: auto">Bewertung abgeben</button>
                 </label>
                 </div>

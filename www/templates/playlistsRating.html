@@ -10,7 +10,7 @@
     </div>
 
     <ion-list>
-      <ion-item ng-repeat="playlist in playlists  | orderBy:'ort'" class="superclick" >
+      <ion-item ng-repeat="playlist in playlists  | orderBy:'-bewertung'" class="superclick" >
       <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="responsive-image" src="img/{{playlist.bild}}">
