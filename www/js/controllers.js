@@ -410,6 +410,105 @@ angular.module('starter.controllers', [])
 
 })
 
+
+.controller('SearchCtrl', function($scope, $scope) { 
+
+
+      var posa = 0;
+      var posb = 0;   
+      avg = 0;
+     
+    //Array anlegen
+    $scope.playlists = [];  
+    $scope.arraysums = [];    
+    Apiomat.spielplatz.getspielplatzs("", {
+    onOk : function(loadedObjs) {
+        
+    //Now you can do sth with loaded objects (loadedObjs)
+    for (i = 0; i < loadedObjs.length; i++) {
+        var arrayspielplaetze = loadedObjs[i]["data"];
+        //Ausgabe in Konsole
+        var name = arrayspielplaetze["name"];
+        var strasse = arrayspielplaetze["straße"];
+        var nummer = arrayspielplaetze["hausnummer"];
+        var stadtteil = arrayspielplaetze["stadtteil"];
+        var plz = arrayspielplaetze["plz"];
+        var altersgruppe = arrayspielplaetze["altersgruppe"];
+        var groesse = arrayspielplaetze["größe"];
+        var status = arrayspielplaetze["status"];
+        var bild = arrayspielplaetze["hauptbild"];
+        var bewertung = arrayspielplaetze["gesamtbewertungsp"];
+
+        var id = arrayspielplaetze["id"];
+        
+      function success(pos){
+        posa = pos.coords.longitude; 
+        posb = pos.coords.latitude;
+      }    
+     // alert(posa);   
+      
+
+      if (navigator.geolocation){         
+         navigator.geolocation.getCurrentPosition(success);
+      }else{
+           alert("Geoortung wird nicht unterstützt!");
+         }
+     
+      var lat1 = arrayspielplaetze["latitude"];
+      var lon1 = arrayspielplaetze["longitude"];
+      var lat2 = 49.351648;
+      var lon2 = 9.148309;
+      var R = 6371; // Radius of the earth in km
+      var dLat = deg2rad(lat2-lat1);  // deg2rad below
+      var dLon = deg2rad(lon2-lon1); 
+      var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon/2) * Math.sin(dLon/2);        ; 
+      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+      var d = R * c; // Distance in km
+      var gerundetd = Math.round(d * 100)/100;
+
+        var spid = "bewertungsid == ("+id+")";//document.getElementById("spid").innerHTML ;
+        var sum = 0;
+        //var avg =0;
+        //alert(spid);
+          Apiomat.bewertungen.getbewertungens(spid, {
+          onOk : function(loadedObjs) {
+          //alert(loadedObjs.length);
+          for (i = 0; i < loadedObjs.length; i++) {
+                var arraybewertungen = loadedObjs[i]["data"];
+                //Ausgabe in Konsole
+                var bewertungaus = arraybewertungen["gesamtbewertung"];
+                sum +=  parseInt(bewertungaus);
+          }
+          avg = sum/loadedObjs.length;
+          //console.log(avg);
+          //alert(avg);
+          $scope.arraysums.push({ avg: avg});
+          },
+
+
+          onError : function(error) {
+          //handle error
+          }
+
+      })
+
+
+
+      $scope.playlists.push({ title: name, bewertung: bewertung, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status , plz: plz ,strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, ort: gerundetd + " km", color: '#FF880E', id:id, avg: avg});
+        
+      }
+    },
+        
+    onError : function(error) {
+    }
+    });
+    
+})
+
+
+
+
+
 .controller('PlaylistsCtrl2', function($scope, $scope) { 
 
 
