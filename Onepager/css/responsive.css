@@ -1,0 +1,377 @@
+/*------------------------------------------------------------------
+[RESPONSIVE CSS]
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+[Table of contents]
+/*1. Large Layout: 1900px. */
+/*2. Medium Layout: 1280px. */
+	/*2.1 Header*/
+	/*2.2 Brand-Logo*/
+	/*2.3 Carousel_2_left*/
+/*3. Tablet Layout: 768px. */
+	/*3.1 Header*/
+	/*3.2 Slider*/
+	/*3.3 About*/
+	/*3.4 Team*/
+	/*3.5 Service*/
+	/*3.6 Brand-Logo*/
+	/*3.7 Work*/
+	/*3.8 Client*/
+	/*3.9 Carousel_2_left*/
+/*4. Mobile Layout: 300px. */
+	/*4.1 Header*/
+	/*4.2 Slider*/
+	/*4.3 About*/
+	/*4.4 Team*/
+	/*4.5 Work*/
+	/*4.6 Testimonials*/
+	/*4.7 Blog*/
+	/*4.8 Contact*/
+	/*4.9 Footer*/
+/*5. Wide Mobile Layout: 450px. */
+	/*5.1 Header*/
+	/*5.2 Work*/
+/*-----------------------------------------------------------------*/
+/*1. Large Layout: 1900px. */
+@media only screen and (min-width: 1282px) and (max-width: 1900px) { 
+}
+/*2. Medium Layout: 1280px. */
+@media only screen and (min-width: 992px) and (max-width: 1280px) {
+/*2.1 Header*/
+.slicknav_menu {
+  display:none;
+}
+/*2.2 Brand-Logo*/
+.brand_logo {
+  padding: 50px 0;
+}
+.plan_text:hover .plan_black {
+  transform: translateY(-110%);
+}
+/*2.3 Carousel_2_left*/
+.carousel_2_left {
+  left: -0 !important;
+}
+.carousel_2_right {
+  right: -0 !important;
+}
+}
+/*3. Tablet Layout: 768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+/*3.1 Header*/
+#nav,.slicknav_menu .slicknav_menutxt,.slicknav_item a i  {
+  display:none;
+}
+.slicknav_menu {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  display: block;
+  padding: 5px;
+  position: fixed;
+  right: 0;
+  width: 50%;
+  z-index: 999999 !important;
+}
+.slicknav_btn {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  margin: 0;
+}
+.slicknav_menu .slicknav_icon-bar {
+  background-color: #ffc200;
+  height: 3px;
+  width: 42px;
+}
+.slicknav_nav {
+  background: #fff none repeat scroll 0 0;
+  margin: 41px 0 0;
+}
+.slicknav_nav a {
+  color: #777777;
+  font-size: 12px;
+  margin: 0;
+  padding: 10px 15px;
+}
+.slicknav_nav a:hover{
+  color: #fff;
+  background:#FBC011;
+  border-radius:0;
+}
+.slicknav_nav .slicknav_row:hover{
+  color: #fff;
+  background:#FBC011;
+  border-radius:0;
+}
+.logo {
+  max-width: 105px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-top: 8px;
+}
+/*3.2 Slider*/
+.bg-yellow {
+  margin: 8% 0;
+}
+/*3.3 About*/
+.section_padding {
+  padding: 20px 0;
+}
+.tab_padding{
+	padding:40px 0;
+}
+.section-title h1 {
+  padding: 0 0 20px;
+}
+.number_text {
+  margin-right: 15px;
+  padding-right: 15px;
+}
+.yellow_number {
+  bottom: -62px;
+}
+.black_text {
+  font-size: 18px;
+}
+.about_text p {
+  margin: 15px 0 0 0;
+}
+.margin_eight {
+  margin: 5% 0;
+}
+/*3.4 Team*/
+.team_single_text {
+  margin-bottom: 10px;
+}
+/*3.5 Service*/
+.single_sercives_icon {
+  margin-left: 37%;
+}
+.row-margin-bottom {
+  margin-bottom: 10%;
+}
+/*3.6 Brand-Logo*/
+.brand_logo {
+  padding: 40px 0;
+}
+/*3.7 Work*/
+.popup_text {
+  top: 22%;
+}
+/*3.8 Client*/
+.client_text img {
+  padding: 20px 0;
+}
+/*3.9 Carousel_2_left*/
+.carousel_2_right,.carousel_2_left  {
+  right: 0 !important;
+  top: -20%;
+}
+.carousel_2_left {
+  left: 0 !important;
+}
+}
+/*4. Mobile Layout: 300px. */
+@media only screen and (max-width: 767px) {
+.container{width:300px;}
+.section_padding {
+  padding: 40px 0;
+}
+.row-margin-bottom {
+  margin-bottom: 10%;
+}
+.section-title p {
+  padding-bottom: 30px;
+}
+/*4.1 Header*/
+#nav,.slicknav_menu .slicknav_menutxt,.slicknav_item a i  {
+  display:none;
+}
+.slicknav_menu {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  display: block;
+  padding: 5px;
+  position: fixed;
+  right: 0;
+  width: 50%;
+  z-index: 9999999 !important;
+}
+.slicknav_btn {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  margin: 0;
+}
+.slicknav_menu .slicknav_icon-bar {
+  background-color: #ffc200;
+  height: 3px;
+  width: 42px;
+}
+.slicknav_nav {
+  background: #fff none repeat scroll 0 0;
+  margin: 41px 0 0;
+}
+.slicknav_nav a {
+  color: #777777;
+  font-size: 12px;
+  margin: 0;
+  padding: 10px 15px;
+}
+.slicknav_nav a:hover{
+  color: #fff;
+  background:#FBC011;
+  border-radius:0;
+}
+.slicknav_nav .slicknav_row:hover{
+  color: #fff;
+  background:#FBC011;
+  border-radius:0;
+}
+.logo {
+  max-width: 105px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-top: 8px;
+}
+/*4.2 Slider*/
+.bg-yellow {
+  margin: 7% 0;
+}
+.carousel-indicators {
+  bottom: 15%;
+  z-index: 9999999999;
+}
+.fawesome-control {
+  display: none;
+}
+/*4.3 About*/
+.section-title h1 {
+  padding: 0 0 20px;
+}
+.number_text {
+  margin-right: 5px;
+  padding-right: 5px;
+}
+.number_text h1 {
+  font-size: 30px;
+}
+.about_text {
+  text-align: center;
+}
+.yellow_number {
+  bottom: -50px;
+  left: 45%;
+}
+.about_text p {
+  margin: 5px 0 25px 0px;
+}
+.margin_eight {
+  margin: 0;
+}
+/*4.4 Team*/
+.bg-yellow.team_yellow {
+  margin: 10px auto;
+}
+.team_single_text {
+  margin-bottom: 10px;
+  padding: 15px 25px 0;
+}
+.service_icon.do_text i:nth-child(3) {
+  border-right: medium none;
+}
+.team_text {
+  margin-top: 0;
+}
+.service_icon i {
+  padding: 0 20px;
+}
+/*4.5 Work*/
+.menu_item ul li {
+  margin: 4px;
+}
+.menu_item ul li {
+  font-size: 10px;
+}
+.modal-dialog {
+  width: 80%;
+  margin: 40px auto;
+}
+.single_items {
+  width: 100%;
+}
+.do_text a h5 {
+  margin-bottom: 4%;
+  margin-top: 0;
+}
+/*4.6 Testimonials*/
+.testimonials {
+  padding: 25px 0;
+}
+.testimonials_indicators {
+  bottom: 0%;
+}
+.testimonials p {
+  margin-bottom: 30px;
+}
+.testimonials h4 {
+  font-size: 9px;
+  margin-bottom: 35px;
+}
+/*4.7 Blog*/
+.blog_text h5 a {
+  margin: 10px 0 0;
+}
+.blog_text {
+  margin-bottom: 30px;
+}
+.all_veiw {
+  margin-top: 10px;
+}
+/*4.8 Contact*/
+.btn-black {
+  float: none;
+  margin-top: 10px;
+}
+.contact_section_padding {
+  padding: 20px 0;
+}
+/*4.9 Footer*/
+.social_icon i {
+  margin: 5px 25px;
+}
+.footer_copyright p {
+  text-align: center;
+  float: none;
+}
+.footer_copyright img {
+  margin-left: 30%;
+  float: none;
+}
+}
+/*5. Wide Mobile Layout: 450px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+.container{width:450px;}
+/*5.1 Header*/
+.slicknav_menu {
+  display:block;
+}
+/*5.2 Work*/
+.do_text h5 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.menu_item ul {
+  margin: 0;
+}
+.menu_item ul li {
+  font-size: 14px;
+  margin: 5px 10px;
+}
+.single_items {
+  max-height: 260px;
+}
+.single_sercives_icon {
+  margin-left: 38%;
+}
+#brand_logo img {
+  padding: 0 5px;
+}
+.brand_logo {
+  padding: 40px 0;
+}
+}
