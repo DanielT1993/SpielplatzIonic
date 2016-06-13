@@ -170,7 +170,7 @@ angular.module('starter.controllers', [])
 
 
       $scope.playlists.push({ title: name, bewertung: bewertung, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status , plz: plz ,strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, ort: gerundetd + " km", color: '#FF880E', id:id, avg: avg});
-        
+         $scope.$apply();
       }
     },
         
@@ -384,6 +384,8 @@ angular.module('starter.controllers', [])
 
       $scope.playlists.push({ title: name, bewertung: bewertung, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status , plz: plz ,strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, ort: gerundetd + " km", color: '#FF880E', id:id, avg: avg});
         
+       
+        
       }
     },
         
@@ -504,8 +506,6 @@ angular.module('starter.controllers', [])
     });
     
 })
-
-
 
 
 
@@ -859,7 +859,6 @@ onError : function(error) {
 }
 });
 
-
     Apiomat.bewertungen.getbewertungens(idbewertung, {
     onOk : function(loadedObjs) {
     //Now you can do sth with loaded objects (loadedObjs)
@@ -942,13 +941,11 @@ onError : function(error) {
            }
         }, 20);
           
-    
         $.fn.stars = function() {
             return $(this).each(function() {
                 $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
             });
           }
-
 });
 
 function bewertungdb(){
