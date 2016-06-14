@@ -11,7 +11,8 @@
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>   
 
-    
+    <script src="../sweetalert-master/dist/sweetalert.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="../sweetalert-master/dist/sweetalert.css">
     <script src="js/login.js"></script>    
     <!--<script charset="utf-8" src="js/spielplatzanlegendesktop.js"></script> -->
     <script charset="utf-8" src="../www/com/apiomat/apiomat.js"></script>
@@ -39,7 +40,7 @@
 <div class="card" class="z-depth-5">                     
 <form class="col s12">
                       <br>
-                      <h2>Lokalisation</h2>
+                      <h2>Location</h2>
                
                       <div class="row">
                         <div class="input-field col s12">
@@ -61,6 +62,10 @@
                           
                         <div class="row">  
                         <div class="input-field col s6">
+                          <input id="plz" type="number" class="validate">
+                          <label >Postleitzahl</label>
+                        </div>
+                        <div class="input-field col s6">
                             <select id="stadtteil">
                               <option  value="1">Gailbach</option>
                               <option  value="2">Nilkheim</option>
@@ -70,13 +75,8 @@
                             </select>
                             <label>Stadtteil</label>
                         </div>
-                      
-                        <div class="input-field col s6">
-                          <input id="plz" type="number" class="validate">
-                          <label >Postleitzahl</label>
                         </div>
-                        </div>
-                        <div class="row">  
+                        <!--div class="row">  
                         <div class="input-field col s6">
                           <input id="latitude" type="number" class="validate">
                           <label >Latitude</label>
@@ -85,10 +85,9 @@
                           <input id="longitude" type="number" class="validate">
                           <label >Longitude</label>
                         </div>
-                      </div>
+                      </div-->
         
-                      <div class="row">
-                        </div>
+
                       <h2>Struktur</h2> 
                         <div class="row">
                          <div class="input-field col s6">
@@ -123,13 +122,13 @@
                       </div>
                       <br/>    
                       </div>
+                        <h2>Ausstattung</h2> 
                         <div class="row" >
-                           <h2>Ausstattung</h2> 
-                            <div class="input-field col s6">
+                           <div class="input-field col s4">
                                 <input type="checkbox" class="filled-in" id="sanitar" />
                                 <label for="sanitar">Sanitäranlagen</label>
                             </div>
-                            <div class="input-field col s6">
+                            <div class="input-field col s4">
                                 <input type="checkbox" class="filled-in" id="grillplatz" />
                                 <label for="grillplatz">Grillplatz</label>
                             </div>
@@ -137,64 +136,60 @@
                        <br/>
                         <h2>Spielgeräte</h2> 
                         <div class="row" >
-                            <div class="input-field col s6">
+                            <div class="input-field col s4">
                                 <input type="checkbox" class="filled-in" id="rutsche" />
                                 <label for="rutsche">Rutsche</label>
                             </div>
-                            <div class="input-field col s6">
+                            <div class="input-field col s4">
                                 <input type="checkbox" class="filled-in" id="kletterturm" />
                                 <label for="kletterturm">Kletterturm</label>
                             </div>
-                        </div>
-                        
-                        <div class="row" >
-                            <div class="input-field col s6">
+                            <div class="input-field col s4">
                                 <input type="checkbox" class="filled-in" id="wippe" />
                                 <label for="wippe">Wippe</label>
                             </div>
-                            <div class="input-field col s6">
+                        </div>
+                        
+                       <div class="row" >
+                             <div class="input-field col s4">
                                 <input type="checkbox" class="filled-in" id="ballsport" />
                                 <label for="ballsport">Ballsport</label>
                             </div>
-                        </div>
-                            
-                        <div class="row" >
-                            <div class="input-field col s6">
+                            <div class="input-field col s4">
                                 <input type="checkbox" class="filled-in" id="tischtennis" />
                                 <label for="tischtennis">Tischtennis</label>
                             </div>
-                            <div class="input-field col s6">
+                            <div class="input-field col s4">
                                 <input type="checkbox" class="filled-in" id="schaukel" />
                                 <label for="schaukel">Schaukel</label>
                             </div>
                         </div>
                         
                           <div class="row" >
-                            <div class="input-field col s6">
+                            <div class="input-field col s4">
                                 <input type="checkbox" class="filled-in" id="sandkasten" />
                                 <label for="sandkasten">Sandkasten</label>
                             </div>
-                            <div class="input-field col s6">
+                            <div class="input-field col s4">
                                 <input type="checkbox" class="filled-in" id="wasserspiele" />
                                 <label for="wasserspiele">Wasserspiele</label>
                             </div>
-                        </div>
-                        <div class="row" >
-                        <div class="input-field col s6">
+                              <div class="input-field col s4">
                                 <input type="checkbox" class="filled-in" id="klettergerust" />
                                 <label for="klettergerust">Klettergerüst</label>
                             </div>
-                            <div class="input-field col s6">
+                        </div>
+
+                            <div class="row" >
+                                 <div class="input-field col s4">
                                 <input type="checkbox" class="filled-in" id="seilbahn" />
                                 <label for="seilbahn">Seilbahn</label>
                             </div>
-                        </div>
-                            <div class="row" >
-                            <div class="input-field col s6">
+                            <div class="input-field col s4">
                                 <input type="checkbox" class="filled-in" id="spielobjekt" />
                                 <label for="spielobjekt">Spielobjekt</label>
                             </div>
-                            <div class="input-field col s6">
+                            <div class="input-field col s4">
                                 <input type="checkbox" class="filled-in" id="sonstiges" />
                                 <label for="sonstiges">Sonstiges</label>
                             </div>
@@ -203,7 +198,7 @@
                         <h2>Bildupload</h2>  
                         <form action="#">
                           <div class="file-field input-field">
-                            <div class="btn">
+                            <div class="btn orange accent-3">
                               <span>File</span>
                               <input type="file" multiple>
                             </div>
@@ -212,23 +207,20 @@
                             </div>
                           </div>
                         </form>
-
-                        <div class="row">
-                        <div class="input-field col s6" style="margin-bottom: 100px">
-                          <label class="item">
-                             <input type="button" id="create" onclick="neuerSpielplatzdesktop()" value="Spielplatz anlegen" />
-                          </label>
-                        </div>
-                      </div>
+                        
+                        
                      
                       
                     </form>
                   </div>
-
+                <div style="margin-bottom:5em;">
+                        <button class="btn waves-effect waves-light btn  btn-large  orange accent-2" type="submit" name="action" onclick="neuerSpielplatzdesktop()">Neuen   Spielplatz anlegen
+                        </button>
+                </div>
+                    
+              
     </div>                                           
   </body>
- 
-  
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../www/js/materialize.min.js"></script>
  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCmpTMw7IitqkPCAfwlwsZGd6cruNNLLnY"></script>
@@ -259,9 +251,9 @@ function signup()
       }
     });
   }  
-$(document).ready(function() {
+
     $('select').material_select();
-  });
+
 function neuerSpielplatzdesktop() {
     var myspielplatz = new Apiomat.spielplatz();
     var spielplatzstrasse = document.getElementById("spielplatzstraße").value;
@@ -274,18 +266,23 @@ function neuerSpielplatzdesktop() {
     var spielplatzlongitude;    
     geocoder.geocode( { 'address': address}, function(results, status) {
 
-      if (status == google.maps.GeocoderStatus.OK) {
-          
-         spielplatzlatitude = results[0].geometry.location.lat();
-        spielplatzlongitude = results[0].geometry.location.lng();
-          
-        } 
-    })
-    
-    alert(spielplatzlatitude);
-          alert(spielplatzlongitude);
-    alert(spielplatzlatitude);
-     
+      if (status == google.maps.GeocoderStatus.OK) { 
+            spielplatzlatitude = results[0].geometry.location.lat();
+            spielplatzlongitude = results[0].geometry.location.lng();
+            console.log(spielplatzlatitude);
+            console.log(spielplatzlongitude);
+        } else{alert("Error")}
+    });
+        alert();
+        swal({ 
+                title: "",
+                text: "Ihr neuer Spielplatz wurde erfolgreich angelegt",
+                type: "success", 
+                confirmButtonColor: "#ff9100", 
+                  },
+                  function(){
+                    window.location.href = 'center.html';
+        });
     var spielplatzname = document.getElementById("spielplatzname").value;
     var spielplatzstadtteil = document.getElementById("stadtteil").value;
     var spielplatzalter = document.getElementById("alter").value;
@@ -344,9 +341,9 @@ function neuerSpielplatzdesktop() {
     myspielplatz.setGröße(spielplatzgroesse);
     
     if(spielplatzstatus == 1){
-        myspielplatz.setStadtteil("Bespielbar");}
+        myspielplatz.setStatus("Bespielbar");}
     if(spielplatzstatus == 2){
-        myspielplatz.setStadtteil("Nicht bespielbar");}
+        myspielplatz.setStatus("Nicht bespielbar");}
     
      if(spielplatzrutsche == true){
         myspielplatz.setRutsche("rutsche.png");} 
@@ -435,8 +432,7 @@ function neuerSpielplatzdesktop() {
         myspielplatz.save({
             onOk : function() {
             //object successfully saved
-            alert("Saved succesfully spielplatz");
-            },
+                       },
             onError : function(error) {
             alert("Error");
         }
