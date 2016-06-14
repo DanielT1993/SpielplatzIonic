@@ -29,7 +29,6 @@
           <ul id="nav-mobile" class="right hide-on-med-and-down">
               <li class="active"><a href="center.html" class="smoothScroll">Alle Spielpl&auml;tze</a></li>
               <li><a href="create.html" class="smoothScroll">Spielplatz erstellen</a></li>
-              <li><a href="contact.html" class="smoothScroll">Kontakt</a></li>
               <li><a href="index.html" onklick="logout()">Logout</a>
           </ul>
         </div>
@@ -37,12 +36,7 @@
     </div>
 <!-- ab hier von playlist kopiert -->
 <div class="container">
-    
-<div >
-<input type="text" ng-model="firstName">
-</div>    
-    
-    
+
 <h1>Alle Spielplätze</h1>
 <div ng-repeat="playlist in playlists  | orderBy:'title'">
 
@@ -59,7 +53,10 @@
               <p style="">{{playlist.stadtteil}}</p>
               <br/>
               <div class="collection">
-                <a href="edit.html?{{playlist.id}}" class="collection-item active" style="text-align: center">Spielplatz ansehen</a>
+                <a href="edit.html?{{playlist.id}}" class="collection-item active" style="text-align: center">BEARBEITEN</a>
+              </div>
+                <div class="collection">
+                <a href="delete.html?{{playlist.id}}" class="collection-item active" style="text-align: center">LÖSCHEN</a>
               </div>
             </div>
 

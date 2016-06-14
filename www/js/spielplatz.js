@@ -11,7 +11,7 @@ function neuerSpielplatz() {
     var address = plz + " aschaffenburg " + spielplatzstrasse + " " + spielplatzhausnr ;
     var spielplatzlatitude;
     var spielplatzlongitude ;    
-    geocoder.geocode( { 'address': address}, function(results, status) {
+    geocoder.geocode({'address': address}, function(results, status) {
 
       if (status == google.maps.GeocoderStatus.OK) {
          spielplatzlatitude = results[0].geometry.location.lat();

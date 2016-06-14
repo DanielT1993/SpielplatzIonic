@@ -28,8 +28,7 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="center.html" class="smoothScroll">Alle Spielpl&auml;tze</a></li>
           <li class="active"><a href="create.html" class="smoothScroll">Spielplatz erstellen</a></li>
-          <li><a href="contact.html" class="smoothScroll">Kontakt</a></li>
-          <li><a href="index.html" onklick="logout()">Logout</a>
+         <li><a href="index.html" onklick="logout()">Logout</a>
       </ul>
     </div>
   </nav>
@@ -226,11 +225,7 @@
                     </form>
                   </div>
 
-
-    
-    </div>                     
-                      
-                   
+    </div>                                           
   </body>
  
   
@@ -283,6 +278,7 @@ function neuerSpielplatzdesktop() {
           
          spielplatzlatitude = results[0].geometry.location.lat();
         spielplatzlongitude = results[0].geometry.location.lng();
+          
         } 
     })
     

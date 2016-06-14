@@ -167,8 +167,6 @@ angular.module('starter.controllers', [])
 
       })
 
-
-
       $scope.playlists.push({ title: name, bewertung: bewertung, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status , plz: plz ,strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, ort: gerundetd + " km", color: '#FF880E', id:id, avg: avg});
          $scope.$apply();
       }
@@ -384,7 +382,7 @@ angular.module('starter.controllers', [])
 
       $scope.playlists.push({ title: name, bewertung: bewertung, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status , plz: plz ,strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, ort: gerundetd + " km", color: '#FF880E', id:id, avg: avg});
         
-       
+       $scope.$apply();
         
       }
     },
@@ -497,7 +495,7 @@ angular.module('starter.controllers', [])
 
 
       $scope.playlists.push({ title: name, bewertung: bewertung, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status , plz: plz ,strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, ort: gerundetd + " km", color: '#FF880E', id:id, avg: avg});
-        
+        $scope.$apply();
       }
     },
         
@@ -593,7 +591,7 @@ angular.module('starter.controllers', [])
 
 
       $scope.playlists.push({ title: name, bewertung: bewertung, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status , plz: plz ,strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, ort: gerundetd + " km", color: '#FF880E', id:id, avg: avg});
-        
+        $scope.$apply();
       }
     },
         
@@ -703,7 +701,7 @@ angular.module('starter.controllers', [])
 
 
       $scope.playlists.push({ title: name, bewertung: bewertung, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status , plz: plz ,strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, ort: gerundetd + " km", color: '#FF880E', id:id, avg: avg});
-        
+        $scope.$apply();
       }
     },
         
@@ -758,7 +756,7 @@ angular.module('starter.controllers', [])
           var bewertungaus = arraybewertungen["gesamtbewertung"];
 
           $scope.bewertung.push({ name: name, bewertung: bewertungaus, kommentar: kommentar, freitext: freitext, sauber: sauber, sicher: sicher, spass: spass});
-
+            $scope.$apply();
           }
     },
     onError : function(error) {
@@ -852,6 +850,7 @@ angular.module('starter.controllers', [])
        $scope.playlistdetails = [
     { title: name, sanitar: sanitar, feuer: feuer, strasse: strasse,plz: plz , bank: bank, alter: alter, hausnr:hausnr, stadtteil:stadtteil, groesse:groesse, url:url, bild:bild, lat:lat, long:long, rutsche:rutsche, kletterturm:kletterturm, wippe:wippe, tischtennis:tischtennis, ballspielfeld:ballspielfeld, schaukel:schaukel, sandkasten:sandkasten, wasserspiele:wasserspiele, klettergerust:klettergerust, seilbahn:seilbahn, spielobjekt:spielobjekt, sonstiges:sonstiges, status:status, statusfarbe:statusfarbe},
   ];
+            $scope.$apply();
 
 },
 onError : function(error) {
