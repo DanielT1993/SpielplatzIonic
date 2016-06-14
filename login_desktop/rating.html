@@ -37,6 +37,16 @@
       </div> 
 
       <div class="container">
+          
+          <div class="nav-wrapper" style="margin-top:2em" ng-repeat="playlist in playlists">
+      <div class="col s12">
+          <div style="float:left"><a href="center.html" class="breadcrumb">Alle Spielplätze </a></div> 
+          <div style="float:left; margin-left:0.5em; color:#757575;"><i class="tiny material-icons" style="padding-top:0.25em; margin-right:0.5em;">play_arrow</i></div>
+          <div style="margin-left:1em; color:#757575; font-size:14px;">Spielplatzbewertungen - {{playlist.title}}</div>
+      </div>
+    </div>
+
+          
         <h1>Aktueller Spielplatz</h1>
 
 <div ng-repeat="playlist in playlists  | orderBy:'title'">

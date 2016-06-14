@@ -1910,8 +1910,8 @@ img.responsive-img,video.responsive-video {
 	}
 }
 .breadcrumb {
-	font-size:18px;
-	color:rgba(255,255,255,0.7)
+	font-size:14px;
+	color:#757575;
 }
 .breadcrumb i,.breadcrumb [class^="mdi-"],.breadcrumb [class*="mdi-"],.breadcrumb i.material-icons {
 	display:inline-block;
@@ -1934,7 +1934,7 @@ img.responsive-img,video.responsive-video {
 	display:none
 }
 .breadcrumb:last-child {
-	color:#fff
+	color:#757575
 }
 .parallax-container {
 	position:relative;

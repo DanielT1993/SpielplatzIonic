@@ -36,8 +36,14 @@
   </nav>
  </div>   
 
-<div class="container" style="margin-bottom:8em;">
-    
+<div class="container" style="margin-bottom:8em;" ng-repeat="playlistdetail in playlistdetails">
+    <div class="nav-wrapper" style="margin-top:2em">
+      <div class="col s12">
+          <div style="float:left"><a href="center.html" class="breadcrumb">Alle Spielplätze </a></div> 
+          <div style="float:left; margin-left:0.5em; color:#757575;"><i class="tiny material-icons" style="padding-top:0.25em; margin-right:0.5em;">play_arrow</i></div>
+          <div style="margin-left:1em; color:#757575; font-size:14px;">Spielplatz löschen - {{playlistdetail.title}} </div>
+      </div>
+    </div>
                      
 <h1>Spielplatz löschen</h1>
     
