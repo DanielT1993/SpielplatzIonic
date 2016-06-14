@@ -1,0 +1,241 @@
+.star-cb-group {
+  /* remove inline-block whitespace */
+  font-size: 0;
+  /* flip the order so we can use the + and ~ combinators */
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  /* the hidden clearer */
+}
+.star-cb-group * {
+  font-size: 1rem;
+}
+.star-cb-group > input {
+  display: none;
+}
+.star-cb-group > input + label {
+  /* only enough room for the star */
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 9999px;
+  width: 1em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.star-cb-group > input + label:before {
+  display: inline-block;
+  text-indent: -9999px;
+  content: "☆";
+    font-size: 1.5em;
+  color: orange;
+}
+.star-cb-group > input:checked ~ label:before, .star-cb-group > input + label:hover ~ label:before, .star-cb-group > input + label:hover:before {
+  content: "★";
+    font-size: 1.5em;
+  color: orange;
+
+}
+.star-cb-group > .star-cb-clear + label {
+  text-indent: -9999px;
+  width: .5em;
+  margin-left: -.5em;
+}
+.star-cb-group > .star-cb-clear + label:before {
+  width: .5em;
+}
+.star-cb-group:hover > input + label:before {
+  content: "☆";
+    font-size: 1.5em;
+  color: orange;
+  text-shadow: none;
+}
+.star-cb-group:hover > input + label:hover ~ label:before, .star-cb-group:hover > input + label:hover:before {
+  content: "★";
+    font-size: 1.5em;
+  color: orange;
+
+}
+
+.star-cb-group-spass {
+  /* remove inline-block whitespace */
+  font-size: 0;
+  /* flip the order so we can use the + and ~ combinators */
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  /* the hidden clearer */
+}
+.star-cb-group-spass * {
+  font-size: 1rem;
+}
+.star-cb-group-spass > input {
+  display: none;
+}
+.star-cb-group-spass > input + label {
+  /* only enough room for the star */
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 9999px;
+  width: 1em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.star-cb-group-spass > input + label:before {
+  display: inline-block;
+  text-indent: -9999px;
+  content: "☆";
+    font-size: 1.5em;
+  color: orange;
+}
+.star-cb-group-spass > input:checked ~ label:before, .star-cb-group-spass > input + label:hover ~ label:before, .star-cb-group-spass > input + label:hover:before {
+  content: "★";
+    font-size: 1.5em;
+  color: orange;
+
+}
+.star-cb-group-spass > .star-cb-clear + label {
+  text-indent: -9999px;
+  width: .5em;
+  margin-left: -.5em;
+}
+.star-cb-group-spass:hover > input + label:before {
+  content: "☆";
+    font-size: 1.5em;
+  color: orange;
+  text-shadow: none;
+}
+.star-cb-group-spass:hover > input + label:hover ~ label:before, .star-cb-group-spass:hover > input + label:hover:before {
+  content: "★";
+    font-size: 1.5em;
+  color: orange;
+
+}
+
+.star-cb-group-sicherheit {
+  /* remove inline-block whitespace */
+  font-size: 0;
+  /* flip the order so we can use the + and ~ combinators */
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  /* the hidden clearer */
+}
+.star-cb-group-sicherheit * {
+  font-size: 1rem;
+}
+.star-cb-group-sicherheit > input {
+  display: none;
+}
+.star-cb-group-sicherheit > input + label {
+  /* only enough room for the star */
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 9999px;
+  width: 1em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.star-cb-group-sicherheit > input + label:before {
+  display: inline-block;
+  text-indent: -9999px;
+  content: "☆";
+  font-size: 1.5em;
+  color: orange;
+}
+.star-cb-group-sicherheit > input:checked ~ label:before, .star-cb-group-sicherheit > input + label:hover ~ label:before, .star-cb-group-sicherheit > input + label:hover:before {
+  content: "★";
+    font-size: 1.5em;
+  color: orange;
+
+}
+.star-cb-group-sicherheit > .star-cb-clear + label {
+  text-indent: -9999px;
+  width: .5em;
+  margin-left: -.5em;
+}
+.star-cb-group-sicherheit:hover > input + label:before {
+  content: "☆";
+    font-size: 1.5em;
+  color: orange;
+  text-shadow: none;
+}
+.star-cb-group-sicherheit:hover > input + label:hover ~ label:before, .star-cb-group-sicherheit:hover > input + label:hover:before {
+  content: "★";
+  font-size: 1.5em;
+  color: orange;
+
+}
+
+span.stars, span.stars span {
+    display: block;
+    background: url(../bilder/stars4.png) 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+}
+
+span.stars span {
+    background-position: 0 0;
+}
+
+
+.star2-cb-group-sicherheit {
+  /* remove inline-block whitespace */
+  font-size: 0;
+  /* flip the order so we can use the + and ~ combinators */
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  /* the hidden clearer */
+}
+.star2-cb-group-sicherheit * {
+  font-size: 1rem;
+}
+.star2-cb-group-sicherheit > input {
+  display: none;
+}
+.star2-cb-group-sicherheit > input + label {
+  /* only enough room for the star */
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 9999px;
+  width: 1em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.star2-cb-group-sicherheit > input + label:before {
+  display: inline-block;
+  text-indent: -9999px;
+  content: "☆";
+  font-size: 1.5em;
+  color: orange;
+}
+.star2-cb-group-sicherheit > input:checked ~ label:before, .star2-cb-group-sicherheit > input + label:hover ~ label:before, .star2-cb-group-sicherheit > input + label:hover:before {
+  content: "★";
+    font-size: 1.5em;
+  color: orange;
+
+}
+.star2-cb-group-sicherheit > .star2-cb-clear + label {
+  text-indent: -9999px;
+  width: .5em;
+  margin-left: -.5em;
+}
+.star2-cb-group-sicherheit:hover > input + label:before {
+  content: "☆";
+    font-size: 1.5em;
+  color: orange;
+  text-shadow: none;
+}
+.star2-cb-group-sicherheit:hover > input + label:hover ~ label:before, .star2-cb-group-sicherheit:hover > input + label:hover:before {
+  content: "★";
+  font-size: 1.5em;
+  color: orange;
+
+}
+
+span.stars2, span.stars2 span {
+    display: block;
+    background: url(../bilder/stars4.png) 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+}
+
+span.stars2 span {
+    background-position: 0 0;
+}

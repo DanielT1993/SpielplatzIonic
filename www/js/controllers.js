@@ -828,7 +828,7 @@ angular.module('starter.controllers', [])
     var status = arrayspielplaetze["status"];   
             
             var statusfarbe;
-            if(status=="bespielbar"){
+            if(status=="Bespielbar"){
                 statusfarbe ="#00e676"
             }else{
                 statusfarbe ="#ff5252"

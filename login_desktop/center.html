@@ -6,6 +6,7 @@
   
     <title>slidoo</title>
     <link href="http://fonts.googleapis.com/icon?family=Material%20Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/stars.css"/>
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>   
@@ -40,35 +41,47 @@
 <h1>Alle Spielplätze</h1>
 <div ng-repeat="playlist in playlists  | orderBy:'title'">
 
-      <div class="card">
+      <div class="card" style="padding-bottom: 70px">
+                
+                  
+                
+              <div>
+                <img class="responsive-img" src="bilder/{{playlist.bild}}" style="width:160px; float: left ">
+              </div>
             <!--div class="card-image waves-effect waves-block waves-light">
               <img class="responsive-image" src="img/{{playlist.bild}}">
             </div-->
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">{{playlist.title}}
-              </span><br/>
-              <p style="float: right"><i class="material-icons" style="">room</i>{{playlist.ort}}</p>
-              <p style="">{{playlist.strasse}} {{playlist.hausnummer}}</p>
-              <p style="">{{playlist.plz}}</p>
-              <p style="">{{playlist.stadtteil}}</p>
-              <br/>
-              <div class="collection">
-                <a href="edit.html?{{playlist.id}}" class="collection-item active" style="text-align: center">BEARBEITEN</a>
+            <div class="card-content" style="padding:0px">
+              <div >
+                <span class="stars" style="margin-left: 180px; margin-bottom: 10px">{{playlist.bewertung}}</span>
+                <p style="color:#C2185B; font-size: 16px; padding-bottom: 0px; margin-left:180px">{{playlist.title}} <a href="rating.html?{{playlist.id}}" style="color: #ef6c00;text-align: center; float: right; padding-right: 220px"><i class="material-icons" style="">star</i> </a></p>
+                <p style="margin-left:180px">{{playlist.strasse}} {{playlist.hausnummer}}<a href="rating.html?{{playlist.id}}" style="color: #ef6c00;text-align: center; float: right; padding-right: 160px"> Bewertungen anzeigen </a></p>
+                <p style="margin-left:180px">{{playlist.plz}} {{playlist.stadtteil}}</p>
+                <p style="margin-left:180px; color:{{playlist.statusfarbe}};">{{playlist.status}}</p>
+                <br/>
+                
               </div>
-                <div class="collection">
-                <a href="delete.html?{{playlist.id}}" class="collection-item active" style="text-align: center">LÖSCHEN</a>
+              <div>
+      
+                  <a href="edit.html?{{playlist.id}}" class="waves-effect waves-light btn orange accent-2" style="margin-right:5px; text-align:center; width: 49%; float: left">BEARBEITEN</a>
+
+
+                  <a href="delete.html?{{playlist.id}}" class="waves-effect waves-light btn  orange accent-2" style="margin-left: 5px; text-align: center; width: 49%; float: left">LÖSCHEN</a>
+
               </div>
             </div>
 
       </div>
 </div>                     
-</div>                     
-                   
-  </body>
+</div>      
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="../www/js/materialize.min.js"></script>
-  
+
+<script type="text/javascript" src="../js/materialize.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+    
 <script> 
+
+
 var app = angular.module('myApp', []);
     
   var user = new Apiomat.User();
@@ -92,6 +105,7 @@ var app = angular.module('myApp', []);
       }
     });      
 app.controller('PlaylistsCtrl', function($scope, $scope, $scope) {
+
    
            avg = 0;
      
@@ -114,6 +128,12 @@ app.controller('PlaylistsCtrl', function($scope, $scope, $scope) {
         var status = arrayspielplaetze["status"];
         var bild = arrayspielplaetze["hauptbild"];
         var bewertung = arrayspielplaetze["gesamtbewertungsp"];
+        var statusfarbe;
+            if(status=="Bespielbar"){
+                statusfarbe ="#00e676"
+            }else{
+                statusfarbe ="#ff5252"
+            }
 
         var id = arrayspielplaetze["id"];
         
@@ -145,31 +165,41 @@ app.controller('PlaylistsCtrl', function($scope, $scope, $scope) {
 
           console.log(name);
           
-      $scope.playlists.push({ title: name, bewertung: bewertung, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status , plz: plz ,strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, color: '#FF880E', id:id, avg: avg});
+      $scope.playlists.push({statusfarbe: statusfarbe, title: name, bewertung: bewertung, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status , plz: plz ,strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, color: '#FF880E', id:id, avg: avg});
         $scope.$apply();
       }
     },
         
     onError : function(error) {
     }
+
+
     });
 
     var checkExist = setInterval(function() {
-           if ($('span.stars2').length) {
-              $('span.stars2').stars2();
+           if ($('span.stars').length) {
+              $('span.stars').stars();
               clearInterval(checkExist);
            }
         }, 20);
           
     
-        $.fn.stars2 = function() {
+        $.fn.stars = function() {
             return $(this).each(function() {
-                $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+                $(this).html($('<span/>').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
             });
-          }         
+          }       
+  
      
     
     
 });
-  </script>
+
+  </script>          
+                   
+  </body>
+
+
+
+
 </html>
