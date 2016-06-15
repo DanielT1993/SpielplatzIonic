@@ -211,23 +211,27 @@ function sterne(){
 }
 
 var attempt = 3;
-    function login(){
+function login(){
+    
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
     if ( username == "admin" && password == "bier"){
         alert ("Login successfully");
             window.location = "#/app/spielplatzanlegen"; // Redirecting to other page.
-        return false;
         }
     else{
         attempt --;// Decrementing by one.
-        alert("Noch "+attempt+" Versuche;");
+        alert("Benutzername oder Passwort falsch!");
         // Disabling fields after 3 attempts.
     if( attempt == 0){
         document.getElementById("username").disabled = true;
         document.getElementById("password").disabled = true;
-        document.getElementById("submit").disabled = true;
-        return false;
+        $("#log").toggleClass('disabled');
+        $("#log").on('click', nologin)  
         }
     }
+}
+
+function nologin(){
+    alert("Ihr Slidoo-Zugang wurde gesperrt! Sie haben sich zu oft falsch eingeloggt. Bitte setzen Sie sich mit dem Slidoo-Systemadministrator in Verbindung!");
 }

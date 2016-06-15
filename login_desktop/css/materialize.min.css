@@ -3848,7 +3848,7 @@ button.btn-floating {
 }
 .dropdown-content li>a,.dropdown-content li>span {
 	font-size:16px;
-	color:#26a69a;
+	color:#d81b60;
 	display:block;
 	line-height:22px;
 	padding:14px 16px
@@ -4573,8 +4573,8 @@ form p:last-child {
 	top:0;
 	width:20px;
 	height:20px;
-	border:2px solid #26a69a;
-	background-color:#26a69a;
+	border:2px solid #d81b60;
+	background-color:#d81b60;
 	z-index:0
 }
 [type="checkbox"].filled-in.tabbed:focus+label:after {
@@ -4584,8 +4584,8 @@ form p:last-child {
 }
 [type="checkbox"].filled-in.tabbed:checked:focus+label:after {
 	border-radius:2px;
-	background-color:#26a69a;
-	border-color:#26a69a
+	background-color:#d81b60;
+	border-color:#d81b60;
 }
 [type="checkbox"].filled-in:disabled:not(:checked)+label:before {
 	background-color:transparent;

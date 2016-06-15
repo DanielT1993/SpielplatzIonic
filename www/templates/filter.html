@@ -1,12 +1,11 @@
 <ion-view view-title="Spielplätze filtern" >
   <ion-content>
        <ion-list>
-           <ion-item>
-      Alle Spielplätze anzeigen mit:
-           </ion-item>
  <ion-item>
+    
   <form>
-   
+    Alle Spielplätze anzeigen mit:
+    <div style="margin-top:1em;">  
     <p>
       <input type="checkbox" class="filled-in" id="grillplatz" />
       <label for="grillplatz">Grillplatz</label>
@@ -15,8 +14,9 @@
       <input type="checkbox" class="filled-in" id="sanitar" />
       <label for="sanitar">Sanitäranlagen</label>
     </p>
+        </div>
       
-        <button class="waves-effect waves-light btn orange accent-3" ng-click='filter()' style="width:100%">Spielplätze anzeigen</button>
+        <button class="waves-effect waves-light btn orange accent-3" ng-click='filter()' style="width:100%; margin-top:1em;" >Spielplätze anzeigen</button>
   
   </form>
         </ion-item>
