@@ -1,5 +1,4 @@
 // Ionic Starter App
-
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
@@ -21,6 +20,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     }
   });
     
+//Datenbank mit Apiomat herstellen ++++WICHTIG++++ muss an dieser Stelle stehen
+//Apiomat = Asynchron --> Muss deshlab hier geladen werden, wenn App alles initialisiert
+//Code von Apiomat
     var user = new Apiomat.User();
     user.setUserName("user1");
     user.setPassword("user1");
@@ -28,8 +30,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
  
     var saveCB = {
       onOk: function() {
-       
-        
       },
       onError: function(error) {
        
@@ -37,8 +37,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     };
     user.loadMe({
       onOk: function() {
-      
-        
       },
       onError: function(error) {
        
@@ -47,6 +45,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     });
 })
 
+//Routing und Controller setzen
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -95,8 +94,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
         }
       }
     })
-
-
 
      .state('app.playlistsTitle', {
       url: '/playlistsTitle',
@@ -172,7 +169,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
       views: {
         'menuContent': {
           templateUrl: 'templates/login.html',
-          
         }
       }
     });
