@@ -4,27 +4,35 @@ function validate(){
 var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
 if ( username == "admin" && password == "bier"){
-            window.location = "center.html"; // Redirecting to other page.
-return false;
+
+                    window.location.href = 'center.html';
 }
 else{
 attempt --;// Decrementing by one.
-alert("Noch "+attempt+" Versuche");
+    
+     swal({ 
+                title: "",
+                text: "Benutzername oder Passwort falsch!",
+                type: "error", 
+                confirmButtonColor: "#ff9100", 
+    });
+    
 // Disabling fields after 3 attempts.
 if( attempt == 0){
 document.getElementById("username").disabled = true;
 document.getElementById("password").disabled = true;
-document.getElementById("submit").disabled = true;
-return false;
+$("#login").toggleClass('disabled');
+$("#login").on('click', nologin)    
+
 }
 }
 }
 
-function logout() {
-	alert("Logout erfolgreich!");
-}
-
-
-function download(){
-            window.location = "www.play.google.com/store?hl=de";
+function nologin(){
+    swal({ 
+                title: "Ihr Slidoo-Zugang wurde gesperrt!",
+                text: "Sie haben sich zu oft falsch eingeloggt. Bitte setzen Sie sich mit dem Slidoo-Systemadministrator in Verbindung!",
+                type: "error", 
+                confirmButtonColor: "#ff9100", 
+    });   
 }
