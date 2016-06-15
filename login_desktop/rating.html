@@ -3,340 +3,290 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  
     <title>slidoo</title>
-
     <link href="http://fonts.googleapis.com/icon?family=Material%20Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/stars.css"/>
-    <!--Import materialize.css-->
+    <link rel="stylesheet" href="css/stars.css" />
+    <!--Import1 materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>   
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+    <!--Import Angular JS-->  
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-
-    
-    <script src="js/login.js"></script>    
-    <!--<script charset="utf-8" src="js/spielplatzanlegendesktop.js"></script> -->
+    <script src="js/login.js"></script>
+    <!--DB-Verbindung mit Apiomat -->
     <script charset="utf-8" src="../www/com/apiomat/apiomat.js"></script>
-    
   </head>
-   <body ng-app="myApp" ng-controller="DetailSpielplatzCtrl">
-     <div class="navbar-fixed">  
-        <nav>
-          <div class="nav-wrapper">
-             <a href="#" class="brand-logo left">
-              <img src="bilder/logo.png" height="32px">
-              slidoo
-            </a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li class="active"><a href="center.html" class="smoothScroll">Alle Spielpl&auml;tze</a></li>
-                <li ><a href="create.html" class="smoothScroll">Spielplatz erstellen</a></li>
-                <li><a href="index.html" onklick="logout()">Logout</a>
-            </ul>
-          </div>
-        </nav>
-      </div> 
-
-      <div class="container">
-          
-          <div class="nav-wrapper" style="margin-top:2em" ng-repeat="playlist in playlists">
-      <div class="col s12">
-          <div style="float:left"><a href="center.html" class="breadcrumb">Alle Spielplätze </a></div> 
+  <body ng-app="myApp" ng-controller="BewertungsCtrl">
+    <!--Navigation-->
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo left">
+            <img src="bilder/logo.png" height="32px"> slidoo
+          </a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="active"><a href="center.html" class="smoothScroll">Alle Spielpl&auml;tze</a></li>
+            <li><a href="create.html" class="smoothScroll">Spielplatz erstellen</a></li>
+            <li><a href="index.html" onklick="logout()">Logout</a>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!--Content-->
+    <div class="container">
+      <div class="nav-wrapper" style="margin-top:2em" ng-repeat="playlist in playlists">
+        <div class="col s12">
+          <div style="float:left"><a href="center.html" class="breadcrumb">Alle Spielplätze </a></div>
           <div style="float:left; margin-left:0.5em; color:#757575;"><i class="tiny material-icons" style="padding-top:0.25em; margin-right:0.5em;">play_arrow</i></div>
           <div style="margin-left:1em; color:#757575; font-size:14px;">Spielplatzbewertungen - {{playlist.title}}</div>
-      </div>
-    </div>
-
-          
-        <h1>Aktueller Spielplatz</h1>
-
-<div ng-repeat="playlist in playlists  | orderBy:'title'">
-
-      <div class="card" style="padding-bottom: 0px">
-              <div>
-                <img class="responsive-img" src="../www/img/{{playlist.bild}}" style="width:160px; float: left ">
-              </div>
-            <!--div class="card-image waves-effect waves-block waves-light">
-              <img class="responsive-image" src="img/{{playlist.bild}}">
-            </div-->
-            <div class="card-content" style="padding:0px">
-              <div >
-                 <p style="color:#C2185B; font-size: 16px; padding-bottom: 0px; margin-left:180px">{{playlist.title}} </p>
-                <p style="margin-left:180px">{{playlist.strasse}} {{playlist.hausnummer}}</p>
-                <p style="margin-left:180px">{{playlist.plz}} {{playlist.stadtteil}}</p>
-                <p style="margin-left:180px; color:{{playlist.statusfarbe}}">{{playlist.status}}</p>
-                <br/>
-                
-              </div>
-            </div>
-              <div ng-repeat="durchschnitt in durchschnitts">
-                          <ul class="collection" style="">
-                            <li class="collection-item">Durchschnittliche Bewertung des Spielplatzes</li>
-                          </ul>
-                <ul class="collection" style="border: none">
-                          <div style="width: 33.33%; float: left ; padding-bottom:20px"><p style="text-align: center; margin:0px">Sauberkeit<br/></p><span class="stars2" style="margin-left: auto; margin-right: auto;">{{durchschnitt.avgsau}}</span>
-                          </div>
-                          <div style="width: 33.33%; float: left "><p style="text-align: center; margin:0px">Sicherheit<br/></p><span class="stars2" style="margin-left: auto; margin-right: auto;">{{durchschnitt.avgsich}}</span>
-                          </div>  
-                          <div style="width: 33.33%; float: left "><p style="text-align: center; margin:0px">Spielspaß<br/></p><span class="stars2" style="margin-left: auto; margin-right: auto;">{{durchschnitt.avgspa}}</span>
-                          </div>
-                </ul>
-                        
-                     
-              </div> 
-
-              </div>
         </div>
-
-      
-
-
-      <h1>Bewertungen</h1>
-      <div ng-repeat="arraysum in arraysums">
-
-            <div class="card" style="">
-
-                  <div class="card-content" style="padding:0px">
-                    <div >
-
-                          <ul class="collection" style="">
-                            <li class="collection-item">Gesamtbewertung</li>
-                          </ul>
-
-                          <ul class="collection" style="border: none">
-                        <div>
-                          <div style="width: 15%; float:left; border-bottom: solid 1px; border-color: #e0e0e0"><h6>Nickname</h6>
-                          </div>
-                          <div style="width: 20%; float:left; border-bottom: solid 1px; border-color: #e0e0e0">
-                           <h6>Gesamtbewertung</h6>
-                          </div>
-                          <div style="width: 65%; float:left; border-bottom: solid 1px; border-color: #e0e0e0">
-                            <h6>Kommentar</h6>
-   
-                          </div>
-                        </div>
-                        <div style="">
-                          <div style="padding-top:7px; width: 15%; float:left">{{arraysum.title}}
-                          </div>
-                          <div style="padding-top:7px;width: 20%; float:left">
-                           <span class="stars2">{{arraysum.bewertung}}</span> 
-                          </div>
-                          <div style="padding-top:7px;width: 65%; float:left; padding-bottom: 20px">
-                            <strong>{{arraysum.kommentar}}</strong><br/>
-                            {{arraysum.freitext}}
-                          </div>
-
-
-                        </div>
-                        <br/>
-                        <div style="width: 100%"> 
-                          <ul class="collection" style="margin-top:20px">
-                            <li class="collection-item">Bewertungsübersicht</li>
-                          </ul>
-                          <div style="width: 33.33%; float: left "><p style="text-align: center">Sauberkeit<br/></p><span class="stars2" style="margin-left: auto; margin-right: auto;">{{arraysum.sauberkeit2}}</span>
-                          </div>
-                          <div style="width: 33.33%; float: left "><p style="text-align: center">Sicherheit<br/></p><span class="stars2" style="margin-left: auto; margin-right: auto;">{{arraysum.sicherheit2}}</span>
-                          </div>  
-                          <div style="width: 33.33%; float: left; "><p style="text-align: center;">Spielspaß<br/></p><span class="stars2" style="margin-left: auto; margin-right: auto;">{{arraysum.spielspass2}}</span>
-                          </div>                        
-                        </div>
-                      </ul>
-
-                    </div>
-                  </div>
-
-            </div>
-      </div>                     
-      </div>               
-         <footer class="page-footer  pink darken-1" style="margin-top:9em;">
-          <div class="footer-copyright" style="text-align:center;">
-            <div class="container">
-            © 2016 Slidoo | Rotaract Deutschland - Partner von Rotary
+      </div>
+      <h1>Aktueller Spielplatz</h1>
+      <div ng-repeat="playlist in playlists  | orderBy:'title'">
+        <div class="card" style="padding-bottom: 0px">
+          <div>
+            <img class="responsive-img" src="../www/img/{{playlist.bild}}" style="width:160px; float: left ">
+          </div>
+          <div class="card-content" style="padding:0px">
+            <div>
+              <p style="color:#C2185B; font-size: 16px; padding-bottom: 0px; margin-left:180px">{{playlist.title}} </p>
+              <p style="margin-left:180px">{{playlist.strasse}} {{playlist.hausnummer}}</p>
+              <p style="margin-left:180px">{{playlist.plz}} {{playlist.stadtteil}}</p>
+              <p style="margin-left:180px; color:{{playlist.statusfarbe}}">{{playlist.status}}</p>
+              <br/>
             </div>
           </div>
-        </footer>                                
+          <div ng-repeat="durchschnitt in durchschnitts">
+            <ul class="collection" style="">
+              <li class="collection-item">Durchschnittliche Bewertung des Spielplatzes</li>
+            </ul>
+            <ul class="collection" style="border: none">
+              <div style="width: 33.33%; float: left ; padding-bottom:20px">
+                <p style="text-align: center; margin:0px">Sauberkeit
+                  <br/>
+                </p><span class="stars2" style="margin-left: auto; margin-right: auto;">{{durchschnitt.avgsau}}</span>
+              </div>
+              <div style="width: 33.33%; float: left ">
+                <p style="text-align: center; margin:0px">Sicherheit
+                  <br/>
+                </p><span class="stars2" style="margin-left: auto; margin-right: auto;">{{durchschnitt.avgsich}}</span>
+              </div>
+              <div style="width: 33.33%; float: left ">
+                <p style="text-align: center; margin:0px">Spielspaß
+                  <br/>
+                </p><span class="stars2" style="margin-left: auto; margin-right: auto;">{{durchschnitt.avgspa}}</span>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <h1>Bewertungen</h1>
+      <div ng-repeat="arraysum in arraysums">
+        <div class="card" style="">
+          <div class="card-content" style="padding:0px">
+            <div>
+              <ul class="collection" style="">
+                <li class="collection-item">Gesamtbewertung</li>
+              </ul>
+              <ul class="collection" style="border: none">
+                <div>
+                  <div style="width: 15%; float:left; border-bottom: solid 1px; border-color: #e0e0e0">
+                    <h6>Nickname</h6>
+                  </div>
+                  <div style="width: 20%; float:left; border-bottom: solid 1px; border-color: #e0e0e0">
+                    <h6>Gesamtbewertung</h6>
+                  </div>
+                  <div style="width: 65%; float:left; border-bottom: solid 1px; border-color: #e0e0e0">
+                    <h6>Kommentar</h6>
+                  </div>
+                </div>
+                <div style="">
+                  <div style="padding-top:7px; width: 15%; float:left">{{arraysum.title}}
+                  </div>
+                  <div style="padding-top:7px;width: 20%; float:left">
+                    <span class="stars2">{{arraysum.bewertung}}</span>
+                  </div>
+                  <div style="padding-top:7px;width: 65%; float:left; padding-bottom: 20px">
+                    <strong>{{arraysum.kommentar}}</strong>
+                    <br/> {{arraysum.freitext}}
+                  </div>
+                </div>
+                <br/>
+                <div style="width: 100%">
+                  <ul class="collection" style="margin-top:20px">
+                    <li class="collection-item">Bewertungsübersicht</li>
+                  </ul>
+                  <div style="width: 33.33%; float: left ">
+                    <p style="text-align: center">Sauberkeit
+                      <br/>
+                    </p><span class="stars2" style="margin-left: auto; margin-right: auto;">{{arraysum.sauberkeit2}}</span>
+                  </div>
+                  <div style="width: 33.33%; float: left ">
+                    <p style="text-align: center">Sicherheit
+                      <br/>
+                    </p><span class="stars2" style="margin-left: auto; margin-right: auto;">{{arraysum.sicherheit2}}</span>
+                  </div>
+                  <div style="width: 33.33%; float: left; ">
+                    <p style="text-align: center;">Spielspaß
+                      <br/>
+                    </p><span class="stars2" style="margin-left: auto; margin-right: auto;">{{arraysum.spielspass2}}</span>
+                  </div>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer  pink darken-1" style="margin-top:9em;">
+      <div class="footer-copyright" style="text-align:center;">
+        <div class="container">
+          © 2016 Slidoo | Rotaract Deutschland - Partner von Rotary
+        </div>
+      </div>
+    </footer>
   </body>
- 
+  <!--Import 2 materialize.css-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="../www/js/materialize.min.js"></script>
-<script> 
-    $('select').material_select();
- </script>
-<script>
-
-var app = angular.module('myApp', []);
+  <script type="text/javascript" src="../www/js/materialize.min.js"></script>
+  <script>
+    $('select').material_select(); //Initialisierung select --> Dropdown
+  </script>
+  <script>
+    var app = angular.module('myApp', []);
+    //Datenbankverbindung mit Apiomat
+    //Muss immer hier stehen! Wird Asynchron geladen!
     var user = new Apiomat.User();
     user.setUserName("test23");
     user.setPassword("test23");
     Apiomat.Datastore.configureWithCredentials(user);
- 
     var saveCB = {
       onOk: function() {
-       
       },
       onError: function(error) {
-
       }
     };
     user.loadMe({
       onOk: function() {},
       onError: function(error) {
-          
         user.save(saveCB);
       }
-    }); 
-
-app.controller('DetailSpielplatzCtrl', function($scope, $scope, $scope) {
-   var url = window.location.href;
-   var id = url.substring(url.indexOf('?')+1);
-
-  var avg;
-  var avgsau;
-  var avgsich;
-  var avgspa;
-    
-  var idbewertung = "bewertungsid == ("+id+")";
-  var id22 = "id == id("+id+")";
-    
-  //Array Spielplatzdetail erstellen
-
-  $scope.arraysums = [];
-  $scope.playlists = [];
-  $scope.durchschnitts = [];   
-
-  var sum = 0;
-  var sum2 = 0;
-  var sum3 = 0;
-  var sum4 = 0;
-    
-
-    Apiomat.bewertungen.getbewertungens(idbewertung, {
-    onOk : function(loadedObjs) {
-    //Now you can do sth with loaded objects (loadedObjs)
-    //Now you can do sth with loaded objects (loadedObjs)
-        for (i = 0; i < loadedObjs.length; i++) {
-          var arraybewertungen = loadedObjs[i]["data"];
-          //Ausgabe in Konsole
-          var name = arraybewertungen["nickname"];
-          var kommentar = arraybewertungen["ueberschriftbewertungskommentar"];
-          var freitext = arraybewertungen["textbewertung"];
-          var bewertungaus = arraybewertungen["gesamtbewertung"];
-          var id = arraybewertungen["id"];
-          var bid = arraybewertungen["bewertungsid"];
-          var bewertungaus = arraybewertungen["gesamtbewertung"];
-          var sauberkeit2 = arraybewertungen["sauberkeit"];
-          var sicherheit2 = arraybewertungen["sicherheit"];
-          var spielspass2 = arraybewertungen["spielspass"];
-          var status = arraybewertungen["status"];
-  
-          sum +=  parseInt(bewertungaus);
-/*          sum2 +=  parseInt(sauberkeit2);
-          sum3 +=  parseInt(sicherheit2);
-          sum4 +=  parseInt(spielspass2);
-               
-          avg = sum/loadedObjs.length;
-          avgsau = Math.round(sum2/loadedObjs.length * 100) / 100 ;
-          avgsich = Math.round(sum3/loadedObjs.length * 100) / 100 ;
-          avgspa = Math.round(sum4/loadedObjs.length * 100) / 100 ;*/
-          $scope.arraysums.push({avg: avg, avgsau: avgsau, avgsich: avgsich, avgspa: avgspa, title: name, bewertung: bewertungaus, kommentar: kommentar, freitext: freitext, id: id , bid: bid, sauberkeit2 : sauberkeit2, spielspass2: spielspass2, sicherheit2: sicherheit2});
-          $scope.$apply();
-
-          }
-    },
-    onError : function(error) {
-    //handle error
-    }
-    });   
-
- 
-    Apiomat.spielplatz.getspielplatzs(id22, {
-    onOk : function(loadedObjs) {
-    //Now you can do sth with loaded objects (loadedObjs)
-    for (i = 0; i < loadedObjs.length; i++) {
-        var arrayspielplaetze = loadedObjs[i]["data"];
-        //Ausgabe in Konsole
-        var name = arrayspielplaetze["name"];
-        var strasse = arrayspielplaetze["straße"];
-        var nummer = arrayspielplaetze["hausnummer"];
-        var stadtteil = arrayspielplaetze["stadtteil"];
-        var plz = arrayspielplaetze["plz"];
-        var altersgruppe = arrayspielplaetze["altersgruppe"];
-        var groesse = arrayspielplaetze["größe"];
-        var status = arrayspielplaetze["status"];
-        var bild = arrayspielplaetze["hauptbild"];
-        var bewertung = arrayspielplaetze["gesamtbewertungsp"];
-        var statusfarbe;
-            if(status=="Bespielbar"){
-                statusfarbe ="#00e676"
-            }else{
-                statusfarbe ="#ff5252"
-            }
-
-        var id = arrayspielplaetze["id"];
-        
-          
-      $scope.playlists.push({statusfarbe: statusfarbe, title: name, bewertung: bewertung, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status , plz: plz ,strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, color: '#FF880E', id:id, avg: avg});
-        $scope.$apply();
-      }
-    },
-        
-    onError : function(error) {
-    }
-
-
     });
-
-        Apiomat.bewertungen.getbewertungens(idbewertung, {
-        onOk : function(loadedObjs) {
-        //Now you can do sth with loaded objects (loadedObjs)
-        //Now you can do sth with loaded objects (loadedObjs)
-            for (i = 0; i < loadedObjs.length; i++) {
-              var arraybewertungen = loadedObjs[i]["data"];
-              //Ausgabe in Konsole
-              var bewertungaus = arraybewertungen["gesamtbewertung"];
-              var sauberkeit2 = arraybewertungen["sauberkeit"];
-              var sicherheit2 = arraybewertungen["sicherheit"];
-              var spielspass2 = arraybewertungen["spielspass"];
-              sum +=  parseInt(bewertungaus);
-              sum2 +=  parseInt(sauberkeit2);
-              sum3 +=  parseInt(sicherheit2);
-              sum4 +=  parseInt(spielspass2);
-              }
-        avg = sum/loadedObjs.length;
-        avgsau = Math.round(sum2/loadedObjs.length * 100) / 100 ;
-        avgsich = Math.round(sum3/loadedObjs.length * 100) / 100 ;
-        avgspa = Math.round(sum4/loadedObjs.length * 100) / 100 ;
-        $scope.durchschnitts.push({ avg: avg, avgsau: avgsau, avgsich: avgsich, avgspa: avgspa});
-        $scope.$apply();
-        //alert(url);
-        },
-
-        onError : function(error) {
-        //handle error
-        }
-
-    });
-
-
-
-    var checkExist = setInterval(function() {
-           if ($('span.stars2').length) {
-              $('span.stars2').stars2();
-              clearInterval(checkExist);
-           }
-        }, 400);
-          
-        $.fn.stars2 = function() {
-            return $(this).each(function() {
-                $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+    // Controller DetailSpielplatzCtrl
+    // Gibt alle Bewertungen eines einzelnen Spielplatzes aus
+    app.controller('BewertungsCtrl', function($scope, $scope, $scope) {
+      //entsprechende Spielplatz-ID aus der URL holen
+      var url = window.location.href;
+      var id = url.substring(url.indexOf('?') + 1);
+      var avg;
+      var avgsau;
+      var avgsich;
+      var avgspa;
+      var idbewertung = "bewertungsid == (" + id + ")";
+      var id22 = "id == id(" + id + ")";
+      //Array Spielplatzbewertung erstellen
+      $scope.arraysums = [];
+      $scope.playlists = [];
+      $scope.durchschnitts = [];
+      var sum = 0;
+      var sum2 = 0;
+      var sum3 = 0;
+      var sum4 = 0;
+      //Array Bewertungen eines Spielplatzes aus DB holen
+      Apiomat.bewertungen.getbewertungens(idbewertung, {
+        onOk: function(loadedObjs) {
+          for (i = 0; i < loadedObjs.length; i++) {
+            var arraybewertungen = loadedObjs[i]["data"];
+            var name = arraybewertungen["nickname"];
+            var kommentar = arraybewertungen["ueberschriftbewertungskommentar"];
+            var freitext = arraybewertungen["textbewertung"];
+            var bewertungaus = arraybewertungen["gesamtbewertung"];
+            var id = arraybewertungen["id"];
+            var bid = arraybewertungen["bewertungsid"];
+            var bewertungaus = arraybewertungen["gesamtbewertung"];
+            var sauberkeit2 = arraybewertungen["sauberkeit"];
+            var sicherheit2 = arraybewertungen["sicherheit"];
+            var spielspass2 = arraybewertungen["spielspass"];
+            var status = arraybewertungen["status"];
+            sum += parseInt(bewertungaus);
+            $scope.arraysums.push({
+              avg: avg, avgsau: avgsau, avgsich: avgsich, avgspa: avgspa, title: name, bewertung: bewertungaus, kommentar: kommentar, freitext: freitext, id: id, bid: bid, sauberkeit2: sauberkeit2, spielspass2: spielspass2, sicherheit2: sicherheit2
             });
+            $scope.$apply();
           }
-});
-    
-   
-    
-
-
-
+        },
+        onError: function(error) {
+        }
+      });
+      //Spielplatzdetails aus DB laden
+      Apiomat.spielplatz.getspielplatzs(id22, {
+        onOk: function(loadedObjs) {
+          for (i = 0; i < loadedObjs.length; i++) {
+            var arrayspielplaetze = loadedObjs[i]["data"];
+            var name = arrayspielplaetze["name"];
+            var strasse = arrayspielplaetze["straße"];
+            var nummer = arrayspielplaetze["hausnummer"];
+            var stadtteil = arrayspielplaetze["stadtteil"];
+            var plz = arrayspielplaetze["plz"];
+            var altersgruppe = arrayspielplaetze["altersgruppe"];
+            var groesse = arrayspielplaetze["größe"];
+            var status = arrayspielplaetze["status"];
+            var bild = arrayspielplaetze["hauptbild"];
+            var bewertung = arrayspielplaetze["gesamtbewertungsp"];
+            var statusfarbe;
+            if (status == "Bespielbar") {
+              statusfarbe = "#00e676"
+            } else {
+              statusfarbe = "#ff5252"
+            }
+            var id = arrayspielplaetze["id"];
+            $scope.playlists.push({statusfarbe: statusfarbe, title: name, bewertung: bewertung, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status, plz: plz, strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, color: '#FF880E', id: id, avg: avg
+            });
+            $scope.$apply();
+          }
+        },
+        onError: function(error) {}
+      });
+      //Gesamtbewertung aus DB laden
+      Apiomat.bewertungen.getbewertungens(idbewertung, {
+        onOk: function(loadedObjs) {
+          for (i = 0; i < loadedObjs.length; i++) {
+            var arraybewertungen = loadedObjs[i]["data"];
+            var bewertungaus = arraybewertungen["gesamtbewertung"];
+            var sauberkeit2 = arraybewertungen["sauberkeit"];
+            var sicherheit2 = arraybewertungen["sicherheit"];
+            var spielspass2 = arraybewertungen["spielspass"];
+            sum += parseInt(bewertungaus);
+            sum2 += parseInt(sauberkeit2);
+            sum3 += parseInt(sicherheit2);
+            sum4 += parseInt(spielspass2);
+          }
+          avg = sum / loadedObjs.length;
+          avgsau = Math.round(sum2 / loadedObjs.length * 100) / 100;
+          avgsich = Math.round(sum3 / loadedObjs.length * 100) / 100;
+          avgspa = Math.round(sum4 / loadedObjs.length * 100) / 100;
+          $scope.durchschnitts.push({
+            avg: avg,
+            avgsau: avgsau,
+            avgsich: avgsich,
+            avgspa: avgspa
+          });
+          $scope.$apply();
+        },
+        onError: function(error) {
+        }
+      });
+      //Starrating - Sternausgabe
+      var checkExist = setInterval(function() {
+        if ($('span.stars2').length) {
+          $('span.stars2').stars2();
+          clearInterval(checkExist);
+        }
+      }, 400);
+      $.fn.stars2 = function() {
+        return $(this).each(function() {
+          $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+        });
+      }
+    });
   </script>
-    
 </html>

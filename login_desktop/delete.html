@@ -3,190 +3,180 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  
     <title>slidoo</title>
-
     <link href="http://fonts.googleapis.com/icon?family=Material%20Icons" rel="stylesheet">
-    <!--Import materialize.css-->
+    <!--Import 1 materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>   
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+    <!--Import Alert-Style-->
+    <link rel="stylesheet" type="text/css" href="../sweetalert-master/dist/sweetalert.css">  
     <script src="../sweetalert-master/dist/sweetalert.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="../sweetalert-master/dist/sweetalert.css">
-    <script src="js/login.js"></script>    
-    <!--<script charset="utf-8" src="js/spielplatzanlegendesktop.js"></script> -->
+    <!--Angular JS-->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="js/login.js"></script>
+    <!--Datenbank-Anbindung Apiomat-->
     <script charset="utf-8" src="../www/com/apiomat/apiomat.js"></script>
-    
   </head>
-   <body ng-app="myApp" ng-controller="DetailSpielplatzCtrl">
- <div class="navbar-fixed">  
-  <nav>
-    <div class="nav-wrapper">
-       <a href="#" class="brand-logo left">
-        <img src="bilder/logo.png" height="32px">
-        slidoo
-      </a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li class="active"><a href="center.html" class="smoothScroll">Alle Spielpl&auml;tze</a></li>
-          <li><a href="create.html" class="smoothScroll">Spielplatz erstellen</a></li>
-          <li><a href="index.html" onklick="logout()">Logout</a>
-      </ul>
+  <body ng-app="myApp" ng-controller="DetailSpielplatzCtrl">
+    <!--Navigation--> 
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo left">
+            <img src="bilder/logo.png" height="32px"> slidoo
+          </a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="active"><a href="center.html" class="smoothScroll">Alle Spielpl&auml;tze</a></li>
+            <li><a href="create.html" class="smoothScroll">Spielplatz erstellen</a></li>
+            <li><a href="index.html" onklick="logout()">Logout</a>
+          </ul>
+        </div>
+      </nav>
     </div>
-  </nav>
- </div>   
-
-<div class="container" ng-repeat="playlistdetail in playlistdetails">
-    <div class="nav-wrapper" style="margin-top:2em">
-      <div class="col s12">
-          <div style="float:left"><a href="center.html" class="breadcrumb">Alle Spielplätze </a></div> 
+    <!--Content--> 
+    <div class="container" ng-repeat="playlistdetail in playlistdetails">
+      <div class="nav-wrapper" style="margin-top:2em">
+        <div class="col s12">
+          <div style="float:left"><a href="center.html" class="breadcrumb">Alle Spielplätze </a></div>
           <div style="float:left; margin-left:0.5em; color:#757575;"><i class="tiny material-icons" style="padding-top:0.25em; margin-right:0.5em;">play_arrow</i></div>
           <div style="margin-left:1em; color:#757575; font-size:14px;">Spielplatz löschen - {{playlistdetail.title}} </div>
+        </div>
       </div>
-    </div>
-                     
-<h1>Spielplatz löschen</h1>
-    
-<p>Möchten Sie diesen Spielplatz unwiderruflich löschen?</p>
-    
-        <div ng-repeat="playlistdetail in playlistdetails">
-          <div class="card">
 
-                <div class="card-content" style="height:200px;">
-                    <div style="float:left;">
-                  <img class="responsive-image"style="height:160px; margin-right:25px;" src="../www/img/{{playlistdetail.bild}}">
-                </div>
-                  <span class="card-title activator grey-text text-darken-4">{{playlistdetail.title}}
-                  </span><br/>
-                    <div style="float:left; margin-right: 0.1em; "><i class="material-icons" style="font-size:3em;">room</i></div>
-                    <div style="float: left;"><p style="">{{playlistdetail.ort}}</p>
-                  <p >{{playlistdetail.strasse}} {{playlistdetail.hausnummer}}</p>
-                    <p>{{playlistdetail.stadtteil}}</p>
-                  <p style="">{{playlistdetail.plz}} Aschaffenburg</p>
-                  <p style=""></p>
-                  <br/></div>   
-
-                </div>
-          </div>
-        </div>
-          <div class="">
-              <button class="btn waves-effect waves-light btn-large orange accent-2" type="submit" name="action" onclick="loeschen()" style="margin-right:1em;">Spielplatz unwiderruflich löschen
-            </button>
-          <button class="btn waves-effect waves-light btn  btn-large grey lighten-1" type="submit" name="action" onclick="abbrechen()">Abbrechen
-            </button>
-                  
-        </div>
-
-</div >
-     <footer class="page-footer  pink darken-1" style="margin-top:7em;">
-          <div class="footer-copyright" style="text-align:center;">
-            <div class="container">
-            © 2016 Slidoo | Rotaract Deutschland - Partner von Rotary
+      <h1>Spielplatz löschen</h1>
+      <p>Möchten Sie diesen Spielplatz unwiderruflich löschen?</p>
+      <div ng-repeat="playlistdetail in playlistdetails">
+        <div class="card">
+          <div class="card-content" style="height:200px;">
+            <div style="float:left;">
+              <img class="responsive-image" style="height:160px; margin-right:25px;" src="../www/img/{{playlistdetail.bild}}">
+            </div>
+            <span class="card-title activator grey-text text-darken-4">{{playlistdetail.title}}
+                  </span>
+            <br/>
+            <div style="float:left; margin-right: 0.1em; "><i class="material-icons" style="font-size:3em;">room</i></div>
+            <div style="float: left;">
+              <p style="">{{playlistdetail.ort}}</p>
+              <p>{{playlistdetail.strasse}} {{playlistdetail.hausnummer}}</p>
+              <p>{{playlistdetail.stadtteil}}</p>
+              <p style="">{{playlistdetail.plz}} Aschaffenburg</p>
+              <p style=""></p>
+              <br/>
             </div>
           </div>
-        </footer>                                 
-                   
+        </div>
+      </div>
+      <div class="">
+        <button class="btn waves-effect waves-light btn-large orange accent-2" type="submit" name="action" onclick="loeschen()" style="margin-right:1em;">Spielplatz unwiderruflich löschen
+        </button>
+        <button class="btn waves-effect waves-light btn  btn-large grey lighten-1" type="submit" name="action" onclick="abbrechen()">Abbrechen
+        </button>
+      </div>
+    </div>
+    <footer class="page-footer  pink darken-1" style="margin-top:7em;">
+      <div class="footer-copyright" style="text-align:center;">
+        <div class="container">
+          © 2016 Slidoo | Rotaract Deutschland - Partner von Rotary
+        </div>
+      </div>
+    </footer>
   </body>
- 
+  <!--Import 2 materialize.css-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="../www/js/materialize.min.js"></script>
-<script> 
-    $('select').material_select();
- </script>
-<script>
-
-var app = angular.module('myApp', []);
+  <script type="text/javascript" src="../www/js/materialize.min.js"></script>
+  <script>
+    $('select').material_select(); //Initialisierung materializecss select - Dropdown
+  </script>
+  <script>
+    //Datenbankverbindung mit Apiomat
+    //Muss immer hier stehen! Wird Asynchron geladen!
+    var app = angular.module('myApp', []);
     var user = new Apiomat.User();
     user.setUserName("test23");
     user.setPassword("test23");
     Apiomat.Datastore.configureWithCredentials(user);
- 
     var saveCB = {
       onOk: function() {
-       
+
       },
       onError: function(error) {
-
       }
     };
     user.loadMe({
       onOk: function() {},
       onError: function(error) {
-          
-        user.save(saveCB);
-      }
-    });  
-    
-   
-    
-
-app.controller('DetailSpielplatzCtrl', function($scope) {
-   var url = window.location.href;
-   var id1 = url.substring(url.indexOf('?')+1);
- $scope.playlistdetails = [];
-   //DB-verbindung mit Spielplatztabelle
-    Apiomat.spielplatz.getspielplatzs("id==id(" + id1 + ")", {
-        onOk : function(loadedObjs) {
-            //Now you can do sth with loaded objects (loadedObjs)
-            var arrayspielplaetze = loadedObjs[0]["data"];
-    //Ausgabe in Konsole
-    var name = arrayspielplaetze["name"];
-        var strasse = arrayspielplaetze["straße"];
-        var nummer = arrayspielplaetze["hausnummer"];
-        var stadtteil = arrayspielplaetze["stadtteil"];
-        var plz = arrayspielplaetze["plz"];
-        var bild = arrayspielplaetze["hauptbild"];
-       $scope.playlistdetails = [
-    { title: name, strasse: strasse, nummer:nummer, stadtteil:stadtteil, plz:plz, bild:bild },
-  ];
-            $scope.$apply();
-
-},
-onError : function(error) {
-//handle error
-}
-})
-});
-    
-function loeschen() {
-    
-    var myspielplatz;
-    var url = window.location.href;
-    var id1 = url.substring(url.indexOf('?')+1);
-    
-    Apiomat.spielplatz.getspielplatzs("id==id(" + id1 + ")", {
-      onOk: function(result) {
-        myspielplatz = result[0];
-        
-        myspielplatz.deleteModel({
-          onOk: function() {
-            swal({ 
-                title: "",
-                text: "Der Spielplatz wurde erfolgreich gelöscht",
-                type: "success",
-                confirmButtonColor: "#ff9100", 
-              },
-              function(){
-                window.location.href = 'center.html';
-            });
-          },
-          onError: function(error) {
-            console.log(error);
-          }
-        })
-      },
-      onError: function(error) {
-        console.log(error);
+      user.save(saveCB);
       }
     });
-   
-}  
+    //Controller DetailSpeilplatzCtrl
+    //Lädt die entsprechenden Angaben des zu löschenden Spielplatzes und gibt diese aus
+    app.controller('DetailSpielplatzCtrl', function($scope) {
+      //Spielplatz-ID aus der URL holen
+      var url = window.location.href;
+      var id1 = url.substring(url.indexOf('?') + 1);
+      $scope.playlistdetails = [];
+      //DB-verbindung mit Spielplatztabelle
+      Apiomat.spielplatz.getspielplatzs("id==id(" + id1 + ")", {
+        onOk: function(loadedObjs) {
+          var arrayspielplaetze = loadedObjs[0]["data"];
+          var name = arrayspielplaetze["name"];
+          var strasse = arrayspielplaetze["straße"];
+          var nummer = arrayspielplaetze["hausnummer"];
+          var stadtteil = arrayspielplaetze["stadtteil"];
+          var plz = arrayspielplaetze["plz"];
+          var bild = arrayspielplaetze["hauptbild"];
+          $scope.playlistdetails = [{
+            title: name,
+            strasse: strasse,
+            nummer: nummer,
+            stadtteil: stadtteil,
+            plz: plz,
+            bild: bild
+          }, ];
+          $scope.$apply();
+        },
+        onError: function(error) {
+        }
+      })
+    });
 
-    function abbrechen(){
-        window.location.href = "center.html";
+    //Function loeschen
+    //Loescht den entsprechenden Spielplatz aus der DB
+    function loeschen() {
+      var myspielplatz;
+      //Spielplatz-ID aus der URL holen
+      var url = window.location.href;
+      var id1 = url.substring(url.indexOf('?') + 1);
+      //Zu löschender Spielplatz in der DB anhand der Spielplatzid laden
+      Apiomat.spielplatz.getspielplatzs("id==id(" + id1 + ")", {
+        onOk: function(result) {
+          myspielplatz = result[0];
+          myspielplatz.deleteModel({
+            onOk: function() {
+              swal({
+                  title: "",
+                  text: "Der Spielplatz wurde erfolgreich gelöscht",
+                  type: "success",
+                  confirmButtonColor: "#ff9100",
+                },
+                function() {
+                  window.location.href = 'center.html';
+                });
+            },
+            onError: function(error) {
+              console.log(error);
+            }
+          })
+        },
+        onError: function(error) {
+          console.log(error);
+        }
+      });
     }
-    
-
+    //Function abbrechen
+    //Löchvorgang wird abgebrochen und der User kommt wieder auf die Übersichtsseite "Alle Spielplätze"
+    function abbrechen() {
+      window.location.href = "center.html";
+    }
   </script>
-    
 </html>

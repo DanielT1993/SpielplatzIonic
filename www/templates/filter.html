@@ -1,56 +1,55 @@
-<ion-view view-title="Spielplätze filtern" >
+<ion-view view-title="Spielplätze filtern">
   <ion-content>
-       <ion-list>
- <ion-item>
-    
-  <form>
-    Alle Spielplätze anzeigen mit:
-    <div style="margin-top:1em;">  
-    <p>
-      <input type="checkbox" class="filled-in" id="grillplatz" />
-      <label for="grillplatz">Grillplatz</label>
-    </p>
-      <p>
-      <input type="checkbox" class="filled-in" id="sanitar" />
-      <label for="sanitar">Sanitäranlagen</label>
-    </p>
+    <ion-list>
+      <ion-item>
+        <form>
+          Alle Spielplätze anzeigen mit:
+          <div style="margin-top:1em;">
+            <p>
+              <input type="checkbox" class="filled-in" id="grillplatz" />
+              <label for="grillplatz">Grillplatz</label>
+            </p>
+            <p>
+              <input type="checkbox" class="filled-in" id="sanitar" />
+              <label for="sanitar">Sanitäranlagen</label>
+            </p>
+          </div>
+          <button class="waves-effect waves-light btn orange accent-3" ng-click='filter()' style="width:100%; margin-top:1em;">Spielplätze anzeigen</button>
+        </form>
+      </ion-item>
+      <ion-item ng-repeat="playlist in playlists | orderBy:'title'">
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="responsive-image" src="img/{{playlist.bild}}">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{playlist.title}}
+              <i class="material-icons right">more_vert</i></span>
+            <br/>
+            <p style="float: right"><i class="material-icons" style="">room</i>{{playlist.ort}}</p>
+            <p style="">{{playlist.strasse}} {{playlist.hausnummer}}</p>
+            <p style="">{{playlist.plz}}</p>
+            <p style="">{{playlist.stadtteil}}</p>
+            <br/>
+            <div class="collection">
+              <a href="#/app/playlists/{{playlist.id}}" class="collection-item active" style="text-align: center">Spielplatz ansehen</a>
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{playlist.title}}<i class="material-icons right">close</i></span>
+            <p>
+              <br/><i class="material-icons" style="">room</i>{{playlist.ort}} entfernt</p>
+            <br/>
+            <p style="">{{playlist.strasse}} {{playlist.hausnummer}}</p>
+            <p style="">{{playlist.plz}} Aschaffenburg</p>
+            <p style="">{{playlist.stadtteil}}</p>
+            <br/>
+            <p style=""><strong>Altersgruppe: </strong>{{playlist.altersgruppe}}</p>
+            <p style=""><strong>Größe: </strong>{{playlist.groesse}} m²</p>
+            <p style=""><strong>Spielplatzstatus: </strong>{{playlist.status}}</p>
+          </div>
         </div>
-      
-        <button class="waves-effect waves-light btn orange accent-3" ng-click='filter()' style="width:100%; margin-top:1em;" >Spielplätze anzeigen</button>
-  
-  </form>
-        </ion-item>
-           
-    
-      <ion-item ng-repeat="playlist in playlists | orderBy:'title'" >
-      <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="responsive-image" src="img/{{playlist.bild}}">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">{{playlist.title}}
-              <i class="material-icons right">more_vert</i></span><br/>
-              <p style="float: right"><i class="material-icons" style="">room</i>{{playlist.ort}}</p>
-              <p style="">{{playlist.strasse}} {{playlist.hausnummer}}</p>
-              <p style="">{{playlist.plz}}</p>
-              <p style="">{{playlist.stadtteil}}</p>
-              <br/>
-              <div class="collection">
-                <a href="#/app/playlists/{{playlist.id}}" class="collection-item active" style="text-align: center">Spielplatz ansehen</a>
-              </div>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">{{playlist.title}}<i class="material-icons right">close</i></span>
-              <p><br/><i class="material-icons" style="">room</i>{{playlist.ort}} entfernt</p> <br/>
-              <p style="">{{playlist.strasse}} {{playlist.hausnummer}}</p>
-              <p style="">{{playlist.plz}} Aschaffenburg</p>
-              <p style="">{{playlist.stadtteil}}</p><br/>
-              <p style=""><strong>Altersgruppe: </strong>{{playlist.altersgruppe}}</p>
-              <p style=""><strong>Größe: </strong>{{playlist.groesse}} m²</p>
-              <p style=""><strong>Spielplatzstatus: </strong>{{playlist.status}}</p>
-            </div>
-      </div>
-    </ion-item>
+      </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>

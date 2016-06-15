@@ -1,213 +1,173 @@
 <html lang="de">
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  
     <title>slidoo</title>
     <link href="http://fonts.googleapis.com/icon?family=Material%20Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/stars.css"/>
-    <!--Import materialize.css-->
+    <link rel="stylesheet" href="css/stars.css" />
+    <!--Import 1 materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>   
-
-    
-    <script src="js/login.js"></script>    
-    <!--<script charset="utf-8" src="js/spielplatzanlegendesktop.js"></script> -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+    <script src="js/login.js"></script>
+    <!--Datenbankverbindung Apiomat-->  
     <script charset="utf-8" src="../www/com/apiomat/apiomat.js"></script>
+    <!--Angular-JS-->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   </head>
-   <body ng-app="myApp" ng-controller="PlaylistsCtrl">
 
-     <div class="navbar-fixed"> 
-
+  <body ng-app="myApp" ng-controller="PlaylistsCtrl">
+    <!--Navifation-->  
+    <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
-         <a href="#" class="brand-logo left">
-            <img src="bilder/logo.png" height="32px" >
-            slidoo
+          <a href="#" class="brand-logo left">
+            <img src="bilder/logo.png" height="32px"> slidoo
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li class="active"><a href="center.html" class="smoothScroll">Alle Spielpl&auml;tze</a></li>
-              <li><a href="create.html" class="smoothScroll">Spielplatz erstellen</a></li>
-              <li><a href="index.html" onklick="logout()">Logout</a>
+            <li class="active"><a href="center.html" class="smoothScroll">Alle Spielpl&auml;tze</a></li>
+            <li><a href="create.html" class="smoothScroll">Spielplatz erstellen</a></li>
+            <li><a href="index.html" onklick="logout()">Logout</a>
           </ul>
         </div>
       </nav>
     </div>
-<!-- ab hier von playlist kopiert -->
-<div class="container">
-
-<h1>Alle Spielplätze</h1>
-<div ng-repeat="playlist in playlists  | orderBy:'title'">
-
-      <div class="card" style="padding-bottom: 70px">
-                
-                  
-                
-              <div>
-                <img class="responsive-img" src="../www/img/{{playlist.bild}}" style="width:160px; float: left ">
-              </div>
-            <!--div class="card-image waves-effect waves-block waves-light">
-              <img class="responsive-image" src="img/{{playlist.bild}}">
-            </div-->
-            <div class="card-content" style="padding:0px">
-              <div >
-                <span class="stars" style="margin-left: 180px; margin-bottom: 10px">{{playlist.bewertung}}</span>
-                <p style="color:#C2185B; font-size: 16px; padding-bottom: 0px; margin-left:180px">{{playlist.title}} <a href="rating.html?{{playlist.id}}" style="color: #ef6c00;text-align: center; float: right; padding-right: 220px"><i class="material-icons" style="">star</i> </a></p>
-                <p style="margin-left:180px">{{playlist.strasse}} {{playlist.hausnummer}}<a href="rating.html?{{playlist.id}}" style="color: #ef6c00;text-align: center; float: right; padding-right: 160px"> Bewertungen anzeigen </a></p>
-                <p style="margin-left:180px">{{playlist.plz}} {{playlist.stadtteil}}</p>
-                <p style="margin-left:180px; color:{{playlist.statusfarbe}};">{{playlist.status}}</p>
-                <br/>
-                
-              </div>
-              <div>
-      
-                  <a href="edit.html?{{playlist.id}}" class="waves-effect waves-light btn orange accent-2" style="margin-right:5px; text-align:center; width: 49%; float: left">BEARBEITEN</a>
-
-
-                  <a href="delete.html?{{playlist.id}}" class="waves-effect waves-light btn  orange accent-2" style="margin-left: 5px; text-align: center; width: 49%; float: left">LÖSCHEN</a>
-
-              </div>
+    <!--Content-->
+    <div class="container">
+      <h1>Alle Spielplätze</h1>
+      <div ng-repeat="playlist in playlists  | orderBy:'title'">
+        <div class="card" style="padding-bottom: 70px">
+          <div>
+            <img class="responsive-img" src="../www/img/{{playlist.bild}}" style="width:160px; float: left ">
+          </div>
+          <div class="card-content" style="padding:0px">
+            <div>
+              <span class="stars" style="margin-left: 180px; margin-bottom: 10px">{{playlist.bewertung}}</span>
+              <p style="color:#C2185B; font-size: 16px; padding-bottom: 0px; margin-left:180px">{{playlist.title}} <a href="rating.html?{{playlist.id}}" style="color: #ef6c00;text-align: center; float: right; padding-right: 220px"><i class="material-icons" style="">star</i> </a></p>
+              <p style="margin-left:180px">{{playlist.strasse}} {{playlist.hausnummer}}<a href="rating.html?{{playlist.id}}" style="color: #ef6c00;text-align: center; float: right; padding-right: 160px"> Bewertungen anzeigen </a></p>
+              <p style="margin-left:180px">{{playlist.plz}} {{playlist.stadtteil}}</p>
+              <p style="margin-left:180px; color:{{playlist.statusfarbe}};">{{playlist.status}}</p>
+              <br/>
             </div>
-
-      </div>
-    
-</div>                     
-</div>   
-       <footer class="page-footer  pink darken-1" style="margin-top:5em;">
-          <div class="footer-copyright" style="text-align:center;">
-            <div class="container">
-            © 2016 Slidoo | Rotaract Deutschland - Partner von Rotary
+            <div>
+                <a href="edit.html?{{playlist.id}}" class="waves-effect waves-light btn orange accent-2" style="margin-right:5px; text-align:center; width: 49%; float: left">BEARBEITEN</a>
+                <a href="delete.html?{{playlist.id}}" class="waves-effect waves-light btn  orange accent-2" style="margin-left: 5px; text-align: center; width: 49%; float: left">LÖSCHEN</a>
             </div>
           </div>
-        </footer>    
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-
-<script type="text/javascript" src="../js/materialize.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
-    
-<script> 
-
-
-var app = angular.module('myApp', []);
-    
-  var user = new Apiomat.User();
-    user.setUserName("test23");
-    user.setPassword("test23");
-    Apiomat.Datastore.configureWithCredentials(user);
- 
-    var saveCB = {
-      onOk: function() {
-       
-      },
-      onError: function(error) {
-
-      }
-    };
-    user.loadMe({
-      onOk: function() {},
-      onError: function(error) {
-          
-        user.save(saveCB);
-      }
-    });      
-app.controller('PlaylistsCtrl', function($scope, $scope, $scope) {
-
-   
-           avg = 0;
-     
-    //Array anlegen
-    $scope.playlists = [];  
-    $scope.arraysums = [];    
-    Apiomat.spielplatz.getspielplatzs("", {
-    onOk : function(loadedObjs) {
-    //Now you can do sth with loaded objects (loadedObjs)
-    for (i = 0; i < loadedObjs.length; i++) {
-        var arrayspielplaetze = loadedObjs[i]["data"];
-        //Ausgabe in Konsole
-        var name = arrayspielplaetze["name"];
-        var strasse = arrayspielplaetze["straße"];
-        var nummer = arrayspielplaetze["hausnummer"];
-        var stadtteil = arrayspielplaetze["stadtteil"];
-        var plz = arrayspielplaetze["plz"];
-        var altersgruppe = arrayspielplaetze["altersgruppe"];
-        var groesse = arrayspielplaetze["größe"];
-        var status = arrayspielplaetze["status"];
-        var bild = arrayspielplaetze["hauptbild"];
-        var bewertung = arrayspielplaetze["gesamtbewertungsp"];
-        var statusfarbe;
-            if(status=="Bespielbar"){
-                statusfarbe ="#00e676"
-            }else{
-                statusfarbe ="#ff5252"
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer  pink darken-1" style="margin-top:5em;">
+      <div class="footer-copyright" style="text-align:center;">
+        <div class="container">
+          © 2016 Slidoo | Rotaract Deutschland - Partner von Rotary
+        </div>
+      </div>
+    </footer>
+    <!--Import 2 materialize.css-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script>
+      var app = angular.module('myApp', []);
+    //Datenbankverbindung mit Apiomat
+    //Muss immer hier stehen! Wird Asynchron geladen!
+      var user = new Apiomat.User();
+      user.setUserName("test23");
+      user.setPassword("test23");
+      Apiomat.Datastore.configureWithCredentials(user);
+      var saveCB = {
+        onOk: function() {
+        },
+        onError: function(error) {
+        }
+      };
+      user.loadMe({
+        onOk: function() {},
+        onError: function(error) {
+          user.save(saveCB);
+        }
+      });
+    //Controller PlaylistCtrl
+    //Gibt alle Spielplätze aus
+      app.controller('PlaylistsCtrl', function($scope, $scope, $scope) {
+        avg = 0;
+        //Array anlegen
+        $scope.playlists = [];
+        $scope.arraysums = [];
+        Apiomat.spielplatz.getspielplatzs("", {
+          onOk: function(loadedObjs) {
+            for (i = 0; i < loadedObjs.length; i++) {
+              var arrayspielplaetze = loadedObjs[i]["data"];
+              var name = arrayspielplaetze["name"];
+              var strasse = arrayspielplaetze["straße"];
+              var nummer = arrayspielplaetze["hausnummer"];
+              var stadtteil = arrayspielplaetze["stadtteil"];
+              var plz = arrayspielplaetze["plz"];
+              var altersgruppe = arrayspielplaetze["altersgruppe"];
+              var groesse = arrayspielplaetze["größe"];
+              var status = arrayspielplaetze["status"];
+              var bild = arrayspielplaetze["hauptbild"];
+              var bewertung = arrayspielplaetze["gesamtbewertungsp"];
+              var statusfarbe;
+              //Definieren der Statusfarbe
+              if (status == "Bespielbar") {
+                statusfarbe = "#00e676"
+              } else {
+                statusfarbe = "#ff5252"
+              }
+              var id = arrayspielplaetze["id"];
+              var spid = "bewertungsid == (" + id + ")";
+              var sum = 0;
+              Apiomat.bewertungen.getbewertungens(spid, {
+                onOk: function(loadedObjs) {
+                  for (i = 0; i < loadedObjs.length; i++) {
+                    var arraybewertungen = loadedObjs[i]["data"];
+                    var bewertungaus = arraybewertungen["gesamtbewertung"];
+                    sum += parseInt(bewertungaus);
+                  }
+                  avg = sum / loadedObjs.length;
+                  $scope.arraysums.push({
+                    avg: avg
+                  });
+                },
+                onError: function(error) {
+                }
+              })
+              $scope.playlists.push({
+                statusfarbe: statusfarbe,
+                title: name,
+                bewertung: bewertung,
+                bild: bild,
+                altersgruppe: altersgruppe,
+                groesse: groesse,
+                status: status,
+                plz: plz,
+                strasse: strasse,
+                stadtteil: stadtteil,
+                hausnummer: nummer,
+                color: '#FF880E',
+                id: id,
+                avg: avg
+              });
+              $scope.$apply();
             }
-
-        var id = arrayspielplaetze["id"];
-        
-          
-        var spid = "bewertungsid == ("+id+")";//document.getElementById("spid").innerHTML ;
-        var sum = 0;
-        //var avg =0;
-        //alert(spid);
-          Apiomat.bewertungen.getbewertungens(spid, {
-          onOk : function(loadedObjs) {
-          //alert(loadedObjs.length);
-          for (i = 0; i < loadedObjs.length; i++) {
-                var arraybewertungen = loadedObjs[i]["data"];
-                //Ausgabe in Konsole
-                var bewertungaus = arraybewertungen["gesamtbewertung"];
-                sum +=  parseInt(bewertungaus);
-          }
-          avg = sum/loadedObjs.length;
-                    //alert(avg);
-          $scope.arraysums.push({ avg: avg});
           },
-
-
-          onError : function(error) {
-          //handle error
+          onError: function(error) {}
+        });
+        //Starrating
+        var checkExist = setInterval(function() {
+          if ($('span.stars').length) {
+            $('span.stars').stars();
+            clearInterval(checkExist);
           }
-
-      })
-
-          console.log(name);
-          
-      $scope.playlists.push({statusfarbe: statusfarbe, title: name, bewertung: bewertung, bild: bild, altersgruppe: altersgruppe, groesse: groesse, status: status , plz: plz ,strasse: strasse, stadtteil: stadtteil, hausnummer: nummer, color: '#FF880E', id:id, avg: avg});
-        $scope.$apply();
-      }
-    },
-        
-    onError : function(error) {
-    }
-
-
-    });
-
-    var checkExist = setInterval(function() {
-           if ($('span.stars').length) {
-              $('span.stars').stars();
-              clearInterval(checkExist);
-           }
         }, 20);
-          
-    
         $.fn.stars = function() {
-            return $(this).each(function() {
-                $(this).html($('<span/>').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
-            });
-          }       
-  
-     
-    
-    
-});
-
-  </script>          
-                   
+          return $(this).each(function() {
+            $(this).html($('<span/>').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+          });
+        }
+      });
+    </script>
   </body>
-
-
-
-
 </html>

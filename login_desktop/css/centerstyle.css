@@ -1,4 +1,3 @@
-
 body
 {
 	background: #FFF;
@@ -17,7 +16,6 @@ body
 	.container { width: 1000px;	}
 }
 
-
 .blue {
 	color: #06C;
 }
@@ -29,7 +27,6 @@ body
 .kf {
 margin-left: auto ;
 margin-right: auto ;
-
 }
 
 #kf {	

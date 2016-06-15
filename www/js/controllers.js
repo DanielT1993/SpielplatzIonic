@@ -670,8 +670,11 @@ angular.module('starter.controllers', [])
 .controller('DetailSpielplatzCtrl', function($scope, $scope, $scope, $stateParams, $scope, $ionicLoading, $compile) {
   $('textarea#freitext').characterCounter();
   //Accordion ratings
-  $('.collapsible').collapsible({
-    accordion: false 
+  $(document).ready(function() {
+    $('.collapsible').collapsible({
+      accordion: false
+    });
+  });
   //Spielplatzid holen
   var url = ($stateParams.spielplatzId);
   var id = "id == id(" + url + ")";

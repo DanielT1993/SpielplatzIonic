@@ -4,7 +4,6 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
-
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -12,119 +11,104 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
-
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
   });
-    
-//Datenbank mit Apiomat herstellen ++++WICHTIG++++ muss an dieser Stelle stehen
-//Apiomat = Asynchron --> Muss deshlab hier geladen werden, wenn App alles initialisiert
-//Code von Apiomat
-    var user = new Apiomat.User();
-    user.setUserName("user1");
-    user.setPassword("user1");
-    Apiomat.Datastore.configureWithCredentials(user);
- 
-    var saveCB = {
-      onOk: function() {
-      },
-      onError: function(error) {
-       
-      }
-    };
-    user.loadMe({
-      onOk: function() {
-      },
-      onError: function(error) {
-       
-        user.save(saveCB);
-      }
-    });
+  //Datenbank mit Apiomat herstellen ++++WICHTIG++++ muss an dieser Stelle stehen
+  //Apiomat = Asynchron --> Muss deshlab hier geladen werden, wenn App alles initialisiert
+  //Code von Apiomat
+  var user = new Apiomat.User();
+  user.setUserName("user1");
+  user.setPassword("user1");
+  Apiomat.Datastore.configureWithCredentials(user);
+  var saveCB = {
+    onOk: function() {},
+    onError: function(error) {
+    }
+  };
+  user.loadMe({
+    onOk: function() {},
+    onError: function(error) {
+    user.save(saveCB);
+    }
+  });
 })
-
 //Routing und Controller setzen
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-
     .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-
   .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html',
-        controller: 'SearchCtrl'
+      url: '/search',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/search.html',
+          controller: 'SearchCtrl'
+        }
       }
-    }
-  })
+    })
     .state('app.spielplatzanlegen', {
-    url: '/spielplatzanlegen',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/spielplatzanlegen.html',
+      url: '/spielplatzanlegen',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/spielplatzanlegen.html',
           controller: 'SpielplatzCtrl'
+        }
       }
-    }
-  })
-  
+    })
   .state('app.kontakt', {
     url: '/kontakt',
     views: {
       'menuContent': {
         templateUrl: 'templates/kontakt.html',
-          controller: 'KontaktCtrl'
+        controller: 'KontaktCtrl'
+      }
+    }
+  })
+  .state('app.playlists', {
+    url: '/playlists',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/playlists.html',
+        controller: 'PlaylistsCtrl'
       }
     }
   })
 
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
+  .state('app.playlistsTitle', {
+    url: '/playlistsTitle',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/playlistsTitle.html',
+        controller: 'PlaylistsCtrl3'
       }
-    })
-
-     .state('app.playlistsTitle', {
-      url: '/playlistsTitle',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlistsTitle.html',
-          controller: 'PlaylistsCtrl3'
-        }
+    }
+  })
+  .state('app.playlistsRating', {
+    url: '/playlistsRating',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/playlistsRating.html',
+        controller: 'PlaylistsCtrl2'
       }
-    })
-
-     .state('app.playlistsRating', {
-      url: '/playlistsRating',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlistsRating.html',
-          controller: 'PlaylistsCtrl2'
-        }
+    }
+  })
+  .state('app.filter', {
+    url: '/filter',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/filter.html',
+        controller: 'FilterspielplatzCtrl'
       }
-    })
-  
-     .state('app.filter', {
-      url: '/filter',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/filter.html',
-          controller: 'FilterspielplatzCtrl'
-        }
-      }
-    })
-
+    }
+  })
   .state('app.single', {
     url: '/playlists/:spielplatzId',
     views: {
@@ -133,9 +117,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
         controller: 'DetailSpielplatzCtrl'
       }
     }
-    })
-
-    .state('app.bewertung', {
+  })
+  .state('app.bewertung', {
     url: '/playlists/:spielplatzId/:bewertungId',
     views: {
       'menuContent': {
@@ -143,9 +126,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
         controller: 'BewertungCtrl'
       }
     }
-    })
-  
-    .state('app.appinfo', {
+  })
+  .state('app.appinfo', {
     url: '/appinfo',
     views: {
       'menuContent': {
@@ -153,8 +135,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
       }
     }
   })
-  
-.state('app.share', {
+  .state('app.share', {
     url: "/share",
     views: {
       'menuContent': {
@@ -163,15 +144,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
       }
     }
   })
-
-    .state('app.login', {
-      url: '/login',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/login.html',
-        }
+  .state('app.login', {
+    url: '/login',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/login.html',
       }
-    });
+    }
+  });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');
 });

@@ -1,32 +1,35 @@
-
-<ion-view view-title="Bewertungsdetail" >
-  <ion-content >
-    <ion-list>  
-        <ion-item ng-repeat="bewertungs in bewertung">
-                <ul class="collection" style="">
-                  <li class="collection-item">Gesamtbewertung</li>
-                </ul>
-                <p style="padding-bottom: 15px; margin-bottom:10px; border-bottom: solid 1px; border-color: #e0e0e0"><span class="stars3" style="margin-left: auto; margin-right: auto;">{{bewertungs.bewertung}}</span> </p>
-
-                <p style="color:#C2185B">{{bewertungs.name}}</p>
-                <p><b>{{bewertungs.kommentar}}</b></p>
-                <p style="padding-top:0px; white-space: normal;">{{bewertungs.freitext}} </p>
-                        <div style="width: 100%"> 
-                          <ul class="collection" style="margin-top:20px">
-                            <li class="collection-item">Bewertungsübersicht</li>
-                          </ul>
-                          <div style="width: 33.33%; float: left "><p style="text-align: center">Sauberkeit<br/></p><span class="stars3" style="margin-left: auto; margin-right: auto;">{{bewertungs.sauber}}</span>
-                          </div>
-                          <div style="width: 33.33%; float: left "><p style="text-align: center">Sicherheit<br/></p><span class="stars3" style="margin-left: auto; margin-right: auto;">{{bewertungs.sicher}} </span>
-                          </div>  
-                          <div style="width: 33.33%; float: left; "><p style="text-align: center;">Spielspaß<br/></p><span class="stars3" style="margin-left: auto; margin-right: auto;">{{bewertungs.spass}}</span>
-                          </div>                        
-                        </div>
-
-       </ion-item>
+<ion-view view-title="Bewertungsdetail">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="bewertungs in bewertung">
+        <ul class="collection" style="">
+          <li class="collection-item">Gesamtbewertung</li>
+        </ul>
+        <p style="padding-bottom: 15px; margin-bottom:10px; border-bottom: solid 1px; border-color: #e0e0e0"><span class="stars3" style="margin-left: auto; margin-right: auto;">{{bewertungs.bewertung}}</span> </p>
+        <p style="color:#C2185B">{{bewertungs.name}}</p>
+        <p><b>{{bewertungs.kommentar}}</b></p>
+        <p style="padding-top:0px; white-space: normal;">{{bewertungs.freitext}} </p>
+        <div style="width: 100%">
+          <ul class="collection" style="margin-top:20px">
+            <li class="collection-item">Bewertungsübersicht</li>
+          </ul>
+          <div style="width: 33.33%; float: left ">
+            <p style="text-align: center">Sauberkeit
+              <br/>
+            </p><span class="stars3" style="margin-left: auto; margin-right: auto;">{{bewertungs.sauber}}</span>
+          </div>
+          <div style="width: 33.33%; float: left ">
+            <p style="text-align: center">Sicherheit
+              <br/>
+            </p><span class="stars3" style="margin-left: auto; margin-right: auto;">{{bewertungs.sicher}} </span>
+          </div>
+          <div style="width: 33.33%; float: left; ">
+            <p style="text-align: center;">Spielspaß
+              <br/>
+            </p><span class="stars3" style="margin-left: auto; margin-right: auto;">{{bewertungs.spass}}</span>
+          </div>
+        </div>
+      </ion-item>
     </ion-list>
-
   </ion-content>
 </ion-view>
-
-
