@@ -1,5 +1,11 @@
 <ion-view view-title="Spielplätze filtern">
   <ion-content>
+      <div class="button-bar">
+      <a class="button" href="#/app/playlists" ><i class="material-icons" style="padding-top: 15px">room</i></a>
+      <a class="button" href="#/app/playlistsRating"><i class="material-icons" style="padding-top: 15px">grade</i></a>
+      <a class="button" href="#/app/playlistsTitle"><i class="material-icons" style="padding-top: 15px">sort_by_alpha</i></a>
+      <a class="button" href="#/app/filter" ng-class="{'active': activeButton == $index}"><i class="material-icons" style="padding-top: 15px">games</i></a>
+    </div>
     <ion-list>
       <ion-item>
         <form>
@@ -32,7 +38,7 @@
             <p style="">{{playlist.stadtteil}}</p>
             <br/>
             <div class="collection">
-              <a href="#/app/playlists/{{playlist.id}}" class="collection-item active" style="text-align: center">Spielplatz ansehen</a>
+              <a href="#/app/playlists/{{playlist.id}}" class="collection-item active orange accent-3" style="text-align: center">Spielplatz ansehen</a>
             </div>
           </div>
           <div class="card-reveal">
