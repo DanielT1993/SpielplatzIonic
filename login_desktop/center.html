@@ -36,7 +36,9 @@
     <!--Content-->
     <div class="container">
       <h1>Alle Spielplätze</h1>
-      <div ng-repeat="playlist in playlists  | orderBy:'title'">
+
+        <div style="; margin-bottom: 20px"><input type="text" ng-model="query" placeholder="Suche.." style=" background-color: white;  background-image: url('../www/img/search-icon.png'); background-position: 10px 10px;  background-repeat: no-repeat; padding-left: 40px;width: 95%"></input></div>
+      <div ng-repeat="playlist in playlists | filter:query | orderBy:'title'">
         <div class="card" style="padding-bottom: 70px">
           <div>
             <img class="responsive-img" src="../www/img/{{playlist.bild}}" style="width:160px; float: left ">
@@ -130,6 +132,7 @@
                   $scope.arraysums.push({
                     avg: avg
                   });
+                  $scope.$apply();
                 },
                 onError: function(error) {
                 }

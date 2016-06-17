@@ -5,7 +5,7 @@
         <ion-item style="padding: 0px; border: none">
           Spielplatzliste durchsuchen:
         </ion-item>
-        <input type="text" ng-model="query">
+        <input type="text" ng-model="query"></input>
         <ion-item ng-repeat="playlist in playlists  | filter:query | orderBy:'ort'" class="superclick">
           <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
