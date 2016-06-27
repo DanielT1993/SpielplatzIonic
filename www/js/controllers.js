@@ -40,22 +40,19 @@ angular.module('starter.controllers', [])
     }, 1000);
   };
 })
-
 //Controller SpielplatzCtrl
 // Initialisierung materializecss
 .controller('SpielplatzCtrl', function() {
   $('select').material_select();
   $('numberarea#plz').characterCounter();
 })
-
 //Controller KontaktCtrl
 // Initialisierung materializecss
 .controller('KontaktCtrl', function() {
   $('textarea#kontaktmessage').characterCounter();
 })
-
 //Controller FilterCtrl
-//Filterung der SPielplätze nach verschiedenen Kriterien -Grillplatz, Sanitär
+//Filterung der SPielplätze nach verschiedenen Kriterien - Grillplatz, Sanitär
 .controller('FilterspielplatzCtrl', function($scope, $scope, $scope) {
 
   $scope.showMe = true;
@@ -176,9 +173,9 @@ angular.module('starter.controllers', [])
     });
   }
 })
-
+//Controller ShareCtrl
+//Soll es ermöglichen Spielplätze in SocialMedia oder über Whatsapp zu teilen
 .controller('ShareCtrl', function($scope, $cordovaSocialSharing) {})
-
 //Controller MapCtrl
 //Indizierung der Google Map auf der Detailseite
 .controller('MapCtrl', function($scope, $ionicLoading, $compile, $window, $stateParams) {
@@ -261,9 +258,8 @@ angular.module('starter.controllers', [])
     alert('Example of infowindow with ng-click')
   };
 })
-
 //Controller PlaylistsCtrl
-//erstellt eine Liste aller Spielplätze sortiert nach Entfernung sortiert
+//erstellt eine Liste aller Spielplätze sortiert nach Entfernung
 .controller('PlaylistsCtrl', function($scope, $scope) {
   var posa = 0;
   var posb = 0;
@@ -429,7 +425,7 @@ angular.module('starter.controllers', [])
   });
 })
 //Controller PlaylistsCtrl2
-//erstellt eine Liste aller Spielplätze sortiert nach Bewertungen sortiert
+//erstellt eine Liste aller Spielplätze sortiert nach Bewertungen 
 .controller('PlaylistsCtrl2', function($scope, $scope) {
   var posa = 0;
   var posb = 0;
@@ -522,9 +518,8 @@ angular.module('starter.controllers', [])
     });
   }
 })
-
 //Controller PlaylistsCtrl3
-//erstellt eine Liste aller Spielplätze sortiert nach ABC sortiert
+//erstellt eine Liste aller Spielplätze sortiert nach ABC 
 .controller('PlaylistsCtrl3', function($scope, $scope) {
   var posa = 0;
   var posb = 0;
@@ -617,7 +612,6 @@ angular.module('starter.controllers', [])
     });
   }
 })
-
 .controller('BewertungCtrl', function($stateParams, $scope) {
   $(document).ready(function() {
     $('.collapsible').collapsible({
@@ -751,11 +745,8 @@ angular.module('starter.controllers', [])
   var sum4 = 0;
   Apiomat.bewertungen.getbewertungens(idbewertung, {
     onOk: function(loadedObjs) {
-      //Now you can do sth with loaded objects (loadedObjs)
-      //Now you can do sth with loaded objects (loadedObjs)
       for (i = 0; i < loadedObjs.length; i++) {
         var arraybewertungen = loadedObjs[i]["data"];
-        //Ausgabe in Konsole
         var bewertungaus = arraybewertungen["gesamtbewertung"];
         var sauberkeit2 = arraybewertungen["sauberkeit"];
         var sicherheit2 = arraybewertungen["sicherheit"];
@@ -806,8 +797,9 @@ angular.module('starter.controllers', [])
   }
 });
 //function bewertungdb
-//Neue Bewertung on DB bei entsprechendem Spielplatz speichern
+//Neue Bewertung in DB bei entsprechendem Spielplatz speichern
 function bewertungdb() {
+  //Inputfelder auslesen
   var sauberkeit = ($('input[name="rating-sauber"]:checked', '#sauberkeit').val());
   var spielspass = ($('input[name="rating-spass"]:checked', '#spielspass').val());
   var sicherheit = ($('input[name="rating-sicherheit"]:checked', '#sicherheit').val());
@@ -820,7 +812,9 @@ function bewertungdb() {
   var freitext = document.getElementById("freitext").value;
   var gesamtbewertung = ((sauber + spass + sicher) / 3);
   var gerundet = gesamtbewertung;
+  //DB-Verbindung herstellen
   var mybewertungen = new Apiomat.bewertungen();
+  //Bewertung speichern
   mybewertungen.setSauberkeit(sauber);
   mybewertungen.setSpielspass(spass);
   mybewertungen.setSicherheit(sicher);
