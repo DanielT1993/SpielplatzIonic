@@ -50,23 +50,23 @@
           <div class="row">
             <div class="input-field col s12">
               <input id="spielplatzname" type="text" class="validate" value="{{spName}}">
-              <label>Name</label>
+              <label>Name*</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s6">
-              <label>Straße</label>
+              <label>Straße*</label>
               <input id="spielplatzstraße" type="text" class="validate" value="{{spStrasse}}">
             </div>
             <div class="input-field col s6">
-              <label>Hausnummer</label>
+              <label>Hausnummer*</label>
               <input id="hausnummer" type="number" class="validate" value="{{spHausnr}}">
             </div>
           </div>
           <div class="row">
             <div class="input-field col s6">
               <input id="plz" type="number" class="validate" value="{{spPlz}}">
-              <label>Postleitzahl</label>
+              <label>Postleitzahl*</label>
             </div>
             <div class="input-field col s6">
               <select id="stadtteil">
@@ -76,7 +76,7 @@
                 <option value="4">Schweinheim</option>
                 <option value="5">Strietwald</option>
               </select>
-              <label>Stadtteil</label>
+              <label style="color:#c2185b;">Stadtteil</label>
             </div>
           </div>
           <h2>Struktur</h2>
@@ -87,7 +87,7 @@
                 <option value="2">Bis 10 Jahre</option>
                 <option value="3">Bis 15 Jahre</option>
               </select>
-              <label>Altersgruppe</label>
+              <label style="color:#c2185b;">Altersgruppe</label>
             </div>
             <div class="input-field col s6">
               <select id="sitzgelegenheiten">
@@ -95,7 +95,7 @@
                 <option value="2">Für bis zu 15 Personen</option>
                 <option value="3">für mehr als 20 Personen</option>
               </select>
-              <label>Anzahl Sitzgelegenheiten</label>
+              <label style="color:#c2185b;">Anzahl Sitzgelegenheiten</label>
             </div>
           </div>
           <div class="row">
@@ -108,7 +108,7 @@
                 <option value="1">Bespielbar</option>
                 <option value="2">Nicht bespielbar</option>
               </select>
-              <label>Status</label>
+              <label style="color:#c2185b;">Status</label>
             </div>
           </div>
           <h2>Ausstattung</h2>
@@ -193,6 +193,7 @@
               </div>
             </div>
           </form>
+          <h6 style="color: #9e9e9e">Alle mit * gekennzeichneten Felder sind Pflichtfelder.</h6>
         </form>
       </div>
       <div style="margin-bottom:5em;">
@@ -233,11 +234,11 @@
       user.save(saveCB);
       }
     });
-    $('#stadtteil>option:eq(3)').prop('selected', true);
+    
     //Controller DetailSpielplatzCtrl
     //lädt die aktuellen Daten eines einzelnen Spielplatzes und zeigt sie in dem Berabeitung-Formular an
     app.controller('DetailSpielplatzCtrl', function($scope) {
-      $('select').material_select();
+      
       $scope.spName = " ";
       $scope.spStrasse = " ";
       $scope.spHausnr = 0;
@@ -350,6 +351,60 @@
           } else {
             $("#sonstiges").prop("checked", false);
           };
+            $('select').material_select();
+            
+            var spStadtteil = arrayspielplaetze["stadtteil"];
+            var spAlter = arrayspielplaetze["altersgruppe"];
+            var spSitz = arrayspielplaetze["sitzgelegenheiten"];
+            var spStatus = arrayspielplaetze["status"];
+            if (spStadtteil == "Gailbach") {
+            var num = '#stadtteil>option:eq(0)';
+          } 
+            if (spStadtteil == "Nilkheim") {
+            var num = '#stadtteil>option:eq(1)';
+          } 
+            if (spStadtteil == "Obernau") {
+            var num = '#stadtteil>option:eq(2)';
+          } 
+            if (spStadtteil == "Schweinheim") {
+            var num = '#stadtteil>option:eq(3)';
+          } 
+            if (spStadtteil == "Strietwald") {
+            var num = '#stadtteil>option:eq(4)';
+          } 
+            
+             if (spAlter == "Bis 5 Jahre") {
+            var alter = '#alter>option:eq(0)';
+          } 
+            if (spAlter == "Bis 10 Jahre") {
+            var alter = '#alter>option:eq(1)';
+          } 
+            if (spAlter == "Bis 15 Jahre") {
+            var alter = '#alter>option:eq(2)';
+          } 
+            
+              if (spSitz == "Für bis zu 5 Personen") {
+            var sitz = '#sitzgelegenheiten>option:eq(0)';
+          } 
+            if (spSitz == "Für bis zu 10 Personen") {
+            var sitz = '#sitzgelegenheiten>option:eq(1)';
+          } 
+            if (spSitz == "Für mehr als 20 Personen") {
+            var sitz = '#sitzgelegenheiten>option:eq(2)';
+          } 
+            
+               if (spStatus == "Bespielbar") {
+            var status = '#status>option:eq(0)';
+          } 
+            if (spStatus == "Nicht bespielbar") {
+            var status = '#status>option:eq(1)';
+          } 
+           
+        $(num).prop('selected', true);
+        $(alter).prop('selected', true);
+        $(sitz).prop('selected', true);
+        $(status).prop('selected', true);
+        $('select').material_select();
           $scope.$apply();
         },
         onError: function(error) {
