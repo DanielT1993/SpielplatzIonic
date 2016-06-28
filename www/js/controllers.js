@@ -701,10 +701,13 @@ angular.module('starter.controllers', [])
       var status = arrayspielplaetze["status"];
       //Bespielbar oder nicht bespielbar in entsprechendem Layout ausgeben    
       var statusfarbe;
+        var display;
       if (status == "Bespielbar") {
-        statusfarbe = "#00e676"
+          statusfarbe = "#fff"
+               display = "none"
       } else {
         statusfarbe = "#ff5252"
+        display = "block"
       }
       var rutsche = arrayspielplaetze["rutsche"];
       var kletterturm = arrayspielplaetze["kletterturm"];
@@ -718,7 +721,7 @@ angular.module('starter.controllers', [])
       var seilbahn = arrayspielplaetze["seilbahn"];
       var spielobjekt = arrayspielplaetze["spielobjekt"];
       var sonstiges = arrayspielplaetze["sonstiges"];
-      $scope.playlistdetails = [{title: name, sanitar: sanitar, feuer: feuer, strasse: strasse, plz: plz, bank: bank, alter: alter, hausnr: hausnr, stadtteil: stadtteil, groesse: groesse, url: url, bild: bild, lat: lat, long: long, rutsche: rutsche, kletterturm: kletterturm, wippe: wippe, tischtennis: tischtennis, ballspielfeld: ballspielfeld, schaukel: schaukel, sandkasten: sandkasten, wasserspiele: wasserspiele, klettergerust: klettergerust, seilbahn: seilbahn, spielobjekt: spielobjekt, sonstiges: sonstiges, status: status, statusfarbe: statusfarbe},];
+      $scope.playlistdetails = [{title: name, sanitar: sanitar, feuer: feuer, strasse: strasse, plz: plz, bank: bank, alter: alter, hausnr: hausnr, stadtteil: stadtteil, groesse: groesse, url: url, bild: bild, lat: lat, long: long, rutsche: rutsche, kletterturm: kletterturm, wippe: wippe, tischtennis: tischtennis, ballspielfeld: ballspielfeld, schaukel: schaukel, sandkasten: sandkasten, wasserspiele: wasserspiele, klettergerust: klettergerust, seilbahn: seilbahn, spielobjekt: spielobjekt, sonstiges: sonstiges, status: status, statusfarbe: statusfarbe, display: display,},];
       $scope.$apply();
     },
     onError: function(error) {
